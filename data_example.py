@@ -83,7 +83,7 @@ EXPERIENCES = [
 ]
 
 
-projects = [
+PROJECTS = [
     Project(
         "INUI",
         """Powerful and Highly Customizable Python FrameWork for UI, It’s
