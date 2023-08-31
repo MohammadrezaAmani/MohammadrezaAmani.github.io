@@ -1,12 +1,12 @@
 from INUITemplate.elements import WorkExp, Interests, Project, Links, Education, Skill
 
-name = "Mohammadreza Amani"
+NAME = "Mohammadreza Amani"
 
-title = "%s- Resume" % name
-description = "Resume of %s" % name
-picture = "https://avatars.githubusercontent.com/u/64687226?v=4"
-lang = "en"
-educations = [
+TITLE = "%s- Resume" % NAME
+DESCRIPTION = "Resume of %s" % NAME
+PICTURE = "https://avatars.githubusercontent.com/u/64687226?v=4"
+LANG = "en"
+EDUCATIONS = [
     Education(
         "PolyTechnic University of Technology (AmirKabir)",
         "Bachelor of Science",
@@ -16,7 +16,7 @@ educations = [
         "GPA: 3.6",
     )
 ]
-skills = [
+SKILLS = [
     Skill(
         "Languages", "Python, Go, Rust, C, C++, Java, Bash, SQL, JavaScript, LATEX..."
     ),
@@ -25,7 +25,7 @@ skills = [
         """Django, DRF, Docker, K8s, INUI, Redis, Celery, MongoDB, PostgrSQL, RabbitMQ, NginX, FastAPI, HTML, CSS, React, Bootstrap, Foundation, Next.js, Gin, ORM. Git, GitHub""",
     ),
 ]
-work = [
+EXPERIENCES = [
     WorkExp(
         "Farmina",
         "Co-Founder and Developer",
@@ -216,14 +216,14 @@ projects = [
     ),
 ]
 
-link = [
+LINKS = [
     Links(" GitHub ", "https://github.com/MohammadrezaAmani"),
     Links(" Email ", "mailto:more.amani@yahoo.com"),
     Links(" LinkedIn ", "https://www.linkedin.com/in/mohammadreza-amani/"),
     Links(" +98-990-520-2779 ", 'tel:+989905202779"'),
     Links(" StackOverFlow ", "https://stackoverflow.com/users/15300704/mohammadreza"),
 ]
-interests = Interests(
+INTERESTS = Interests(
     [
         "Mobina",
         "Coding",

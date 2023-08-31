@@ -20,4 +20,4 @@ PROJECTS = []
 
 LINKS = []
 
-interests = Interests([])
+INTERESTS = Interests([])

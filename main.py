@@ -12,7 +12,7 @@ if __name__ == "__main__":
                 data.INTERESTS,
                 data.EDUCATIONS,
                 data.SKILLS,
-                data.title,
+                data.TITLE,
                 data.DESCRIPTION,
                 data.NAME,
                 data.PICTURE,
