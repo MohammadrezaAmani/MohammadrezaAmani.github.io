@@ -547,23 +547,7 @@
     Updated in 01,09,2023
    </p>
   </footer>
-  <script>
-   let lastScroll = window.scrollY;
-
-        function handleScroll() {
-            const currentScroll = window.scrollY;
-
-            if (currentScroll > lastScroll) {
-                nav.classList.add('hide-nav');
-            } else {
-                nav.classList.remove('hide-nav');
-            }
-
-            lastScroll = currentScroll;
-        }
-
-        const nav = document.querySelector('nav');
-        window.addEventListener('scroll', handleScroll);
+  <script src="assets/js/scripts.js">
   </script>
  </body>
 </html>

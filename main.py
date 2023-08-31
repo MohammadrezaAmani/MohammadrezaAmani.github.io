@@ -1,4 +1,4 @@
-import data as data
+import data_example as data
 
 from INUITemplate.index import CVTemplate
 
