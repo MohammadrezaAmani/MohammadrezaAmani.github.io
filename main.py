@@ -1,4 +1,4 @@
-import data_example as data
+import data as data
 
 from index import CVTemplate
 
