@@ -1,0 +1,137 @@
+
+/* Header */
+header {
+    text-align: center;
+    padding: 2rem 0;
+    background-color: #333;
+    color: #fff;
+}
+header img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+/* Sections */
+section {
+    padding: 2rem;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+    nav ul {
+        padding: 0;
+    }
+    nav ul li {
+        margin-bottom: 10px;
+    }
+}
+
+/* Your existing styles */
+
+/* Navigation */
+/* Navigation */
+/* Reset some default styles */
+body, h1, h2, h3, h4, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Basic styling */
+body {
+    /* font-family: Arial, sans-serif;
+     */
+     font-family: 'Source Code Pro', monospace;
+
+    line-height: 1.6;
+    background-color: #f5f5f5;
+}
+
+/* Navigation */
+nav {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav .logo {
+    display: flex;
+    align-items: center;
+}
+
+nav img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+nav .nav-toggle {
+    display: none; /* Hide the toggle button by default */
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+a {
+    color: red;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        position: absolute;
+        top: 4.5rem; /* Adjust the top spacing as needed */
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        display: none; /* Hide the menu items initially */
+        padding: 1rem;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+    }
+
+    nav ul.active {
+        display: flex; /* Show the menu items when active */
+    }
+
+    nav .nav-toggle {
+        display: block; /* Show the toggle button for smaller screens */
+    }
+
+    nav li {
+        margin-bottom: 10px;
+    }
+}
