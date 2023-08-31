@@ -52,7 +52,7 @@ def CVTemplate(
                         ),
                         Link(
                             rel="stylesheet",
-                            href="styles.css",
+                            href="./assets/css/styles.css",
                         ),
                     )
                 ),

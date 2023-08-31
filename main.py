@@ -1,6 +1,6 @@
 import data as data
 
-from index import CVTemplate
+from INUITemplate.index import CVTemplate
 
 if __name__ == "__main__":
     with open("index.html", "w", encoding="utf-8") as f:
