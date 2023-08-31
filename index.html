@@ -1,6 +1,7 @@
 <html lang="en">
  <head>
   <meta charset="utf-8"/>
+  <meta charset="utf-8" content="#333" name="theme-color"/>
   <meta charset="utf-8" content="width=device-width, initial-scale=1.0" name="viewport"/>
   <meta charset="utf-8" content="Resume of Mohammadreza Amani" name="description"/>
   <title>
@@ -8,7 +9,7 @@
   </title>
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-  <link crossorigin="" href="https://fonts.googleapis.com/css2?family=PT+Sans&amp;family=Roboto:wght@300&amp;family=Source+Code+Pro&amp;display=swap" rel="stylesheet"/>
+  <link crossorigin="" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300&amp;display=swap" rel="stylesheet"/>
   <link crossorigin="" href="styles.css" rel="stylesheet"/>
  </head>
  <body>
@@ -54,19 +55,19 @@
   </nav>
   <header>
    <p>
-    <a href="https://github.com/MohammadrezaAmani">
+    <a class="link" href="https://github.com/MohammadrezaAmani">
      GitHub
     </a>
-    <a href="mailto:more.amani@yahoo.com">
+    <a class="link" href="mailto:more.amani@yahoo.com">
      Email
     </a>
-    <a href="https://www.linkedin.com/in/mohammadreza-amani/">
+    <a class="link" href="https://www.linkedin.com/in/mohammadreza-amani/">
      LinkedIn
     </a>
-    <a "="" href="tel:+989905202779">
+    <a "="" class="link" href="tel:+989905202779">
      +98-990-520-2779
     </a>
-    <a href="https://stackoverflow.com/users/15300704/mohammadreza">
+    <a class="link" href="https://stackoverflow.com/users/15300704/mohammadreza">
      StackOverFlow
     </a>
    </p>
@@ -77,18 +78,21 @@
     EDUCATION
    </h3>
    <ul>
-    <li>
-     <h4>
+    <li class="content">
+     <h4 class="title">
       PolyTechnic University of Technology (AmirKabir), Tehran, IRI
      </h4>
-     <p>
-      Bachelor of Science, Computer Science, Dec 2020
+     <p class="descriptions">
+      Bachelor of Science, Computer Science
      </p>
-     <p>
-      <b>
+     <div class="logo">
+      <p class="date">
+       Dec 2020
+      </p>
+      <b class="grade">
        GPA: 3.6
       </b>
-     </p>
+     </div>
     </li>
    </ul>
   </section>
@@ -98,20 +102,22 @@
     EXPERIENCE
    </h3>
    <ul>
-    <li>
-     <h4 class="company-name">
+    <li class="content">
+     <h4 class="title">
       Farmina
      </h4>
+     <div class="logo">
+      <p class="date">
+       June 2023 -
+      </p>
+      <p class="location">
+       Tehran
+      </p>
+     </div>
      <p class="position">
       Co-Founder and Developer
      </p>
-     <p class="date">
-      June 2023 -
-     </p>
-     <p class="location">
-      Tehran
-     </p>
-     <p class="descritions">
+     <p class="descriptions">
       AI-Based Assistant for Farmers and Gardeners include Django-Backend,
         INUI(React)
         frontend for website, INUI
@@ -120,105 +126,117 @@
         windows and Linux
      </p>
     </li>
-    <li>
-     <h4 class="company-name">
+    <li class="content">
+     <h4 class="title">
       UNILAND
      </h4>
+     <div class="logo">
+      <p class="date">
+       Dec 2022 - Jul 2023
+      </p>
+      <p class="location">
+       Tehran
+      </p>
+     </div>
      <p class="position">
       Back-End Developer
      </p>
-     <p class="date">
-      Dec 2022 - Jul 2023
-     </p>
-     <p class="location">
-      Tehran
-     </p>
-     <p class="descritions">
+     <p class="descriptions">
       Backend Developer in UniLand Project for AmirKabir University of Technology.
      </p>
     </li>
-    <li>
-     <h4 class="company-name">
+    <li class="content">
+     <h4 class="title">
       CS50x Iran
      </h4>
+     <div class="logo">
+      <p class="date">
+       Mar 2023 - Jul 2023
+      </p>
+      <p class="location">
+       Tehran
+      </p>
+     </div>
      <p class="position">
       Member of Scientific Team
      </p>
-     <p class="date">
-      Mar 2023 - Jul 2023
-     </p>
-     <p class="location">
-      Tehran
-     </p>
-     <p class="descritions">
+     <p class="descriptions">
       CS50x Event in Iran for Python And Machine-Learning
      </p>
     </li>
-    <li>
-     <h4 class="company-name">
+    <li class="content">
+     <h4 class="title">
       Thrita-Tech
      </h4>
+     <div class="logo">
+      <p class="date">
+       Nov 2022 - May 2023
+      </p>
+      <p class="location">
+       Tehran
+      </p>
+     </div>
      <p class="position">
       Back-End Developer
      </p>
-     <p class="date">
-      Nov 2022 - May 2023
-     </p>
-     <p class="location">
-      Tehran
-     </p>
-     <p class="descritions">
+     <p class="descriptions">
       Django Backend Developer for ThritaTech Company
      </p>
     </li>
-    <li>
-     <h4 class="company-name">
+    <li class="content">
+     <h4 class="title">
       ChatSon
      </h4>
+     <div class="logo">
+      <p class="date">
+       Nov 2022 - Jun 2023
+      </p>
+      <p class="location">
+       Tehran
+      </p>
+     </div>
      <p class="position">
       Back-End Developer
      </p>
-     <p class="date">
-      Nov 2022 - Jun 2023
-     </p>
-     <p class="location">
-      Tehran
-     </p>
-     <p class="descritions">
+     <p class="descriptions">
       FastAPI Backend Developer for ChatSon Messenger
      </p>
     </li>
-    <li>
-     <h4 class="company-name">
+    <li class="content">
+     <h4 class="title">
       Prav-Sass
      </h4>
+     <div class="logo">
+      <p class="date">
+       Feb 2022 - May 2022
+      </p>
+      <p class="location">
+       Tehran
+      </p>
+     </div>
      <p class="position">
       Back-End Developer
      </p>
-     <p class="date">
-      Feb 2022 - May 2022
-     </p>
-     <p class="location">
-      Tehran
-     </p>
-     <p class="descritions">
+     <p class="descriptions">
       Django Backend Developer for Prav-Sass Company
      </p>
     </li>
-    <li>
-     <h4 class="company-name">
+    <li class="content">
+     <h4 class="title">
       CWS
      </h4>
+     <div class="logo">
+      <p class="date">
+       Dec 2021 - Aug 2022
+      </p>
+      <p class="location">
+       Tehran
+      </p>
+     </div>
      <p class="position">
       Member of Scientific Team
      </p>
-     <p class="date">
-      Dec 2021 - Aug 2022
-     </p>
-     <p class="location">
-      Tehran
-     </p>
-     <p class="descritions">
+     <p class="descriptions">
       CWS is the biggest Computer Webinar Event in Middle-East
      </p>
     </li>
@@ -229,12 +247,24 @@
    <h3>
     SKILLS
    </h3>
-   <p class="descritions">
-    Languages: Python, Go, Rust, C, C++, Java, Bash, SQL, JavaScript, LATEX...
-   </p>
-   <p class="descritions">
-    Operating Systems: Linux, Windows, Android.
-   </p>
+   <ul>
+    <li class="content">
+     <h4 class="title">
+      Languages
+     </h4>
+     <p class="descriptions">
+      Python, Go, Rust, C, C++, Java, Bash, SQL, JavaScript, LATEX...
+     </p>
+    </li>
+    <li class="content">
+     <h4 class="title">
+      Development
+     </h4>
+     <p class="descriptions">
+      Django, DRF, Docker, K8s, INUI, Redis, Celery, MongoDB, PostgrSQL, RabbitMQ, NginX, FastAPI, HTML, CSS, React, Bootstrap, Foundation, Next.js, Gin, ORM. Git, GitHub
+     </p>
+    </li>
+   </ul>
   </section>
   <hr/>
   <section id="PROJECTS">
@@ -242,11 +272,11 @@
     PROJECTS
    </h3>
    <ul>
-    <li>
-     <h4 class="company-name">
+    <li class="content">
+     <h4 class="title">
       INUI
      </h4>
-     <p class="descritions">
+     <p class="descriptions">
       Powerful and Highly Customizable Python FrameWork for UI, It’s
         allow Back-
         End developer and everyone who
@@ -254,42 +284,42 @@
         tion or
         websites using python Quickly.
      </p>
-     <a href="https://github.com/MohammadrezaAmani/INUI">
+     <a class="link" href="https://github.com/MohammadrezaAmani/INUI">
       GitHub
      </a>
     </li>
-    <li>
-     <h4 class="company-name">
+    <li class="content">
+     <h4 class="title">
       LinCut
      </h4>
-     <p class="descritions">
+     <p class="descriptions">
       URL-Shortener website written in Django and FastAPI as Back-end
         and
         INUI (bootstrap) as
         front-end.
      </p>
-     <a href="https://github.com/MohammadrezaAmani/LinCut">
+     <a class="link" href="https://github.com/MohammadrezaAmani/LinCut">
       GitHub
      </a>
     </li>
-    <li>
-     <h4 class="company-name">
+    <li class="content">
+     <h4 class="title">
       Pure-Messenger
      </h4>
-     <p class="descritions">
+     <p class="descriptions">
       CLI realtime chatapp written in pure python. (include
         Server and
         Client)
      </p>
-     <a href="https://github.com/MohammadrezaAmani/Python-Websocket-Chatapp">
+     <a class="link" href="https://github.com/MohammadrezaAmani/Python-Websocket-Chatapp">
       GitHub
      </a>
     </li>
-    <li>
-     <h4 class="company-name">
+    <li class="content">
+     <h4 class="title">
       Farmina
      </h4>
-     <p class="descritions">
+     <p class="descriptions">
       AI-Based Assistant for Farmers and Gardeners include
         Django-Backend,
 
@@ -298,208 +328,208 @@
         and INUI (electron) for
         windows and Linux
      </p>
-     <a href="#">
+     <a class="link" href="#">
       not available
      </a>
     </li>
-    <li>
-     <h4 class="company-name">
+    <li class="content">
+     <h4 class="title">
       Roomify
      </h4>
-     <p class="descritions">
+     <p class="descriptions">
       Hotel Resevation system
      </p>
-     <a href="https://github.com/MohammadrezaAmani/Roomify">
+     <a class="link" href="https://github.com/MohammadrezaAmani/Roomify">
       GitHub
      </a>
     </li>
-    <li>
-     <h4 class="company-name">
+    <li class="content">
+     <h4 class="title">
       UNILAND
      </h4>
-     <p class="descritions">
+     <p class="descriptions">
       A highly modular and diverse Telegram Bot for universities and
         institu-
         tions written in python. This
         is the effort of a group of eight CS students at AUT.
      </p>
-     <a href="https://github.com/MohammadrezaAmani/UniLand">
+     <a class="link" href="https://github.com/MohammadrezaAmani/UniLand">
       GitHub
      </a>
     </li>
-    <li>
-     <h4 class="company-name">
+    <li class="content">
+     <h4 class="title">
       US-Messenger
      </h4>
-     <p class="descritions">
+     <p class="descriptions">
       Django and INUI based Messenger
      </p>
-     <a href="https://github.com/MohammadrezaAmani/US-Messenger">
+     <a class="link" href="https://github.com/MohammadrezaAmani/US-Messenger">
       GitHub
      </a>
     </li>
-    <li>
-     <h4 class="company-name">
+    <li class="content">
+     <h4 class="title">
       Mosic
      </h4>
-     <p class="descritions">
+     <p class="descriptions">
       Music Player website written in GoLang
      </p>
-     <a href="https://github.com/MohammadrezaAmani/Mosic">
+     <a class="link" href="https://github.com/MohammadrezaAmani/Mosic">
       GitHub
      </a>
     </li>
-    <li>
-     <h4 class="company-name">
+    <li class="content">
+     <h4 class="title">
       GoGrep
      </h4>
-     <p class="descritions">
+     <p class="descriptions">
       Go implementation of Grep module in linux
      </p>
-     <a href="https://github.com/MohammadrezaAmani/GoGrep">
+     <a class="link" href="https://github.com/MohammadrezaAmani/GoGrep">
       GitHub
      </a>
     </li>
-    <li>
-     <h4 class="company-name">
+    <li class="content">
+     <h4 class="title">
       ThritaTech Backend
      </h4>
-     <p class="descritions">
+     <p class="descriptions">
       Backend of Thrita-Tech physiotherapy website for ThritaTech company
      </p>
-     <a href="#">
+     <a class="link" href="#">
       Not Available
      </a>
     </li>
-    <li>
-     <h4 class="company-name">
+    <li class="content">
+     <h4 class="title">
       AruShop
      </h4>
-     <p class="descritions">
+     <p class="descriptions">
       Ecommerce Website written in django and INUI for Arukala shop (something like Amazon)
      </p>
-     <a href="https://github.com/MohammadrezaAmani/arushop">
+     <a class="link" href="https://github.com/MohammadrezaAmani/arushop">
       GitHub
      </a>
     </li>
-    <li>
-     <h4 class="company-name">
+    <li class="content">
+     <h4 class="title">
       Django DigiKala clone
      </h4>
-     <p class="descritions">
+     <p class="descriptions">
       Django Digikala Clone with INUI Front-End
      </p>
-     <a href="https://github.com/MohammadrezaAmani/Django-Digikala-clone">
+     <a class="link" href="https://github.com/MohammadrezaAmani/Django-Digikala-clone">
       GitHub
      </a>
     </li>
-    <li>
-     <h4 class="company-name">
+    <li class="content">
+     <h4 class="title">
       Instago
      </h4>
-     <p class="descritions">
+     <p class="descriptions">
       Django Instagram Clone with INUI Front-End
      </p>
-     <a href="https://github.com/MohammadrezaAmani/Django-Instagram-clone">
+     <a class="link" href="https://github.com/MohammadrezaAmani/Django-Instagram-clone">
       GitHub
      </a>
     </li>
-    <li>
-     <h4 class="company-name">
+    <li class="content">
+     <h4 class="title">
       Django Amazon clone
      </h4>
-     <p class="descritions">
+     <p class="descriptions">
       Django Amazon Clone with INUI Front-End
      </p>
-     <a href="https://github.com/MohammadrezaAmani/Django-Amazon-clone">
+     <a class="link" href="https://github.com/MohammadrezaAmani/Django-Amazon-clone">
       GitHub
      </a>
     </li>
-    <li>
-     <h4 class="company-name">
+    <li class="content">
+     <h4 class="title">
       Java BattleShip
      </h4>
-     <p class="descritions">
+     <p class="descriptions">
       Simple battleShip Game written in Java
      </p>
-     <a href="https://github.com/MohammadrezaAmani/BattleShip">
+     <a class="link" href="https://github.com/MohammadrezaAmani/BattleShip">
       GitHub
      </a>
     </li>
-    <li>
-     <h4 class="company-name">
+    <li class="content">
+     <h4 class="title">
       MA FileManager
      </h4>
-     <p class="descritions">
+     <p class="descriptions">
       Browser Based File Manager written and File server written in FastAPI and INUI as Front-End.
      </p>
-     <a href="https://github.com/MohammadrezaAmani/FileManager">
+     <a class="link" href="https://github.com/MohammadrezaAmani/FileManager">
       GitHub
      </a>
     </li>
-    <li>
-     <h4 class="company-name">
+    <li class="content">
+     <h4 class="title">
       JBeautiful date
      </h4>
-     <p class="descritions">
+     <p class="descriptions">
       Simple and nice python library for working with jalali date-time
      </p>
-     <a href="https://github.com/MohammadrezaAmani/Jbeautiful-date">
+     <a class="link" href="https://github.com/MohammadrezaAmani/Jbeautiful-date">
       GitHub
      </a>
     </li>
-    <li>
-     <h4 class="company-name">
+    <li class="content">
+     <h4 class="title">
       Python-Mag
      </h4>
-     <p class="descritions">
+     <p class="descriptions">
       Persian python book.
      </p>
-     <a href="https://github.com/MohammadrezaAmani/PythonMag">
+     <a class="link" href="https://github.com/MohammadrezaAmani/PythonMag">
       GitHub
      </a>
     </li>
-    <li>
-     <h4 class="company-name">
+    <li class="content">
+     <h4 class="title">
       HamSpam
      </h4>
-     <p class="descritions">
+     <p class="descriptions">
       Simple Email HamSpam classifier for Persian language using NLP.
      </p>
-     <a href="https://github.com/MohammadrezaAmani/HamSpam">
+     <a class="link" href="https://github.com/MohammadrezaAmani/HamSpam">
       GitHub
      </a>
     </li>
-    <li>
-     <h4 class="company-name">
+    <li class="content">
+     <h4 class="title">
       PDF-converte
      </h4>
-     <p class="descritions">
+     <p class="descriptions">
       Simple Python library for work with PDF in Python include, PDF to Speech, PDF to text, PDF to DOCx, PDF text Extractor and image OCR.
      </p>
-     <a href="https://github.com/MohammadrezaAmani/pdf">
+     <a class="link" href="https://github.com/MohammadrezaAmani/pdf">
       GitHub
      </a>
     </li>
-    <li>
-     <h4 class="company-name">
+    <li class="content">
+     <h4 class="title">
       TextToSpeech
      </h4>
-     <p class="descritions">
+     <p class="descriptions">
       Python Program for Android and Desktop that get a text and read it aloud, just this. written in Kivy and Kivy-MD
      </p>
-     <a href="https://github.com/MohammadrezaAmani/TextToSpeech-Kivy">
+     <a class="link" href="https://github.com/MohammadrezaAmani/TextToSpeech-Kivy">
       GitHub
      </a>
     </li>
-    <li>
-     <h4 class="company-name">
+    <li class="content">
+     <h4 class="title">
       Other project
      </h4>
-     <p class="descritions">
+     <p class="descriptions">
       There is many projects available on my github, if you are interested in projects you can check them.
      </p>
-     <a href="https://github.com/MohammadrezaAmani">
+     <a class="link" href="https://github.com/MohammadrezaAmani">
       MyGitHub
      </a>
     </li>
@@ -510,19 +540,16 @@
    <h3>
     INTERESTS
    </h3>
-   <p class="descritions">
+   <p class="descriptions content">
     Mobina, Coding, Discrete Mathematics and Linear Algebra, Greedy Algorithms...,
    </p>
   </section>
   <footer>
-   <p class="descritions">
-    Contact:
-    <a href="mailto:more.amani@yahoo.com">
-     more.amani@yahoo.com
-    </a>
+   <p class="footer">
+    with ❤️ by MohammadrezaAmani
    </p>
-   <p class="descritions">
-    Updated in 31,08,2023
+   <p class="footer">
+    Updated in 01,09,2023
    </p>
   </footer>
   <script>

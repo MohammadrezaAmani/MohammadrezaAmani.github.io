@@ -1,7 +1,8 @@
 from inui.elements import *
 import datetime
+
 # from inui.svg import *
-from MyConfig import work, projects, link, interests
+from data import work, projects, link, interests, educations, skills
 
 h = Html(
     lang="""en""",
@@ -10,6 +11,11 @@ h = Html(
             data=(
                 Meta(
                     charset="""UTF-8""",
+                ),
+                # <meta name="theme-color" content="#ffffff">
+                Meta(
+                    name="""theme-color""",
+                    content="""#333""",
                 ),
                 Meta(
                     name="""viewport""",
@@ -30,7 +36,7 @@ h = Html(
                     crossorigin="",
                 ),
                 Link(
-                    href="""https://fonts.googleapis.com/css2?family=PT+Sans&family=Roboto:wght@300&family=Source+Code+Pro&display=swap""",
+                    href="""https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300&display=swap""",
                     rel="""stylesheet""",
                 ),
                 Link(
@@ -90,39 +96,13 @@ h = Html(
                         ),
                     )
                 ),
-                Header(
-                    data=(
-                        P(
-                            data=(
-                                *link,
-                            )
-                        ),
-                    )
-                ),
+                Header(data=(P(data=(*link,)),)),
                 Hr(),
                 Section(
                     id="""EDUCATION""",
                     data=(
                         H3(data=("""EDUCATION""",)),
-                        Ul(
-                            data=(
-                                Li(
-                                    data=(
-                                        H4(
-                                            data=(
-                                                """PolyTechnic University of Technology (AmirKabir), Tehran, IRI""",
-                                            )
-                                        ),
-                                        P(
-                                            data=(
-                                                """Bachelor of Science, Computer Science, Dec 2020""",
-                                            )
-                                        ),
-                                        P(data=(B(data=("""GPA: 3.6""",)),)),
-                                    )
-                                ),
-                            )
-                        ),
+                        Ul(data=(*educations,)),
                     ),
                 ),
                 Hr(),
@@ -138,15 +118,7 @@ h = Html(
                 Hr(),
                 Section(
                     id="""SKILLS""",
-                    data=(
-                        H3(data=("""SKILLS""",)),
-                        P(
-                            data=(
-                                """Languages: Python, Go, Rust, C, C++, Java, Bash, SQL, JavaScript, LATEX...""",
-                            )
-                        ),
-                        P(data=("""Operating Systems: Linux, Windows, Android.""",)),
-                    ),
+                    data=(H3(data=("""SKILLS""",)), Ul(data=(*skills,))),
                 ),
                 Hr(),
                 Section(
@@ -161,21 +133,22 @@ h = Html(
                     id="""INTERESTS""",
                     data=(
                         H3(data=("""INTERESTS""",)),
-                       interests,
+                        interests,
                     ),
                 ),
                 Footer(
                     data=(
                         P(
                             data=(
-                                """Contact: """,
-                                A(
-                                    href="""mailto:more.amani@yahoo.com""",
-                                    data=("""more.amani@yahoo.com""",),
-                                ),
-                            )
+                                """with ❤️ by MohammadrezaAmani""",
+                            ), classs='footer',
                         ),
-                        P(data=('Updated in ' + str(datetime.datetime.now().strftime("%d,%m,%Y")) )),
+                        P(
+                            data=(
+                                "Updated in "
+                                + str(datetime.datetime.now().strftime("%d,%m,%Y"))
+                            ), classs='footer',
+                        ),
                     )
                 ),
                 Script(

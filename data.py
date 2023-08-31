@@ -1,58 +1,24 @@
-from inui.elements import *
+from INUITemplate.elements import WorkExp, Interests, Project, Links, Education, Skill
 
-
-class WorkExp:
-    def __init__(
-        self, company="", position="", date="", city="", description=""
-    ) -> None:
-        self.company = company
-        self.position = position
-        self.date = date
-        self.city = city
-        self.description = description
-
-    def __str__(self) -> str:
-        return str(
-            Li(
-                data=(
-                    H4(classs="company-name", data=(self.company,)),
-                    P(classs="position", data=(self.position,)),
-                    P(classs="date", data=(self.date,)),
-                    P(classs="location", data=(self.city,)),
-                    P(classs="descritions", data=(self.description,)),
-                )
-            )
-        )
-
-    def __repr__(self) -> str:
-        return self.__str__()
-
-
-class Links:
-    def __init__(self, text="", href="#") -> None:
-        self.text = text
-        self.href = href
-
-    def __str__(self) -> str:
-        return str(A(data=(self.text), href=self.href))
-
-    def __repr__(self) -> str:
-        return self.__str__()
-
-class Interests:
-    def __init__(self, interests=[],) -> None:
-        self.interests = interests
-
-    def __str__(self) -> str:
-        interst = ''
-        for i in self.interests:
-            interst+= str(i) + ', '
-        return str(P(interst))
-
-    def __repr__(self) -> str:
-        return self.__str__()
-
-
+educations = [
+    Education(
+        "PolyTechnic University of Technology (AmirKabir)",
+        "Bachelor of Science",
+        "Tehran, IRI",
+        "Dec 2020",
+        "Computer Science",
+        "GPA: 3.6",
+    )
+]
+skills = [
+    Skill(
+        "Languages", "Python, Go, Rust, C, C++, Java, Bash, SQL, JavaScript, LATEX..."
+    ),
+    Skill(
+        "Development",
+        """Django, DRF, Docker, K8s, INUI, Redis, Celery, MongoDB, PostgrSQL, RabbitMQ, NginX, FastAPI, HTML, CSS, React, Bootstrap, Foundation, Next.js, Gin, ORM. Git, GitHub""",
+    ),
+]
 work = [
     WorkExp(
         "Farmina",
@@ -111,31 +77,6 @@ work = [
 ]
 
 
-class Project:
-    def __init__(self, name="", description="", href="#", linktext="GitHub") -> None:
-        self.name = name
-        self.description = description
-        self.href = href
-        self.linktext = linktext
-
-    def __str__(self) -> str:
-        return str(
-            Li(
-                data=(
-                    H4(data=(self.name,)),
-                    P(data=(self.description)),
-                    A(
-                        href=self.href,
-                        data=(self.linktext,),
-                    ),
-                )
-            ),
-        )
-
-    def __repr__(self) -> str:
-        return self.__str__()
-
-
 projects = [
     Project(
         "INUI",
@@ -173,7 +114,11 @@ projects = [
         windows and Linux""",
         linktext="not available",
     ),
-    Project("Roomify", """Hotel Resevation system""", "https://github.com/MohammadrezaAmani/Roomify"),
+    Project(
+        "Roomify",
+        """Hotel Resevation system""",
+        "https://github.com/MohammadrezaAmani/Roomify",
+    ),
     Project(
         "UNILAND",
         """A highly modular and diverse Telegram Bot for universities and
@@ -264,14 +209,19 @@ projects = [
         "MyGitHub",
     ),
 ]
-p = P('|')
+
 link = [
-    Links('GitHub','https://github.com/MohammadrezaAmani'), #p,
-    Links('Email','mailto:more.amani@yahoo.com'),# p,
-    Links('LinkedIn','https://www.linkedin.com/in/mohammadreza-amani/'),# p,
-    Links('+98-990-520-2779','tel:+989905202779"'),# p,
-    Links('StackOverFlow','https://stackoverflow.com/users/15300704/mohammadreza')
+    Links(" GitHub ", "https://github.com/MohammadrezaAmani"),
+    Links(" Email ", "mailto:more.amani@yahoo.com"),
+    Links(" LinkedIn ", "https://www.linkedin.com/in/mohammadreza-amani/"),
+    Links(" +98-990-520-2779 ", 'tel:+989905202779"'),
+    Links(" StackOverFlow ", "https://stackoverflow.com/users/15300704/mohammadreza"),
 ]
-interests = Interests([
-    'Mobina', 'Coding', 'Discrete Mathematics and Linear Algebra', 'Greedy Algorithms...']
+interests = Interests(
+    [
+        "Mobina",
+        "Coding",
+        "Discrete Mathematics and Linear Algebra",
+        "Greedy Algorithms...",
+    ]
 )

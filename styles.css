@@ -1,69 +1,81 @@
-
-/* Header */
-header {
-    text-align: center;
-    padding: 2rem 0;
-    background-color: #333;
-    color: #fff;
+/* li:hover {
+    background-color: #e7e5e5;
+} */
+body, h1, h2, h3, h4, p, ul {
+    margin: 0;
+    font-family: 'Source Serif 4', serif;
 }
-header img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-}
-
-/* Sections */
-section {
-    padding: 2rem;
-    background-color: #fff;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    margin: 1rem;
-}
-
-/* Footer */
 footer {
     text-align: center;
     padding: 1rem;
     background-color: #333;
     color: #fff;
 }
-
-/* Responsive */
-@media screen and (max-width: 600px) {
-    nav ul {
-        padding: 0;
-    }
-    nav ul li {
-        margin-bottom: 10px;
-    }
+.grade {
+    font-size: medium;
 }
 
-/* Your existing styles */
-
-/* Navigation */
-/* Navigation */
-/* Reset some default styles */
-body, h1, h2, h3, h4, p, ul {
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-}
-
-/* Basic styling */
-body {
-    /* font-family: Arial, sans-serif;
-     */
-    line-height: 1.6;
+/* Header */
+.content {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     background-color: #f5f5f5;
+  }
+  
+  .title  {
+    font-size: 1.6em;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .position {
+    font-size: 1.4em;
+    margin: 5px 0;
+  }
+  
+  .date,
+  .location {
+    font-size: 1.3em;
+    color: #666;
+    margin: 0;
+  }
+  
+  .date::before,
+  .location::before {
+    content: "-";
+    margin: 0 5px;
+  }
+  
+  .descriptions {
+    font-size: 1.5em;
+    margin-top: 10px;
+  }
+  
+
+h1 {
+    font-size: medium;
 }
+li {
+    font-size: small;
+}
+a {
+    font-size: medium;
+}
+/* Basic styling */
 
 /* Navigation */
+
 nav {
     background-color: #333;
     color: #fff;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 0.3rem;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -75,8 +87,8 @@ nav .logo {
 }
 
 nav img {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     margin-right: 1rem;
 }
@@ -85,7 +97,7 @@ nav .nav-toggle {
     display: none; /* Hide the toggle button by default */
     background: none;
     border: none;
-    font-size: 1.5rem;
+    font-size: 1rem;
     cursor: pointer;
 }
 
@@ -95,7 +107,7 @@ nav ul {
 }
 
 nav ul li {
-    margin-right: 20px;
+    margin-right: 15px;
 }
 
 nav a {
@@ -133,3 +145,42 @@ a {
         margin-bottom: 10px;
     }
 }
+
+header {
+    text-align: center;
+    padding: 2rem 0;
+    background-color: #333;
+    color: #fff;
+}
+header img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+/* Sections */
+section {
+    padding: 2rem;
+    background-color: #fff;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+    margin: 1rem;
+}
+
+/* Footer */
+
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+    nav ul {
+        padding: 0;
+    }
+    nav ul li {
+        margin-bottom: 10px;
+    }
+}
+
+/* Your existing styles */
+
+/* Navigation */
+/* Navigation */
+/* Reset some default styles */
