@@ -10,6 +10,7 @@ footer {
     padding: 1rem;
     background-color: #333;
     color: #fff;
+    border-radius: 20% 20% 0 0;
 }
 .grade {
     font-size: medium;
@@ -148,9 +149,19 @@ a {
 
 header {
     text-align: center;
-    padding: 2rem 0;
+    /* padding: 2rem 0; */
     background-color: #333;
     color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.3rem;
+    margin: auto;
+    /* position: sticky; */
+}
+header a {
+    margin: 1%;
+    padding: auto;
 }
 header img {
     width: 150px;
@@ -164,6 +175,7 @@ section {
     background-color: #fff;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
     margin: 1rem;
+    border-radius: 1%;
 }
 
 /* Footer */

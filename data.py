@@ -1,5 +1,11 @@
 from INUITemplate.elements import WorkExp, Interests, Project, Links, Education, Skill
 
+name = "Mohammadreza Amani"
+
+title = "%s- Resume" % name
+description = "Resume of %s" % name
+picture = 'https://avatars.githubusercontent.com/u/64687226?v=4'
+lang = "en"
 educations = [
     Education(
         "PolyTechnic University of Technology (AmirKabir)",
