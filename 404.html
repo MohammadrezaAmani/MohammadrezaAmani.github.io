@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Path Router Example</title>
+</head>
+<body>
+  <h1>Path Router Example</h1>
+  <div id="content"></div>
+  
+  <script>
+    // Path parser function
+    function parsePath(url) {
+      const path = new URL(url).pathname;
+      return path;
+    }
+
+    // Path router function
+    function routePath(path) {
+      const contentDiv = document.getElementById('content');
+      
+      switch (path) {
+        case '/':
+          contentDiv.innerHTML = '<p>Welcome to the homepage!</p>';
+          break;
+        case '/about':
+          contentDiv.innerHTML = '<p>This is the About page.</p>';
+          break;
+        case '/contact':
+          contentDiv.innerHTML = '<p>Contact us at contact@example.com</p>';
+          break;
+        default:
+          contentDiv.innerHTML = '<p>404 - Page not found.</p>' + path;
+          break;
+      }
+    }
+
+    // Function to handle navigation
+    function handleNavigation() {
+      const currentPath = parsePath(window.location.href);
+      routePath(currentPath);
+    }
+
+    // Listen for navigation events
+    window.addEventListener('popstate', handleNavigation);
+
+    // Initial navigation
+    handleNavigation();
+  </script>
+</body>
+</html>
