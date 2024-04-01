@@ -1,14 +1,30 @@
 {
   "files": {
-    "main.css": "/static/css/main.f45248f3.css",
-    "main.js": "/static/js/main.893bacf2.js",
+    "main.css": "/static/css/main.a2a3a3ac.css",
+    "main.js": "/static/js/main.0d888600.js",
+    "static/js/463.fb816d9c.chunk.js": "/static/js/463.fb816d9c.chunk.js",
+    "static/js/900.a17f2e63.chunk.js": "/static/js/900.a17f2e63.chunk.js",
+    "static/js/478.2baff8e0.chunk.js": "/static/js/478.2baff8e0.chunk.js",
+    "static/js/182.f9cf48f1.chunk.js": "/static/js/182.f9cf48f1.chunk.js",
+    "static/js/501.f2fc5520.chunk.js": "/static/js/501.f2fc5520.chunk.js",
+    "static/js/259.41fc15fa.chunk.js": "/static/js/259.41fc15fa.chunk.js",
+    "static/js/903.74f550b8.chunk.js": "/static/js/903.74f550b8.chunk.js",
+    "static/js/777.eebcc977.chunk.js": "/static/js/777.eebcc977.chunk.js",
     "static/media/Sacramento-Regular.ttf": "/static/media/Sacramento-Regular.e8c87b94a9bae9bc1366.ttf",
     "index.html": "/index.html",
-    "main.f45248f3.css.map": "/static/css/main.f45248f3.css.map",
-    "main.893bacf2.js.map": "/static/js/main.893bacf2.js.map"
+    "main.a2a3a3ac.css.map": "/static/css/main.a2a3a3ac.css.map",
+    "main.0d888600.js.map": "/static/js/main.0d888600.js.map",
+    "463.fb816d9c.chunk.js.map": "/static/js/463.fb816d9c.chunk.js.map",
+    "900.a17f2e63.chunk.js.map": "/static/js/900.a17f2e63.chunk.js.map",
+    "478.2baff8e0.chunk.js.map": "/static/js/478.2baff8e0.chunk.js.map",
+    "182.f9cf48f1.chunk.js.map": "/static/js/182.f9cf48f1.chunk.js.map",
+    "501.f2fc5520.chunk.js.map": "/static/js/501.f2fc5520.chunk.js.map",
+    "259.41fc15fa.chunk.js.map": "/static/js/259.41fc15fa.chunk.js.map",
+    "903.74f550b8.chunk.js.map": "/static/js/903.74f550b8.chunk.js.map",
+    "777.eebcc977.chunk.js.map": "/static/js/777.eebcc977.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f45248f3.css",
-    "static/js/main.893bacf2.js"
+    "static/css/main.a2a3a3ac.css",
+    "static/js/main.0d888600.js"
   ]
 }
