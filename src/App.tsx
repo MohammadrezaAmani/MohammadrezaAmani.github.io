@@ -1,27 +1,12 @@
-import React, { useState, useEffect, useMemo } from "react";
-import { createHashRouter, RouterProvider } from "react-router-dom";
+import { Home } from "./pages/home";
+import { Blog } from "./pages/blog";
+import { BlogDetails } from "./pages/blogDetails";
+import { Project } from "./pages/project";
+import { ProjectDetails } from "./pages/projectDetails";
+import { useState, useEffect } from "react";
 import { Theme } from "./components/theme";
 import { langs } from "./configs/site";
-
-const Home = React.lazy(() =>
-  import("./pages/home").then((module) => ({ default: module.Home }))
-);
-const Blog = React.lazy(() =>
-  import("./pages/blog").then((module) => ({ default: module.Blog }))
-);
-const BlogDetails = React.lazy(() =>
-  import("./pages/blogDetails").then((module) => ({
-    default: module.BlogDetails,
-  }))
-);
-const Project = React.lazy(() =>
-  import("./pages/project").then((module) => ({ default: module.Project }))
-);
-const ProjectDetails = React.lazy(() =>
-  import("./pages/projectDetails").then((module) => ({
-    default: module.ProjectDetails,
-  }))
-);
+import { createHashRouter, RouterProvider } from "react-router-dom";
 
 export function App() {
   const [lang, setLang] = useState("en");
@@ -29,6 +14,7 @@ export function App() {
 
   useEffect(() => {
     initializeLanguage();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -79,69 +65,66 @@ export function App() {
     localStorage.setItem("theme", JSON.stringify(newTheme));
   };
 
-  const router = useMemo(
-    () =>
-      createHashRouter([
-        {
-          path: "/",
-          element: (
-            <Home
-              lang={lang}
-              toggleLang={toggleLang}
-              theme={theme}
-              toggleTheme={toggleTheme}
-            />
-          ),
-        },
-        {
-          path: "/blog/",
-          element: (
-            <Blog
-              lang={lang}
-              toggleLang={toggleLang}
-              theme={theme}
-              toggleTheme={toggleTheme}
-            />
-          ),
-        },
-        {
-          path: "/blog/:blogslug",
-          element: (
-            <BlogDetails
-              lang={lang}
-              toggleLang={toggleLang}
-              theme={theme}
-              toggleTheme={toggleTheme}
-            />
-          ),
-        },
-        {
-          path: "/project/",
-          element: (
-            <Project
-              lang={lang}
-              toggleLang={toggleLang}
-              theme={theme}
-              toggleTheme={toggleTheme}
-            />
-          ),
-        },
-        {
-          path: "/project/:projectslug",
-          element: (
-            <ProjectDetails
-              lang={lang}
-              toggleLang={toggleLang}
-              theme={theme}
-              toggleTheme={toggleTheme}
-            />
-          ),
-        },
-      ]),
-    [lang, theme] // Depend on lang and theme for memoization
-  );
+  const router = createHashRouter([
+    {
+      path: "/",
+      element: (
+        <Home
+          lang={lang}
+          toggleLang={toggleLang}
+          theme={theme}
+          toggleTheme={toggleTheme}
+        />
+      ),
+    },
+    {
+      path: "/blog/",
+      element: (
+        <Blog
+          lang={lang}
+          toggleLang={toggleLang}
+          theme={theme}
+          toggleTheme={toggleTheme}
+        />
+      ),
+    },
+    {
+      path: "/blog/:blogslug",
+      element: (
+        <BlogDetails
+          lang={lang}
+          toggleLang={toggleLang}
+          theme={theme}
+          toggleTheme={toggleTheme}
+        />
+      ),
+    },
+    {
+      path: "/project/",
+      element: (
+        <Project
+          lang={lang}
+          toggleLang={toggleLang}
+          theme={theme}
+          toggleTheme={toggleTheme}
+        />
+      ),
+    },
+    {
+      path: "/project/:projectslug",
+      element: (
+        <ProjectDetails
+          lang={lang}
+          toggleLang={toggleLang}
+          theme={theme}
+          toggleTheme={toggleTheme}
+        />
+      ),
+    },
+  ]);
 
   return <RouterProvider router={router} />;
 }
 
 export default App;
+// use memo
