@@ -35,7 +35,7 @@ const ProjectItem = ({ project, lang, theme }: projectItemTypes) => {
         id={`project-item-${project.slug}`}
         className="shadow-lg rounded-sm p-6"
       >
-        <div className="h-48 w-64">
+        <div className="h-48 w-full">
           {isVisible && (
             <img
               src={project.image}

@@ -30,7 +30,7 @@ const BlogItem = ({ blog, lang, theme }: blogItemTypes) => {
   return (
     <a href={"/#/blog/" + blog.slug} className="block w-full">
       <div id={`blog-item-${blog.slug}`} className="shadow-lg rounded-sm p-6">
-        <div className="h-48 w-64 ">
+        <div className="h-48 w-full ">
           {isVisible && (
             <img
               src={blog.image}
@@ -52,8 +52,7 @@ const BlogItem = ({ blog, lang, theme }: blogItemTypes) => {
           <List className="flex text-xs text-wrap flex-auto space-x-1">
             {blog.tags.map((tag, index) => (
               <li className="m-x-1" key={index}>
-                {"#"}
-                {tag}
+                <a href={"#/category/" + tag}>{"#" + tag}</a>
               </li>
             ))}
           </List>
@@ -84,25 +83,25 @@ export const Blog = ({ lang, theme }: commonArgs) => {
   };
 
   return (
-      <div className="m-8">
-        <div className="flex flex-row">
-          <SearchBar handleSearch={handleSearch} />
-        </div>
-        <Grid container spacing={4} justifyContent="center mt-4">
-          {data.map((item, index) => (
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={4}
-              lg={3}
-              key={index}
-              className="grid-flow-dense"
-            >
-              <BlogItem blog={item} lang={lang} theme={theme} />
-            </Grid>
-          ))}
-        </Grid>
+    <div className="m-8">
+      <div className="flex flex-row">
+        <SearchBar handleSearch={handleSearch} />
       </div>
+      <Grid container spacing={4} justifyContent="center mt-4">
+        {data.map((item, index) => (
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={4}
+            lg={3}
+            key={index}
+            className="grid-flow-dense"
+          >
+            <BlogItem blog={item} lang={lang} theme={theme} />
+          </Grid>
+        ))}
+      </Grid>
+    </div>
   );
 };

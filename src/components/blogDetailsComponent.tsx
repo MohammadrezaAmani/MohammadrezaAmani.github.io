@@ -33,7 +33,7 @@ export function BlogDetailsComponent({ lang, theme, blog }: blogItemTypes) {
                 variant="caption"
                 className="bg-gray-200 p-1 rounded-md"
               >
-                {tag}
+                <a href={"#/category/" + tag}>{"#" + tag}</a>
               </Typography>
             </Grid>
           ))}
