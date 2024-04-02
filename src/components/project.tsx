@@ -35,7 +35,7 @@ const ProjectItem = ({ project, lang, theme }: projectItemTypes) => {
         id={`project-item-${project.slug}`}
         className="shadow-lg rounded-sm p-6"
       >
-        <div className="h-48 w-72">
+        <div className="h-48 w-64">
           {isVisible && (
             <img
               src={project.image}
@@ -89,8 +89,7 @@ export const Project = ({ lang, theme }: commonArgs) => {
   };
 
   return (
-    <div className="m-6">
-      <div className="ltr:m-8 rtl:my-6 ml-8 mr-8">
+      <div className="m-8">
         <div className="flex flex-row">
           <SearchBar handleSearch={handleSearch} />
         </div>
@@ -110,6 +109,5 @@ export const Project = ({ lang, theme }: commonArgs) => {
           ))}
         </Grid>
       </div>
-    </div>
   );
 };
