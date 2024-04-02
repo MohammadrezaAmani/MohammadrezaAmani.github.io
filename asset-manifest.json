@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.1c6b181f.css",
-    "main.js": "/static/js/main.8585f98a.js",
+    "main.css": "/static/css/main.5584e375.css",
+    "main.js": "/static/js/main.358a521c.js",
     "static/media/Vazirmatn-Regular.ttf": "/static/media/Vazirmatn-Regular.f08bc22d4f5bb01fb82f.ttf",
     "static/media/Sacramento-Regular.ttf": "/static/media/Sacramento-Regular.e8c87b94a9bae9bc1366.ttf",
     "index.html": "/index.html",
-    "main.1c6b181f.css.map": "/static/css/main.1c6b181f.css.map",
-    "main.8585f98a.js.map": "/static/js/main.8585f98a.js.map"
+    "main.5584e375.css.map": "/static/css/main.5584e375.css.map",
+    "main.358a521c.js.map": "/static/js/main.358a521c.js.map"
   },
   "entrypoints": [
-    "static/css/main.1c6b181f.css",
-    "static/js/main.8585f98a.js"
+    "static/css/main.5584e375.css",
+    "static/js/main.358a521c.js"
   ]
 }
