@@ -30,12 +30,12 @@ const BlogItem = ({ blog, lang, theme }: blogItemTypes) => {
   return (
     <a href={"/#/blog/" + blog.slug} className="block w-full">
       <div id={`blog-item-${blog.slug}`} className="shadow-lg rounded-sm p-6">
-        <div className="h-48 w-72">
+        <div className="h-48 w-64 ">
           {isVisible && (
             <img
               src={blog.image}
               alt={blog[lang as keyof typeof langs].title}
-              className="rounded-lg h-full w-full object-cover"
+              className="rounded-lg object-cover w-full h-full"
             />
           )}
         </div>
@@ -84,8 +84,7 @@ export const Blog = ({ lang, theme }: commonArgs) => {
   };
 
   return (
-    <div className="m-6">
-      <div className="ltr:m-8 rtl:my-6 ml-8 mr-8">
+      <div className="m-8">
         <div className="flex flex-row">
           <SearchBar handleSearch={handleSearch} />
         </div>
@@ -105,6 +104,5 @@ export const Blog = ({ lang, theme }: commonArgs) => {
           ))}
         </Grid>
       </div>
-    </div>
   );
 };

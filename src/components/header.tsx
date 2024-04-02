@@ -18,7 +18,6 @@ import { fullArgs } from "../configs/types";
 
 function Header({ lang, toggleLang, theme, toggleTheme }: fullArgs) {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
-  console.log(lang);
   const toggleDrawer =
     (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
       if (
@@ -79,7 +78,7 @@ function Header({ lang, toggleLang, theme, toggleTheme }: fullArgs) {
           </Tooltip>
           <Drawer
             anchor={
-              langs[lang as keyof typeof langs].dir === "rtl" ? "right" : "left"
+              langs[lang as keyof typeof langs].dir !== "rtl" ? "right" : "left"
             }
             open={drawerOpen}
             onClose={toggleDrawer(false)}
@@ -89,9 +88,9 @@ function Header({ lang, toggleLang, theme, toggleTheme }: fullArgs) {
               <List>
                 {getMenuItems(lang).map((item, index) => (
                   <ListItem button key={index}>
-                    <a href={item.slug}>
+                    <a href={item.slug} className="text-xs">
                       <ListItemIcon>{item.icon}</ListItemIcon>
-                      <ListItemText primary={item.text} />
+                      <ListItemText className="text-xs rtl:font-vazir" primary={item.text} />
                     </a>
                   </ListItem>
                 ))}

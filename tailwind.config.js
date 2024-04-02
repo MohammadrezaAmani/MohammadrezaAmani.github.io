@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sacramento: ['"Sacramento"', "cursive"],
+        vazir: ['"Vazir"', "sans-serif"],
       },
     },
   },
