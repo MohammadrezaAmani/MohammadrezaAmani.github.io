@@ -15,6 +15,15 @@ import { getMenuItems, langs } from "../configs/site";
 import Logo from "./logo";
 import TranslateIcon from "@mui/icons-material/Translate";
 import { fullArgs } from "../configs/types";
+import { CiLight } from "react-icons/ci";
+import { CiDark } from "react-icons/ci";
+import { LiaTelegramPlane } from "react-icons/lia";
+import { FaInstagram } from "react-icons/fa";
+import { CiLinkedin } from "react-icons/ci";
+import { TbBrandGithub } from "react-icons/tb";
+
+import { Theme } from "./theme";
+import { profile } from "../configs/data";
 
 function Header({ lang, toggleLang, theme, toggleTheme }: fullArgs) {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
@@ -82,27 +91,83 @@ function Header({ lang, toggleLang, theme, toggleTheme }: fullArgs) {
             }
             open={drawerOpen}
             onClose={toggleDrawer(false)}
-            className="drawer-menu rounded-lg"
+            className="drawer-menu"
           >
-            <div className="p-4 pt-20">
-              <List>
-                {getMenuItems(lang).map((item, index) => (
-                  <ListItem button key={index}>
-                    <a href={item.slug} className="text-xs">
-                      <ListItemIcon>{item.icon}</ListItemIcon>
-                      <ListItemText className="text-xs rtl:font-vazir" primary={item.text} />
-                    </a>
-                  </ListItem>
-                ))}
-                <ListItem button key={"lang"} onClick={toggleLang}>
-                  <ListItemIcon>
-                    <TranslateIcon />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={langs[lang as keyof typeof langs].full}
+            <div className="flex-auto justify-between ">
+              <div>
+                <div className=" bg-white max-w-52">
+                  <img
+                    src="/logo512.png"
+                    alt="logo"
+                    className="w-full bg-slate-500"
                   />
-                </ListItem>
-              </List>
+                </div>
+                <div className="p-4 pt-10">
+                  <List>
+                    {getMenuItems(lang).map((item, index) => (
+                      <ListItem button key={index}>
+                        <a
+                          href={item.slug}
+                          className="text-xs flex flex-row font-vazir"
+                        >
+                          <ListItemIcon>{item.icon}</ListItemIcon>
+                          <ListItemText
+                            className="text-xs "
+                            primary={item.text}
+                            sx={{
+                              // i wanna be xs font
+                              fontSize: "0.75rem",
+                            }}
+                          />
+                        </a>
+                      </ListItem>
+                    ))}
+                  </List>
+                </div>
+              </div>
+              <div className="flex flex-col px-8 ">
+                <div className="flex flex-row justify-between mb-4">
+                  <TranslateIcon onClick={toggleLang} />
+                  {theme === Theme.light ? (
+                    <CiLight
+                      className="w-6 h-6 text-yellow-400 "
+                      onClick={toggleTheme}
+                    />
+                  ) : (
+                    <CiDark className="w-6 h-6" onClick={toggleTheme} />
+                  )}
+                </div>
+                <div className="flex flex-row justify-around">
+                  {
+                    profile.socials.github && (
+                      <a href={profile.socials.github}>
+                        <TbBrandGithub className="w-6 h-6" />
+                      </a>
+                    )
+                  }
+                                    {
+                    profile.socials.instagram && (
+                      <a href={profile.socials.instagram}>
+                        <FaInstagram className="w-6 h-6" />
+                      </a>
+                    )
+                  }
+                                    {
+                    profile.socials.linkedin && (
+                      <a href={profile.socials.linkedin}>
+                        <CiLinkedin className="w-6 h-6" />
+                      </a>
+                    )
+                  }
+                                    {
+                    profile.socials.telegram && (
+                      <a href={profile.socials.telegram}>
+                        <LiaTelegramPlane className="w-6 h-6" />
+                      </a>
+                    )
+                  }
+                </div>
+              </div>
             </div>
           </Drawer>
         </div>

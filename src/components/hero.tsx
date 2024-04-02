@@ -52,7 +52,7 @@ function Hero({ lang, theme }: commonArgs) {
           />
           <div className="flex flex-col sm:w-1/2 sm:ml-4">
             <h1 className={`text-4xl font-bold mt-6 sm:mt-0`}>
-              {profile[lang as keyof typeof langs].title}
+              {profile[lang as keyof typeof langs].name}
             </h1>
             <p className={`text-lg mt-4`}>
               {profile[lang as keyof typeof langs].about}

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { commonArgs, projectItemTypes } from "../configs/types";
-import { List, Typography, Grid } from "@mui/material";
+import { Typography, Grid } from "@mui/material";
 import { langs } from "../configs/site";
 import { projectData } from "../configs/projectdata";
 import { SearchBar } from "./search-bar";
@@ -30,11 +30,11 @@ const ProjectItem = ({ project, lang, theme }: projectItemTypes) => {
   }, [project.slug]);
 
   return (
-    <a href={"/#/project/" + project.slug} className="block w-full">
-      <div
-        id={`project-item-${project.slug}`}
-        className="shadow-lg rounded-sm p-6"
-      >
+    <div
+      id={`project-item-${project.slug}`}
+      className="shadow-lg rounded-sm p-6"
+    >
+      <a href={"/#/project/" + project.slug} className="block w-full">
         <div className="h-48 w-full">
           {isVisible && (
             <img
@@ -53,18 +53,20 @@ const ProjectItem = ({ project, lang, theme }: projectItemTypes) => {
         <Typography variant="body1" className="mt-2">
           {project[lang as keyof typeof langs].description}
         </Typography>
-        <div className="mt-2">
-          <List className="flex text-xs text-wrap flex-auto space-x-1">
-            {project.tags.map((tag, index) => (
-              <li className="m-x-1" key={index}>
-                {"#"}
-                {tag}
-              </li>
-            ))}
-          </List>
+      </a>
+      <div className="mt-2 flex flex-row flex-wrap space-x-1 w-full">
+          {project.tags.map((tag, index) => (
+            <Grid item key={index}>
+              <Typography
+                variant="caption"
+                className="bg-slate-200 p-1 rounded-md flex-wrap shadow-sm"
+              >
+                <a href={"#/category/" + tag}>{"#" + tag}</a>
+              </Typography>
+            </Grid>
+          ))}
         </div>
-      </div>
-    </a>
+    </div>
   );
 };
 
@@ -89,25 +91,25 @@ export const Project = ({ lang, theme }: commonArgs) => {
   };
 
   return (
-      <div className="m-8">
-        <div className="flex flex-row">
-          <SearchBar handleSearch={handleSearch} />
-        </div>
-        <Grid container spacing={4} justifyContent="center mt-4">
-          {data.map((item, index) => (
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={4}
-              lg={3}
-              key={index}
-              className="grid-flow-dense"
-            >
-              <ProjectItem project={item} lang={lang} theme={theme} />
-            </Grid>
-          ))}
-        </Grid>
+    <div className="m-8 md-8">
+      <div className="flex flex-row">
+        <SearchBar handleSearch={handleSearch} />
       </div>
+      <Grid container spacing={4} justifyContent="center mt-4">
+        {data.map((item, index) => (
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={4}
+            lg={3}
+            key={index}
+            className="grid-flow-dense"
+          >
+            <ProjectItem project={item} lang={lang} theme={theme} />
+          </Grid>
+        ))}
+      </Grid>
+    </div>
   );
 };

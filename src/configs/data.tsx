@@ -4,19 +4,22 @@ export const profile = {
   phone: "123-456-7890",
   en: {
     title: "Software Engineer",
-    name: "John Doe",
-    about: "I'm Mohammadreza Amani",
+    name: "Mohammadreza Amani",
+    about:
+      "I'm Mohammadreza Amani a passionate software engineer who loves to build new things.",
     location: "Los Angeles, CA",
   },
   fa: {
     title: "مهندس نرم افزار",
     name: "محمدرضا امانی",
-    about: "من محمدرضا امانی هستم.",
+    about: "من محمدرضا امانی هستم یک مهندس نرم افزار عاشق ساختن چیزهای جدید.",
     location: "لس آنجلس، کالیفرنیا",
   },
   socials: {
-    linkedin: "https://www.linkedin.com/",
-    github: "github.com/MohammadrezaAmani",
+    linkedin: "https://www.linkedin.com/in/mohammadreza-amani",
+    github: "https://github.com/MohammadrezaAmani",
+    instagram: "https://www.instagram.com/more.amani",
+    telegram: "https://t.me/Mohammadreza_amani",
   },
 };
 

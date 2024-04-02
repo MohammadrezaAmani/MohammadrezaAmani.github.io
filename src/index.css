@@ -7,10 +7,6 @@
   src: url("../public/fonts/Sacramento-Regular.ttf") format("truetype");
 }
 @font-face {
-  font-family: "vazir";
+  font-family: "Vazir";
   src: url("../public/fonts/Vazirmatn-Regular.ttf") format("truetype");
-}
-
-html {
-  background-color: gray;
 }

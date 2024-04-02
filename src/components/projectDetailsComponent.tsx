@@ -8,7 +8,7 @@ export function ProjectDetailsComponent({
   project,
 }: projectItemTypes) {
   return (
-    <div className="mx-4">
+    <div className="mx-4 md-20">
       <Card className="max-w-3xl mx-auto mt-8 bg-white shadow-md rounded-lg overflow-hidden ">
         <CardContent>
           <div className="flex items-center mb-4">

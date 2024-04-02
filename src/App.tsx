@@ -30,7 +30,7 @@ export function App() {
     document.documentElement.dir = langs[newLang as keyof typeof langs].dir;
     document.documentElement.lang = langs[newLang as keyof typeof langs].short;
     setLang(newLang);
-    updateFontFamily(newLang);
+    // updateFontFamily(newLang);
     localStorage.setItem("lang", newLang);
   };
 
@@ -39,10 +39,10 @@ export function App() {
     updateLanguage(newLang);
   };
 
-  const updateFontFamily = (lang: string) => {
-    document.documentElement.style.fontFamily =
-      lang === "fa" ? "Vazir, sans-serif" : "Roboto, sans-serif";
-  };
+  // const updateFontFamily = (lang: string) => {
+  //   document.documentElement.style.fontFamily =
+  //     lang === "fa" ? "Vazir, sans-serif" : "Roboto, sans-serif";
+  // };
 
   const initializeTheme = () => {
     try {

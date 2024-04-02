@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { commonArgs, blogItemTypes } from "../configs/types";
-import { List, Typography, Grid } from "@mui/material";
+import { Typography, Grid } from "@mui/material";
 import { langs } from "../configs/site";
 import { blogData } from "../configs/blogdata";
 import { SearchBar } from "./search-bar";
@@ -28,8 +28,8 @@ const BlogItem = ({ blog, lang, theme }: blogItemTypes) => {
   }, [blog.slug]);
 
   return (
-    <a href={"/#/blog/" + blog.slug} className="block w-full">
-      <div id={`blog-item-${blog.slug}`} className="shadow-lg rounded-sm p-6">
+    <div id={`blog-item-${blog.slug}`} className="shadow-lg rounded-sm p-6">
+      <a href={"/#/blog/" + blog.slug} className="block w-full">
         <div className="h-48 w-full ">
           {isVisible && (
             <img
@@ -48,17 +48,20 @@ const BlogItem = ({ blog, lang, theme }: blogItemTypes) => {
         <Typography variant="body1" className="mt-2">
           {blog[lang as keyof typeof langs].description}
         </Typography>
-        <div className="mt-2">
-          <List className="flex text-xs text-wrap flex-auto space-x-1">
-            {blog.tags.map((tag, index) => (
-              <li className="m-x-1" key={index}>
-                <a href={"#/category/" + tag}>{"#" + tag}</a>
-              </li>
-            ))}
-          </List>
-        </div>
+      </a>
+      <div className="mt-2 flex flex-row flex-wrap space-x-1 w-full">
+        {blog.tags.map((tag, index) => (
+          <Grid item key={index}>
+            <Typography
+              variant="caption"
+              className="bg-gray-400 p-1 rounded-md flex-wrap"
+            >
+              <a href={"#/category/" + tag}>{"#" + tag}</a>
+            </Typography>
+          </Grid>
+        ))}
       </div>
-    </a>
+    </div>
   );
 };
 

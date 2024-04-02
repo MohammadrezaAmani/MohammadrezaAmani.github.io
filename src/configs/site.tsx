@@ -6,6 +6,7 @@ import {
   Apps as AppsIcon,
   ContactSupport as ContactSupportIcon,
 } from "@mui/icons-material";
+import { DiWebplatform } from "react-icons/di";
 
 export const siteConfig = {
   en: {
@@ -38,7 +39,7 @@ export const langs = {
 };
 
 export function getMenuItems(lang: string) {
-  const iconTextColor = "text-slate-600";
+  const iconTextColor = "text-slate-600 dark:text-slate-400 w-6 h-6";
   return [
     {
       text: lang === "en" ? "Home" : "صفحه‌ی اصلی",
@@ -73,7 +74,7 @@ export function getMenuItems(lang: string) {
       text: lang === "en" ? "Blog" : "بلاگ",
       slug: "/#/blog/",
 
-      icon: <ContactSupportIcon className={iconTextColor} />,
+      icon: <DiWebplatform className={iconTextColor}  />,
     },
   ];
 }
