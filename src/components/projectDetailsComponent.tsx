@@ -1,6 +1,5 @@
-import React from "react";
 import { projectItemTypes } from "../configs/types";
-import { Card, CardContent, Grid, Typography } from "@mui/material"; // Import Material-UI components
+import { Card, CardContent, Grid, Typography } from "@mui/material"; 
 
 export function ProjectDetailsComponent({
   lang,
