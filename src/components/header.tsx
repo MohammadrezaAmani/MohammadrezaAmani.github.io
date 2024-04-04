@@ -11,19 +11,19 @@ import {
   Tooltip,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { getMenuItems, langs } from "@/configs/site";
-import Logo from "./logo";
 import TranslateIcon from "@mui/icons-material/Translate";
-import { fullArgs } from "@/configs/types";
 import { CiLight } from "react-icons/ci";
 import { CiDark } from "react-icons/ci";
 import { LiaTelegramPlane } from "react-icons/lia";
 import { FaInstagram } from "react-icons/fa";
 import { CiLinkedin } from "react-icons/ci";
 import { TbBrandGithub } from "react-icons/tb";
+import { getMenuItems, langs } from "../configs/site";
+import { fullArgs } from "../configs/types";
 
+import Logo from "./logo";
 import { Theme } from "./theme";
-import { profile } from "@/configs/data";
+import { profile } from "../configs/data";
 
 function Header({ lang, toggleLang, theme, toggleTheme }: fullArgs) {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
@@ -48,7 +48,7 @@ function Header({ lang, toggleLang, theme, toggleTheme }: fullArgs) {
       style={{ backgroundColor: theme.background }}
     >
       <Toolbar className="flex justify-between items-center sm:mx-20">
-        <Logo lang="lang" theme={theme} />
+        <Logo lang="lang" theme={theme} slug={"/"} />
         <div className="flex items-center">
           <nav className="mainmenu-nav navbar-example2 hidden sm:block">
             <ul className="primary-menu flex flex-col space-y-2 sm:flex-row sm:space-x-2 sm:space-y-0">
@@ -138,34 +138,26 @@ function Header({ lang, toggleLang, theme, toggleTheme }: fullArgs) {
                   )}
                 </div>
                 <div className="flex flex-row justify-around">
-                  {
-                    profile.socials.github && (
-                      <a href={profile.socials.github}>
-                        <TbBrandGithub className="w-6 h-6" />
-                      </a>
-                    )
-                  }
-                                    {
-                    profile.socials.instagram && (
-                      <a href={profile.socials.instagram}>
-                        <FaInstagram className="w-6 h-6" />
-                      </a>
-                    )
-                  }
-                                    {
-                    profile.socials.linkedin && (
-                      <a href={profile.socials.linkedin}>
-                        <CiLinkedin className="w-6 h-6" />
-                      </a>
-                    )
-                  }
-                                    {
-                    profile.socials.telegram && (
-                      <a href={profile.socials.telegram}>
-                        <LiaTelegramPlane className="w-6 h-6" />
-                      </a>
-                    )
-                  }
+                  {profile.socials.github && (
+                    <a href={profile.socials.github}>
+                      <TbBrandGithub className="w-6 h-6" />
+                    </a>
+                  )}
+                  {profile.socials.instagram && (
+                    <a href={profile.socials.instagram}>
+                      <FaInstagram className="w-6 h-6" />
+                    </a>
+                  )}
+                  {profile.socials.linkedin && (
+                    <a href={profile.socials.linkedin}>
+                      <CiLinkedin className="w-6 h-6" />
+                    </a>
+                  )}
+                  {profile.socials.telegram && (
+                    <a href={profile.socials.telegram}>
+                      <LiaTelegramPlane className="w-6 h-6" />
+                    </a>
+                  )}
                 </div>
               </div>
             </div>

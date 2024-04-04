@@ -1,14 +1,22 @@
-import { Card, CardContent, Grid, Typography } from "@mui/material"; 
-import { projectItemTypes } from "../configs/types";
+import { useParams } from "react-router-dom";
+import { Card, CardContent, Grid, Typography } from "@mui/material";
 
-export function ProjectDetailsComponent({
-  lang,
-  theme,
-  project,
-}: projectItemTypes) {
+import { projectData } from "../../../configs/projectdata";
+import { commonArgs } from "../../../configs/types";
+
+export default function ProjectDetails({ theme, lang, slug }: commonArgs) {
+  const { projectslug } = useParams();
+  const project = projectData.find((project) => project.slug === projectslug);
+
+  if (!project) {
+    return <div>Not Found</div>;
+  }
+
   return (
     <div className="mx-4 md-20">
-      <Card className={`max-w-3xl mx-auto mt-8  shadow-md rounded-lg overflow-hidden ${theme.background}`}>
+      <Card
+        className={`max-w-3xl mx-auto mt-8  shadow-md rounded-lg overflow-hidden ${theme.background}`}
+      >
         <CardContent>
           <div className="flex items-center mb-4">
             <img src={project.logo} alt="logo" className="w-16 h-auto mr-4" />

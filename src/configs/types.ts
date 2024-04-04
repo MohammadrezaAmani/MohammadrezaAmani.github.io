@@ -59,6 +59,7 @@ export type veryFullArgs = {
 export type commonArgs = {
   lang: string;
   theme: ThemeType;
+  slug: string;
 };
 
 export type blogType = {
@@ -92,4 +93,37 @@ export type projectItemTypes = {
   project: blogType;
   lang: string;
   theme: ThemeType;
+};
+
+export type Data = {
+  logo: string;
+  image: string;
+  en: {
+    title: string;
+    description: string;
+    data: JSX.Element;
+  };
+  fa: {
+    title: string;
+    description: string;
+    data: JSX.Element;
+  };
+  slug: string;
+  related_posts: string[];
+  tags: string[];
+  category: string[];
+  created_at: string;
+  updated_at: string;
+};
+export type dataType = {
+  data: Data;
+  lang: string;
+  theme: ThemeType;
+  slug: string;
+};
+export type result_Type = {
+  data: Data[];
+  lang: string;
+  theme: ThemeType;
+  slug: string;
 };

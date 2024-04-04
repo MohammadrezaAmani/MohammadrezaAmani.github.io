@@ -4,9 +4,11 @@ import {
   School as SchoolIcon,
   Description as DescriptionIcon,
   Apps as AppsIcon,
-  ContactSupport as ContactSupportIcon,
 } from "@mui/icons-material";
 import { DiWebplatform } from "react-icons/di";
+import { routes } from "./routes";
+
+export const BaseUri = "#";
 
 export const siteConfig = {
   en: {
@@ -42,39 +44,41 @@ export function getMenuItems(lang: string) {
   const iconTextColor = "text-slate-600 dark:text-slate-400 w-6 h-6";
   return [
     {
-      text: lang === "en" ? "Home" : "صفحه‌ی اصلی",
-      slug: "/",
+      text: routes.home[lang as keyof typeof langs].title,
+      slug: BaseUri + routes.home.path,
       icon: <HomeIcon className={iconTextColor} />,
     },
     {
-      text: lang === "en" ? "Experience" : "تجارب کاری",
-      slug: "/#/experience",
+      text: routes.experience[lang as keyof typeof langs].title,
+      slug: BaseUri + routes.experience.path,
 
       icon: <WorkIcon className={iconTextColor} />,
     },
     {
-      text: lang === "en" ? "Education" : "تحصیلات",
-      slug: "/#/education",
+      text: routes.education[lang as keyof typeof langs].title,
+      slug: BaseUri + routes.education.path,
 
       icon: <SchoolIcon className={iconTextColor} />,
     },
     {
-      text: lang === "en" ? "Resume" : "رزومه",
-      slug: "/#/resume",
+      text: routes.resume[lang as keyof typeof langs].title,
+      slug: BaseUri + routes.resume.path,
 
       icon: <DescriptionIcon className={iconTextColor} />,
     },
     {
-      text: lang === "en" ? "Portfolio" : "پورتوفیلو",
-      slug: "/#/project",
+      text: routes.project[lang as keyof typeof langs].title,
+      slug: BaseUri + routes.project.path,
 
       icon: <AppsIcon className={iconTextColor} />,
     },
     {
-      text: lang === "en" ? "Blog" : "بلاگ",
-      slug: "/#/blog/",
+      text: routes.blog[lang as keyof typeof langs].title,
+      slug: BaseUri + routes.blog.path,
 
-      icon: <DiWebplatform className={iconTextColor}  />,
+      icon: <DiWebplatform className={iconTextColor} />,
     },
   ];
 }
+
+export const categoryRoute = routes.category.path;
