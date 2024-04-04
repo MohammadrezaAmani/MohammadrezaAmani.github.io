@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.b19b0e7a.css",
-    "main.js": "/static/js/main.a4fcc2f5.js",
+    "main.js": "/static/js/main.958b3acf.js",
     "static/js/610.e09ac877.chunk.js": "/static/js/610.e09ac877.chunk.js",
     "static/js/228.7a9ebec1.chunk.js": "/static/js/228.7a9ebec1.chunk.js",
     "static/js/396.06a4eede.chunk.js": "/static/js/396.06a4eede.chunk.js",
@@ -32,7 +32,7 @@
     "static/media/Sacramento-Regular.ttf": "/static/media/Sacramento-Regular.e8c87b94a9bae9bc1366.ttf",
     "index.html": "/index.html",
     "main.b19b0e7a.css.map": "/static/css/main.b19b0e7a.css.map",
-    "main.a4fcc2f5.js.map": "/static/js/main.a4fcc2f5.js.map",
+    "main.958b3acf.js.map": "/static/js/main.958b3acf.js.map",
     "610.e09ac877.chunk.js.map": "/static/js/610.e09ac877.chunk.js.map",
     "228.7a9ebec1.chunk.js.map": "/static/js/228.7a9ebec1.chunk.js.map",
     "396.06a4eede.chunk.js.map": "/static/js/396.06a4eede.chunk.js.map",
@@ -62,6 +62,6 @@
   },
   "entrypoints": [
     "static/css/main.b19b0e7a.css",
-    "static/js/main.a4fcc2f5.js"
+    "static/js/main.958b3acf.js"
   ]
 }
