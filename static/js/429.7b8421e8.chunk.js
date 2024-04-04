@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkmr_template=self.webpackChunkmr_template||[]).push([[429],{5429:(e,l,t)=>{t.r(l),t.d(l,{default:()=>n});t(5043);var r=t(579);const n=function(e){let{theme:l,lang:t,slug:n}=e;return(0,r.jsx)("div",{children:(0,r.jsx)("p",{children:"Hello World"})})}}}]);
+//# sourceMappingURL=429.7b8421e8.chunk.js.map
