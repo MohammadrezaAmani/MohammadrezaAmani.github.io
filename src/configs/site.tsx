@@ -42,40 +42,36 @@ export const langs = {
 
 export function getMenuItems(lang: string) {
   const iconTextColor = "text-slate-600 dark:text-slate-400 w-6 h-6";
+  const keylang = lang as keyof typeof langs;
   return [
     {
-      text: routes.home[lang as keyof typeof langs].title,
+      text: routes.home[keylang].title,
       slug: BaseUri + routes.home.path,
       icon: <HomeIcon className={iconTextColor} />,
     },
     {
-      text: routes.experience[lang as keyof typeof langs].title,
+      text: routes.experience[keylang].title,
       slug: BaseUri + routes.experience.path,
-
       icon: <WorkIcon className={iconTextColor} />,
     },
     {
-      text: routes.education[lang as keyof typeof langs].title,
+      text: routes.education[keylang].title,
       slug: BaseUri + routes.education.path,
-
       icon: <SchoolIcon className={iconTextColor} />,
     },
     {
-      text: routes.resume[lang as keyof typeof langs].title,
+      text: routes.resume[keylang].title,
       slug: BaseUri + routes.resume.path,
-
       icon: <DescriptionIcon className={iconTextColor} />,
     },
     {
-      text: routes.project[lang as keyof typeof langs].title,
+      text: routes.project[keylang].title,
       slug: BaseUri + routes.project.path,
-
       icon: <AppsIcon className={iconTextColor} />,
     },
     {
-      text: routes.blog[lang as keyof typeof langs].title,
+      text: routes.blog[keylang].title,
       slug: BaseUri + routes.blog.path,
-
       icon: <DiWebplatform className={iconTextColor} />,
     },
   ];
