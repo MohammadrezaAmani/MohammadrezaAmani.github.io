@@ -1,8 +1,8 @@
-import { fullArgs } from "../configs/types";
+import { fullArgs } from "@/configs/types";
 import { Layout } from "./layout";
 import { useParams } from "react-router-dom";
 import { ProjectDetailsComponent } from "../components/projectDetailsComponent";
-import { projectData } from "../configs/projectdata";
+import { projectData } from "@/configs/projectdata";
 export function ProjectDetails({
   lang,
   toggleLang,

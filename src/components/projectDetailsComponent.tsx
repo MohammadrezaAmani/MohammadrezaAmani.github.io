@@ -1,4 +1,4 @@
-import { projectItemTypes } from "../configs/types";
+import { projectItemTypes } from "@/configs/types";
 import { Card, CardContent, Grid, Typography } from "@mui/material"; 
 
 export function ProjectDetailsComponent({
@@ -8,7 +8,7 @@ export function ProjectDetailsComponent({
 }: projectItemTypes) {
   return (
     <div className="mx-4 md-20">
-      <Card className="max-w-3xl mx-auto mt-8 bg-white shadow-md rounded-lg overflow-hidden ">
+      <Card className={`max-w-3xl mx-auto mt-8  shadow-md rounded-lg overflow-hidden ${theme.background}`}>
         <CardContent>
           <div className="flex items-center mb-4">
             <img src={project.logo} alt="logo" className="w-16 h-auto mr-4" />

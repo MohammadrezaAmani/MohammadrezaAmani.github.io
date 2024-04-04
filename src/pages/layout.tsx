@@ -1,6 +1,6 @@
 import Header from "../components/header";
 import Footer from "../components/footer";
-import { veryFullArgs } from "../configs/types";
+import { veryFullArgs } from "@/configs/types";
 
 export function Layout({
   lang,

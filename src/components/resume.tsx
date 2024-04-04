@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { commonArgs, projectItemTypes } from "@/configs/types";
+import { commonArgs, blogItemTypes } from "@/configs/types";
 import { Typography, Grid } from "@mui/material";
 import { langs } from "@/configs/site";
-import { projectData } from "@/configs/projectdata";
+import { blogData  } from "@/configs/blogdata";
 import { SearchBar } from "./search-bar";
 
-const ProjectItem = ({ project, lang, theme }: projectItemTypes) => {
+export const ResumeItem = ({ blog, lang, theme }: blogItemTypes) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const targetElement = document.getElementById(
-      `project-item-${project.slug}`
+      `resume-item-${blog.slug}`
     );
     if (!targetElement) return;
 
@@ -27,35 +27,35 @@ const ProjectItem = ({ project, lang, theme }: projectItemTypes) => {
     observer.observe(targetElement);
 
     return () => observer.disconnect();
-  }, [project.slug]);
+  }, [blog.slug]);
 
   return (
     <div
-      id={`project-item-${project.slug}`}
+      id={`resume-item-${blog.slug}`}
       className="shadow-lg rounded-sm p-6"
     >
-      <a href={"/#/project/" + project.slug} className="block w-full">
+      <a href={"/#/resume/" + blog.slug} className="block w-full">
         <div className="h-48 w-full">
           {isVisible && (
             <img
-              src={project.image}
-              alt={project[lang as keyof typeof langs].title}
+              src={blog.image}
+              alt={blog[lang as keyof typeof langs].title}
               className="rounded-lg h-full w-full object-cover"
             />
           )}
         </div>
         <div className="flex justify-between mt-4">
           <Typography variant="h6">
-            {project[lang as keyof typeof langs].title}
+            {blog[lang as keyof typeof langs].title}
           </Typography>
-          <Typography variant="caption">{project.updated_at}</Typography>
+          <Typography variant="caption">{blog.updated_at}</Typography>
         </div>
         <Typography variant="body1" className="mt-2">
-          {project[lang as keyof typeof langs].description}
+          {blog[lang as keyof typeof langs].description}
         </Typography>
       </a>
       <div className="mt-2 flex flex-row flex-wrap space-x-1 w-full">
-          {project.tags.map((tag, index) => (
+          {blog.tags.map((tag, index) => (
             <Grid item key={index}>
               <Typography
                 variant="caption"
@@ -70,8 +70,8 @@ const ProjectItem = ({ project, lang, theme }: projectItemTypes) => {
   );
 };
 
-const filterprojectData = (searchText: string, lang: string) =>
-  projectData.filter(
+const filterresumeData = (searchText: string, lang: string) =>
+  blogData.filter(
     (item) =>
       item[lang as keyof typeof langs].title
         .toLowerCase()
@@ -82,12 +82,12 @@ const filterprojectData = (searchText: string, lang: string) =>
       item.tags.join(" ").toLowerCase().includes(searchText.toLowerCase())
   );
 
-export const Project = ({ lang, theme }: commonArgs) => {
-  const [data, setData] = useState(projectData);
+export const Resume = ({ lang, theme }: commonArgs) => {
+  const [data, setData] = useState(blogData);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    setData(filterprojectData(value, lang));
+    setData(filterresumeData(value, lang));
   };
 
   return (
@@ -106,7 +106,7 @@ export const Project = ({ lang, theme }: commonArgs) => {
             key={index}
             className="grid-flow-dense"
           >
-            <ProjectItem project={item} lang={lang} theme={theme} />
+            <ResumeItem blog={item} lang={lang} theme={theme} />
           </Grid>
         ))}
       </Grid>

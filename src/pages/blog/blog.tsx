@@ -1,8 +1,8 @@
-import { Project as ProjectComponent } from "../components/project";
-import { fullArgs } from "../configs/types";
+import { Blog as BlogComponent } from "../components/blog";
+import { fullArgs } from "@/configs/types";
 import { Layout } from "./layout";
 
-export function Project(
+export function Blog(
   { lang, toggleLang, theme, toggleTheme }: fullArgs,
   ...props: any
 ) {
@@ -12,7 +12,7 @@ export function Project(
       toggleLang={toggleLang}
       theme={theme}
       toggleTheme={toggleTheme}
-      children={<ProjectComponent lang={lang} theme={theme} />}
+      children={<BlogComponent lang={lang} theme={theme} />}
     />
   );
 }

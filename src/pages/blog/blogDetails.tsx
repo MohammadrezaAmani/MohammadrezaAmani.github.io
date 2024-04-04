@@ -1,8 +1,8 @@
-import { fullArgs } from "../configs/types";
+import { fullArgs } from "@/configs/types";
 import { Layout } from "./layout";
 import { useParams } from "react-router-dom";
 import { BlogDetailsComponent } from "../components/blogDetailsComponent";
-import { blogData } from "../configs/blogdata";
+import { blogData } from "@/configs/blogdata";
 export function BlogDetails({
   lang,
   toggleLang,

@@ -1,7 +1,7 @@
 import React from "react";
-import { siteConfig } from "../configs/site";
+import { siteConfig } from "@/configs/site";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import { commonArgs } from "../configs/types";
+import { commonArgs } from "@/configs/types";
 
 function Footer({ lang, theme }: commonArgs) {
   return (

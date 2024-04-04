@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { commonArgs, blogItemTypes } from "../configs/types";
+import { commonArgs, blogItemTypes } from "@/configs/types";
 import { Typography, Grid } from "@mui/material";
-import { langs } from "../configs/site";
-import { blogData } from "../configs/blogdata";
+import { langs } from "@/configs/site";
+import { blogData } from "@/configs/blogdata";
 import { SearchBar } from "./search-bar";
 
 const BlogItem = ({ blog, lang, theme }: blogItemTypes) => {

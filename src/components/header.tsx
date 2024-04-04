@@ -11,10 +11,10 @@ import {
   Tooltip,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { getMenuItems, langs } from "../configs/site";
+import { getMenuItems, langs } from "@/configs/site";
 import Logo from "./logo";
 import TranslateIcon from "@mui/icons-material/Translate";
-import { fullArgs } from "../configs/types";
+import { fullArgs } from "@/configs/types";
 import { CiLight } from "react-icons/ci";
 import { CiDark } from "react-icons/ci";
 import { LiaTelegramPlane } from "react-icons/lia";
@@ -23,7 +23,7 @@ import { CiLinkedin } from "react-icons/ci";
 import { TbBrandGithub } from "react-icons/tb";
 
 import { Theme } from "./theme";
-import { profile } from "../configs/data";
+import { profile } from "@/configs/data";
 
 function Header({ lang, toggleLang, theme, toggleTheme }: fullArgs) {
   const [drawerOpen, setDrawerOpen] = React.useState(false);

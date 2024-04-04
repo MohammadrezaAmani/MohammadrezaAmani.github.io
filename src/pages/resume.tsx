@@ -1,8 +1,8 @@
-import { Blog as BlogComponent } from "../components/blog";
-import { fullArgs } from "../configs/types";
+import { Resume as ResumeComponent } from "../components/resume";
+import { fullArgs } from "@/configs/types";
 import { Layout } from "./layout";
 
-export function Blog(
+export function Resume(
   { lang, toggleLang, theme, toggleTheme }: fullArgs,
   ...props: any
 ) {
@@ -12,7 +12,7 @@ export function Blog(
       toggleLang={toggleLang}
       theme={theme}
       toggleTheme={toggleTheme}
-      children={<BlogComponent lang={lang} theme={theme} />}
+      children={<ResumeComponent lang={lang} theme={theme} />}
     />
   );
 }

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Skeleton } from "@mui/material";
-import { profile } from "../configs/data";
-import { commonArgs } from "../configs/types";
-import { langs } from "../configs/site";
+import { profile } from "@/configs/data";
+import { commonArgs } from "@/configs/types";
+import { langs } from "@/configs/site";
 
 function Image({
   imageLoaded,

@@ -1,5 +1,5 @@
 import Hero from "../components/hero";
-import { fullArgs } from "../configs/types";
+import { fullArgs } from "@/configs/types";
 import { Layout } from "./layout";
 
 export function Home({ lang, toggleLang, theme, toggleTheme }: fullArgs) {

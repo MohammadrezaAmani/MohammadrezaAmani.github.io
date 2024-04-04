@@ -1,5 +1,5 @@
 import React from "react";
-import { blogItemTypes } from "../configs/types";
+import { blogItemTypes } from "@/configs/types";
 import { Card, CardContent, Grid, Typography } from "@mui/material"; // Import Material-UI components
 
 export function BlogDetailsComponent({ lang, theme, blog }: blogItemTypes) {
