@@ -1,70 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Typography, Grid } from "@mui/material";
-
-import { dataType, result_Type, Data as DataType } from "../configs/types";
+import { Grid, CircularProgress } from "@mui/material";
 import { langs } from "../configs/site";
 import { SearchBar } from "../components/search-bar";
-import { categoryRoute } from "../configs/site";
-import { BaseUri } from "../configs/site";
-const DataItem = ({ data, lang, theme, slug }: dataType) => {
-  const [isVisible, setIsVisible] = useState(false);
+import { result_Type, Data as DataType } from "../configs/types";
+import { DataItem } from "./dataItem";
 
-  useEffect(() => {
-    const targetElement = document.getElementById(`data-item-${data.slug}`);
-    if (!targetElement) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { rootMargin: "0px", threshold: 0.1 }
-    );
-
-    observer.observe(targetElement);
-
-    return () => observer.disconnect();
-  }, [data.slug]);
-
-  return (
-    <div id={`data-item-${data.slug}`} className="shadow-lg rounded-sm p-6">
-      <a href={BaseUri + slug + "/" + data.slug} className="block w-full">
-        <div className="h-48 w-full ">
-          {isVisible && (
-            <img
-              src={data.image}
-              alt={data[lang as keyof typeof langs].title}
-              className="rounded-lg object-cover w-full h-full"
-            />
-          )}
-        </div>
-        <div className="flex justify-between mt-4">
-          <Typography variant="h6">
-            {data[lang as keyof typeof langs].title}
-          </Typography>
-          <Typography variant="caption">{data.updated_at}</Typography>
-        </div>
-        <Typography variant="body1" className="mt-2">
-          {data[lang as keyof typeof langs].description}
-        </Typography>
-      </a>
-      <div className="mt-2 flex flex-row flex-wrap space-x-1 w-full">
-        {data.tags.map((tag, index) => (
-          <Grid item key={index}>
-            <Typography
-              variant="caption"
-              className="bg-gray-400 p-1 rounded-md flex-wrap"
-            >
-              <a href={categoryRoute + "/" + tag}>{"#" + tag}</a>
-            </Typography>
-          </Grid>
-        ))}
-      </div>
-    </div>
-  );
-};
+const shownItemsPerPage = 12;
 
 const filterData = (data: DataType[], searchText: string, lang: string) =>
   data.filter(
@@ -78,12 +19,45 @@ const filterData = (data: DataType[], searchText: string, lang: string) =>
       item.tags.join(" ").toLowerCase().includes(searchText.toLowerCase())
   );
 
-export const Data = ({ lang, theme, data, slug }: result_Type) => {
-  const [pageData, setPageData] = useState(data);
+export const Data: React.FC<result_Type> = ({ lang, data, slug, theme }) => {
+  const [pageData, setPageData] = useState<DataType[]>([]);
+  const [pageNumber, setPageNumber] = useState(1);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setPageData(data.slice(0, pageNumber * shownItemsPerPage));
+    setLoading(false);
+  }, [data, pageNumber]);
+
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    setPageData(filterData(data, value, lang));
+    setPageNumber(1);
+    const filteredData = filterData(data, value, lang);
+    setPageData(filteredData.slice(0, shownItemsPerPage));
   };
+
+  useEffect(() => {
+    const handleObserver = (entries: IntersectionObserverEntry[]) => {
+      const target = entries[0];
+      if (target.isIntersecting) {
+        setPageNumber((prevPageNumber) => prevPageNumber + 1);
+      }
+    };
+
+    const options = {
+      root: null,
+      rootMargin: "20px",
+      threshold: 0,
+    };
+    const observer = new IntersectionObserver(handleObserver, options);
+    const target = document.getElementById("observer");
+    if (target) {
+      observer.observe(target);
+    }
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   return (
     <div className="m-8">
@@ -101,10 +75,16 @@ export const Data = ({ lang, theme, data, slug }: result_Type) => {
             key={index}
             className="grid-flow-dense"
           >
-            <DataItem data={item} lang={lang} theme={theme} slug={slug} />
+            <DataItem data={item} lang={lang} slug={slug} theme={theme} />
           </Grid>
         ))}
       </Grid>
+      {loading && (
+        <div className="flex justify-center mt-4">
+          <CircularProgress />
+        </div>
+      )}
+      <div id="observer"></div>
     </div>
   );
 };

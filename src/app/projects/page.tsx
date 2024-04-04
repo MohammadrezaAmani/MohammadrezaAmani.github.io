@@ -3,5 +3,5 @@ import { commonArgs } from "../../configs/types";
 import { blogData } from "../../configs/blogdata";
 
 export default function Project({ theme, lang, slug }: commonArgs) {
-  return <Data lang={lang} theme={theme} slug="/#/project" data={blogData} />;
+  return <Data lang={lang} theme={theme} slug={slug} data={blogData} />;
 }

@@ -1,11 +1,12 @@
-import React from "react";
 import { commonArgs } from "../configs/types";
-function logo({ theme, lang, slug }: commonArgs) {
+import { siteConfig } from "../configs/site";
+
+function Slug({ theme, lang, slug }: commonArgs) {
   return (
-    <a href="/" className="font-sacramento text-slate-600 text-xl">
-      Mohammadreza Amani
+    <a href={slug} className={`font-sacramento text-xl ${theme.black}`}>
+      {siteConfig.en.title}
     </a>
   );
 }
 
-export default logo;
+export default Slug;

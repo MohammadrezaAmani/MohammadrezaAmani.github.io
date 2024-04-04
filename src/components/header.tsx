@@ -12,8 +12,7 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import TranslateIcon from "@mui/icons-material/Translate";
-import { CiLight } from "react-icons/ci";
-import { CiDark } from "react-icons/ci";
+import { CiLight, CiDark } from "react-icons/ci";
 import { LiaTelegramPlane } from "react-icons/lia";
 import { FaInstagram } from "react-icons/fa";
 import { CiLinkedin } from "react-icons/ci";
@@ -25,8 +24,9 @@ import Logo from "./logo";
 import { Theme } from "./theme";
 import { profile } from "../configs/data";
 
-function Header({ lang, toggleLang, theme, toggleTheme }: fullArgs) {
+const Header = ({ lang, toggleLang, theme, toggleTheme }: fullArgs) => {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
+
   const toggleDrawer =
     (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
       if (
@@ -40,6 +40,21 @@ function Header({ lang, toggleLang, theme, toggleTheme }: fullArgs) {
     };
 
   const iconTextColor = "text-slate-600";
+
+  const MenuItem = ({ item, index }: { item: any; index: number }) => (
+    <ListItem button key={index}>
+      <a href={item.slug} className="text-xs flex flex-row font-vazir">
+        <ListItemIcon>{item.icon}</ListItemIcon>
+        <ListItemText
+          className="text-xs"
+          primary={item.text}
+          sx={{
+            fontSize: "0.75rem",
+          }}
+        />
+      </a>
+    </ListItem>
+  );
 
   return (
     <AppBar
@@ -93,9 +108,9 @@ function Header({ lang, toggleLang, theme, toggleTheme }: fullArgs) {
             onClose={toggleDrawer(false)}
             className="drawer-menu"
           >
-            <div className="flex-auto justify-between ">
+            <div className="flex-auto justify-between">
               <div>
-                <div className=" bg-white max-w-52">
+                <div className="bg-white max-w-52">
                   <img
                     src="/logo512.png"
                     alt="logo"
@@ -105,32 +120,17 @@ function Header({ lang, toggleLang, theme, toggleTheme }: fullArgs) {
                 <div className="p-4 pt-10">
                   <List>
                     {getMenuItems(lang).map((item, index) => (
-                      <ListItem button key={index}>
-                        <a
-                          href={item.slug}
-                          className="text-xs flex flex-row font-vazir"
-                        >
-                          <ListItemIcon>{item.icon}</ListItemIcon>
-                          <ListItemText
-                            className="text-xs "
-                            primary={item.text}
-                            sx={{
-                              // i wanna be xs font
-                              fontSize: "0.75rem",
-                            }}
-                          />
-                        </a>
-                      </ListItem>
+                      <MenuItem key={index} item={item} index={index} />
                     ))}
                   </List>
                 </div>
               </div>
-              <div className="flex flex-col px-8 ">
+              <div className="flex flex-col px-8">
                 <div className="flex flex-row justify-between mb-4">
                   <TranslateIcon onClick={toggleLang} />
                   {theme === Theme.light ? (
                     <CiLight
-                      className="w-6 h-6 text-yellow-400 "
+                      className="w-6 h-6 text-yellow-400"
                       onClick={toggleTheme}
                     />
                   ) : (
@@ -166,6 +166,6 @@ function Header({ lang, toggleLang, theme, toggleTheme }: fullArgs) {
       </Toolbar>
     </AppBar>
   );
-}
+};
 
 export default Header;

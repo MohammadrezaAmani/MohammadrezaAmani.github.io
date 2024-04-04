@@ -5,8 +5,8 @@ import { projectData } from "../../../configs/projectdata";
 import { commonArgs } from "../../../configs/types";
 
 export default function ProjectDetails({ theme, lang, slug }: commonArgs) {
-  const { projectslug } = useParams();
-  const project = projectData.find((project) => project.slug === projectslug);
+  const { projectid } = useParams();
+  const project = projectData.find((project) => project.slug === projectid);
 
   if (!project) {
     return <div>Not Found</div>;

@@ -115,6 +115,7 @@ export type Data = {
   created_at: string;
   updated_at: string;
 };
+
 export type dataType = {
   data: Data;
   lang: string;

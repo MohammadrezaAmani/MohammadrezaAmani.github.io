@@ -1,7 +1,7 @@
 export const Theme = {
   dark: {
     primary: "bg-gray-900",
-    secondary: "bg-gray-700",
+    secondary: "bg-gray-900",
     tertiary: "bg-gray-600",
     quaternary: "bg-gray-500",
     quinary: "bg-gray-400",
@@ -12,7 +12,7 @@ export const Theme = {
   },
   light: {
     primary: "bg-gray-100",
-    secondary: "bg-gray-200",
+    secondary: "bg-gray-900",
     tertiary: "bg-gray-300",
     quaternary: "bg-gray-400",
     quinary: "bg-gray-500",

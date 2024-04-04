@@ -1,9 +1,10 @@
 import React, { Suspense } from "react";
-import { useState, useEffect, startTransition } from "react";
+import { useState, useEffect, startTransition, useMemo } from "react";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import { Theme } from "./components/theme";
 import { langs } from "./configs/site";
-
+import Header from "./components/header";
+import Footer from "./components/footer";
 import { routes } from "./configs/routes";
 
 import { Layout } from "./app/layout";
@@ -69,11 +70,7 @@ export function App() {
       localStorage.setItem("lang", newLang);
     });
   };
-
-  const toggleLang = () => {
-    const newLang = lang === langs.en.short ? langs.fa.short : langs.en.short;
-    updateLanguage(newLang);
-  };
+  // Memoize the Header component
 
   // const updateFontFamily = (lang: string) => {
   //   document.documentElement.style.fontFamily =
@@ -95,22 +92,39 @@ export function App() {
     }
   };
 
-  const toggleTheme = () => {
-    const newTheme = theme === Theme.dark ? Theme.light : Theme.dark;
-    setTheme(newTheme);
-    localStorage.setItem("theme", JSON.stringify(newTheme));
-  };
+  const memoizedHeader = useMemo(() => {
+    const toggleLang = () => {
+      const newLang = lang === langs.en.short ? langs.fa.short : langs.en.short;
+      updateLanguage(newLang);
+    };
+    const toggleTheme = () => {
+      const newTheme = theme === Theme.dark ? Theme.light : Theme.dark;
+      setTheme(newTheme);
+      localStorage.setItem("theme", JSON.stringify(newTheme));
+    };
 
+    return (
+      <Header
+        lang={lang}
+        toggleLang={toggleLang}
+        theme={theme}
+        toggleTheme={toggleTheme}
+      />
+    );
+  }, [lang, theme]);
+  // Memoize the Footer component
+  const memoizedFooter = useMemo(
+    () => <Footer lang={lang} theme={theme} slug="/" />,
+    [lang, theme]
+  );
   const router = createHashRouter([
     {
       path: routes.home.path,
       element: (
         <Suspense fallback={null}>
           <Layout
-            lang={lang}
-            toggleLang={toggleLang}
-            theme={theme}
-            toggleTheme={toggleTheme}
+            memoizedHeader={memoizedHeader}
+            memoizedFooter={memoizedFooter}
             children={
               <Home lang={lang} theme={theme} slug={routes.home.path} />
             }
@@ -123,10 +137,8 @@ export function App() {
       element: (
         <Suspense fallback={null}>
           <Layout
-            lang={lang}
-            toggleLang={toggleLang}
-            theme={theme}
-            toggleTheme={toggleTheme}
+            memoizedHeader={memoizedHeader}
+            memoizedFooter={memoizedFooter}
             children={
               <Blog lang={lang} theme={theme} slug={routes.blog.path} />
             }
@@ -139,10 +151,8 @@ export function App() {
       element: (
         <Suspense fallback={null}>
           <Layout
-            lang={lang}
-            toggleLang={toggleLang}
-            theme={theme}
-            toggleTheme={toggleTheme}
+            memoizedHeader={memoizedHeader}
+            memoizedFooter={memoizedFooter}
             children={
               <BlogDetails
                 lang={lang}
@@ -159,10 +169,8 @@ export function App() {
       element: (
         <Suspense fallback={null}>
           <Layout
-            lang={lang}
-            toggleLang={toggleLang}
-            theme={theme}
-            toggleTheme={toggleTheme}
+            memoizedHeader={memoizedHeader}
+            memoizedFooter={memoizedFooter}
             children={
               <Project lang={lang} theme={theme} slug={routes.project.path} />
             }
@@ -175,10 +183,8 @@ export function App() {
       element: (
         <Suspense fallback={null}>
           <Layout
-            lang={lang}
-            toggleLang={toggleLang}
-            theme={theme}
-            toggleTheme={toggleTheme}
+            memoizedHeader={memoizedHeader}
+            memoizedFooter={memoizedFooter}
             children={
               <ProjectDetails
                 lang={lang}
@@ -195,10 +201,8 @@ export function App() {
       element: (
         <Suspense fallback={null}>
           <Layout
-            lang={lang}
-            toggleLang={toggleLang}
-            theme={theme}
-            toggleTheme={toggleTheme}
+            memoizedHeader={memoizedHeader}
+            memoizedFooter={memoizedFooter}
             children={
               <Experience
                 lang={lang}
@@ -215,10 +219,8 @@ export function App() {
       element: (
         <Suspense fallback={null}>
           <Layout
-            lang={lang}
-            toggleLang={toggleLang}
-            theme={theme}
-            toggleTheme={toggleTheme}
+            memoizedHeader={memoizedHeader}
+            memoizedFooter={memoizedFooter}
             children={
               <ExperienceDetails
                 lang={lang}
@@ -235,10 +237,8 @@ export function App() {
       element: (
         <Suspense fallback={null}>
           <Layout
-            lang={lang}
-            toggleLang={toggleLang}
-            theme={theme}
-            toggleTheme={toggleTheme}
+            memoizedHeader={memoizedHeader}
+            memoizedFooter={memoizedFooter}
             children={
               <Education
                 lang={lang}
@@ -255,10 +255,8 @@ export function App() {
       element: (
         <Suspense fallback={null}>
           <Layout
-            lang={lang}
-            toggleLang={toggleLang}
-            theme={theme}
-            toggleTheme={toggleTheme}
+            memoizedHeader={memoizedHeader}
+            memoizedFooter={memoizedFooter}
             children={
               <Resume lang={lang} theme={theme} slug={routes.resume.path} />
             }
@@ -271,10 +269,8 @@ export function App() {
       element: (
         <Suspense fallback={null}>
           <Layout
-            lang={lang}
-            toggleLang={toggleLang}
-            theme={theme}
-            toggleTheme={toggleTheme}
+            memoizedHeader={memoizedHeader}
+            memoizedFooter={memoizedFooter}
             children={
               <Search lang={lang} theme={theme} slug={routes.search.path} />
             }
@@ -287,10 +283,8 @@ export function App() {
       element: (
         <Suspense fallback={null}>
           <Layout
-            lang={lang}
-            toggleLang={toggleLang}
-            theme={theme}
-            toggleTheme={toggleTheme}
+            memoizedHeader={memoizedHeader}
+            memoizedFooter={memoizedFooter}
             children={
               <SearchDetails
                 lang={lang}
@@ -307,10 +301,8 @@ export function App() {
       element: (
         <Suspense fallback={null}>
           <Layout
-            lang={lang}
-            toggleLang={toggleLang}
-            theme={theme}
-            toggleTheme={toggleTheme}
+            memoizedHeader={memoizedHeader}
+            memoizedFooter={memoizedFooter}
             children={
               <Category lang={lang} theme={theme} slug={routes.category.path} />
             }
@@ -323,10 +315,8 @@ export function App() {
       element: (
         <Suspense fallback={null}>
           <Layout
-            lang={lang}
-            toggleLang={toggleLang}
-            theme={theme}
-            toggleTheme={toggleTheme}
+            memoizedHeader={memoizedHeader}
+            memoizedFooter={memoizedFooter}
             children={
               <CategoryDetails
                 lang={lang}
@@ -343,10 +333,8 @@ export function App() {
       element: (
         <Suspense fallback={null}>
           <Layout
-            lang={lang}
-            toggleLang={toggleLang}
-            theme={theme}
-            toggleTheme={toggleTheme}
+            memoizedHeader={memoizedHeader}
+            memoizedFooter={memoizedFooter}
             children={<Tag lang={lang} theme={theme} slug={routes.tag.path} />}
           />
         </Suspense>
@@ -357,10 +345,8 @@ export function App() {
       element: (
         <Suspense fallback={null}>
           <Layout
-            lang={lang}
-            toggleLang={toggleLang}
-            theme={theme}
-            toggleTheme={toggleTheme}
+            memoizedHeader={memoizedHeader}
+            memoizedFooter={memoizedFooter}
             children={
               <TagDetails
                 lang={lang}
@@ -377,10 +363,8 @@ export function App() {
       element: (
         <Suspense fallback={null}>
           <Layout
-            lang={lang}
-            toggleLang={toggleLang}
-            theme={theme}
-            toggleTheme={toggleTheme}
+            memoizedHeader={memoizedHeader}
+            memoizedFooter={memoizedFooter}
             children={
               <About lang={lang} theme={theme} slug={routes.about.path} />
             }
@@ -393,10 +377,8 @@ export function App() {
       element: (
         <Suspense fallback={null}>
           <Layout
-            lang={lang}
-            toggleLang={toggleLang}
-            theme={theme}
-            toggleTheme={toggleTheme}
+            memoizedHeader={memoizedHeader}
+            memoizedFooter={memoizedFooter}
             children={
               <Contact lang={lang} theme={theme} slug={routes.contact.path} />
             }
@@ -409,10 +391,8 @@ export function App() {
       element: (
         <Suspense fallback={null}>
           <Layout
-            lang={lang}
-            toggleLang={toggleLang}
-            theme={theme}
-            toggleTheme={toggleTheme}
+            memoizedHeader={memoizedHeader}
+            memoizedFooter={memoizedFooter}
             children={<FAQ lang={lang} theme={theme} slug={routes.faq.path} />}
           />
         </Suspense>
@@ -423,10 +403,8 @@ export function App() {
       element: (
         <Suspense fallback={null}>
           <Layout
-            lang={lang}
-            toggleLang={toggleLang}
-            theme={theme}
-            toggleTheme={toggleTheme}
+            memoizedHeader={memoizedHeader}
+            memoizedFooter={memoizedFooter}
             children={
               <FAQ lang={lang} theme={theme} slug={routes.faqDetails.path} />
             }
@@ -439,10 +417,8 @@ export function App() {
       element: (
         <Suspense fallback={null}>
           <Layout
-            lang={lang}
-            toggleLang={toggleLang}
-            theme={theme}
-            toggleTheme={toggleTheme}
+            memoizedHeader={memoizedHeader}
+            memoizedFooter={memoizedFooter}
             children={
               <Courses lang={lang} theme={theme} slug={routes.courses.path} />
             }
@@ -455,10 +431,8 @@ export function App() {
       element: (
         <Suspense fallback={null}>
           <Layout
-            lang={lang}
-            toggleLang={toggleLang}
-            theme={theme}
-            toggleTheme={toggleTheme}
+            memoizedHeader={memoizedHeader}
+            memoizedFooter={memoizedFooter}
             children={
               <CoursesDetails
                 lang={lang}
@@ -475,10 +449,8 @@ export function App() {
       element: (
         <Suspense fallback={null}>
           <Layout
-            lang={lang}
-            toggleLang={toggleLang}
-            theme={theme}
-            toggleTheme={toggleTheme}
+            memoizedHeader={memoizedHeader}
+            memoizedFooter={memoizedFooter}
             children={
               <Publications
                 lang={lang}
@@ -495,10 +467,8 @@ export function App() {
       element: (
         <Suspense fallback={null}>
           <Layout
-            lang={lang}
-            toggleLang={toggleLang}
-            theme={theme}
-            toggleTheme={toggleTheme}
+            memoizedHeader={memoizedHeader}
+            memoizedFooter={memoizedFooter}
             children={
               <PublicationDetails
                 lang={lang}
@@ -515,10 +485,8 @@ export function App() {
       element: (
         <Suspense fallback={null}>
           <Layout
-            lang={lang}
-            toggleLang={toggleLang}
-            theme={theme}
-            toggleTheme={toggleTheme}
+            memoizedHeader={memoizedHeader}
+            memoizedFooter={memoizedFooter}
             children={
               <GithubAPI
                 lang={lang}
