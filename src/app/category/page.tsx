@@ -1,11 +1,7 @@
-import React from "react";
+import { Data } from "../../components/dataResultComponent";
 import { commonArgs } from "../../configs/types";
-function page({ theme, lang, slug }: commonArgs) {
-  return (
-    <div>
-      <p>Hello World</p>
-    </div>
-  );
-}
+import { blogData } from "../../configs/blogdata";
 
-export default page;
+export default function Category({ theme, lang, slug }: commonArgs) {
+  return <Data lang={lang} theme={theme} slug={slug} data={blogData} />;
+}

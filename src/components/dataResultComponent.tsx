@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Grid, CircularProgress } from "@mui/material";
+
 import { langs } from "../configs/site";
 import { SearchBar } from "../components/search-bar";
 import { result_Type, Data as DataType } from "../configs/types";

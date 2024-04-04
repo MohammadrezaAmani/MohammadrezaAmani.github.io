@@ -19,7 +19,6 @@ import { CiLinkedin } from "react-icons/ci";
 import { TbBrandGithub } from "react-icons/tb";
 import { getMenuItems, langs } from "../configs/site";
 import { fullArgs } from "../configs/types";
-
 import Logo from "./logo";
 import { Theme } from "./theme";
 import { profile } from "../configs/data";
