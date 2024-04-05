@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { Card, CardContent, Grid, Typography } from "@mui/material";
 
 import { commonArgs } from "../../../configs/types";
-import { blogData } from "../../../configs/blogdata";
+import BlogData from "../../../configs/blog/data";
 import { langs } from "../../../configs/site";
 
 import { routes } from "../../../configs/routes";
@@ -11,7 +11,7 @@ import { BaseUri } from "../../../configs/site";
 export default function BlogDetails({ theme, lang, slug }: commonArgs) {
   const { blogid } = useParams();
   console.log(blogid);
-  const blog = blogData.find((blog) => blog.slug === blogid);
+  const blog = BlogData.find((blog) => blog.slug === blogid);
 
   if (!blog) {
     return <div>Not Found</div>;
