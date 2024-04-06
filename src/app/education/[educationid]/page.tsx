@@ -1,12 +1,12 @@
 import { useParams } from "react-router-dom";
+
 import { commonArgs } from "../../../configs/types";
-import { blogData } from "../../../configs/blogdata";
+import EducationData from "../../../configs/education/data";
 import { DataDetails } from "../../../components/dataResultDetailsComponent";
 
-export default function BlogDetails({ theme, lang, slug }: commonArgs) {
-  const { publicationid } = useParams();
-  
-  const data = blogData.find( (item) => item.slug === publicationid);
+export default function EducationDetails({ theme, lang, slug }: commonArgs) {
+  const { educationid } = useParams();
+  const data = EducationData.find((item) => item.slug === educationid);
 
   if (!data) {
     return <div>Not Found</div>;

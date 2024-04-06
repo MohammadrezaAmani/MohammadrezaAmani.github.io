@@ -141,6 +141,17 @@ export const routes = {
       description: "جزئیات بلاگ",
     },
   },
+  educationDetails: {
+    path: "/education/:educationid",
+    en: {
+      title: "Education",
+      description: "Mohammadreza Amani's education",
+    },
+    fa: {
+      title: "تحصیلات",
+      description: "تحصیلات محمدرضا امانی",
+    },
+  },
   search: {
     path: "/search",
     en: {

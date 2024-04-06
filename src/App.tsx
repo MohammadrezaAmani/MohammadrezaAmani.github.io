@@ -21,6 +21,9 @@ const Contact = React.lazy(() => import("./app/contact/page"));
 const FAQ = React.lazy(() => import("./app/faq/page"));
 const Experience = React.lazy(() => import("./app/experiences/page"));
 const Education = React.lazy(() => import("./app/education/page"));
+const EducationDetails = React.lazy(
+  () => import("./app/education/[educationid]/page")
+);
 const Resume = React.lazy(() => import("./app/resume/page"));
 const Search = React.lazy(() => import("./app/search/page"));
 const ExperienceDetails = React.lazy(
@@ -241,6 +244,24 @@ export function App() {
             memoizedFooter={memoizedFooter}
             children={
               <Education
+                lang={lang}
+                theme={theme}
+                slug={routes.education.path}
+              />
+            }
+          />
+        </Suspense>
+      ),
+    },
+    {
+      path: routes.educationDetails.path,
+      element: (
+        <Suspense fallback={null}>
+          <Layout
+            memoizedHeader={memoizedHeader}
+            memoizedFooter={memoizedFooter}
+            children={
+              <EducationDetails
                 lang={lang}
                 theme={theme}
                 slug={routes.education.path}
