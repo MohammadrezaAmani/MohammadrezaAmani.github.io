@@ -1,4 +1,5 @@
 import { Card, CardContent, Grid, Typography } from "@mui/material";
+import { IoReturnUpBackOutline } from "react-icons/io5";
 
 import { dataType } from "../configs/types";
 
@@ -11,19 +12,38 @@ export function DataDetails({ theme, lang, slug, data }: dataType) {
   if (!lang_data) {
     lang_data = data.langs[0];
   }
+  slug = slug.split(":")[0];
   return (
     <div className="mx-4">
       <Card className="max-w-3xl mx-auto mt-8 bg-white shadow-md rounded-lg overflow-hidden ">
         <CardContent>
           <div className="flex items-center mb-4">
-            <img src={data.logo} alt="logo" className="w-16 h-auto mr-4" />
-            <div>
-              <Typography variant="h5" className="mb-1">
-                {lang_data.title}
-              </Typography>
-              <Typography variant="subtitle2" color="textSecondary">
+            <div className="flex flex-col">
+              <div className="flex items-center ">
+                <img src={data.logo} alt="logo" className="w-16 h-auto mr-4" />
+                <Typography variant="h5" className="mb-1">
+                  {lang_data.title}
+                </Typography>
+              </div>
+              <Typography
+                variant="subtitle2"
+                color="textSecondary"
+                sx={{
+                  marginLeft: "2.5rem",
+                  marginRight: "2.5rem",
+                }}
+              >
                 {data.created_at}
               </Typography>
+            </div>
+            <div className="flex-grow"></div>
+            <div>
+              <a
+                href={BaseUri + slug}
+                className="text-blue-500 hover:underline"
+              >
+                <IoReturnUpBackOutline className="w-6 h-6" />
+              </a>
             </div>
           </div>
           <img src={data.image} alt="data" className="w-full mb-4 rounded-lg" />
@@ -34,11 +54,7 @@ export function DataDetails({ theme, lang, slug, data }: dataType) {
             {lang_data.data}
           </div>
         </CardContent>
-        <Grid
-          container
-          spacing={2}
-          className="p-4"
-        >
+        <Grid container spacing={2} className="p-4">
           {data.tags.map((tag, index) => (
             <Grid item key={index}>
               <Typography
