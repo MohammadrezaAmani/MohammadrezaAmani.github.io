@@ -11,7 +11,7 @@ const Data: DataType[] = [
         title: "Paya Corporation",
         description: "Backend Python and Go Developer",
         data: (
-          <div className="bg-gray-100 p-8 rounded-lg shadow-md">
+          <div  >
             <p className="text-lg text-gray-800 leading-relaxed">
               I had the privilege of working at Paya Corporation, a prominent
               governmental company in Iran, where I served as a Backend
@@ -34,26 +34,26 @@ const Data: DataType[] = [
         ),
       },
       {
-        lang: languages.en.short,
+        lang: languages.fa.short,
         title: "شرکت پایا",
-        description: "توسعه‌دهندهٔ پشتیبانی Python و Go",
+        description: "توسعه‌دهندهٔ بک‌اند Python و Go",
         data: (
-          <div className="bg-gray-100 p-8 rounded-lg shadow-md">
+          <div  >
             <p className="text-lg text-gray-800 leading-relaxed">
               من افتخار کار در شرکت پایا، یک شرکت دولتی برجسته در ایران، را
-              داشتم که در آن به عنوان یک توسعه‌دهندهٔ پشتیبانی فعالیت می‌کردم و
+              داشتم که در آن به عنوان یک توسعه‌دهندهٔ بک‌اند فعالیت می‌کردم و
               تخصص من در زمینه Python و Go بود.
             </p>
             <p className="mt-4 text-gray-700">
               در طول زمانی که در پایا بودم، به توسعه سیستم‌های بحرانی مختلف کمک
               کردم و از Python و Go برای ساخت راه‌حل‌های قوی و مقیاس‌پذیر در
-              پشتیبانی از پروژه‌های دولتی استفاده کردم. با همکاری نزدیک با
+              بک‌اند از پروژه‌های دولتی استفاده کردم. با همکاری نزدیک با
               تیم‌های چندگانه، نقش کلیدی در طراحی و اجرای APIهای کارآمد و
               میکروسرویس‌ها را برای حمایت از پروژه‌های مختلف دولتی داشتم.
             </p>
             <p className="mt-4 text-gray-700">
               تجربه‌ام در شرکت پایا، غنی‌کننده بود و به من امکان داد تا تخصص خود
-              را در زمینه توسعه پشتیبانی عمیق کنم و همچنین در پروژه‌های اثرگذاری
+              را در زمینه توسعه بک‌اند عمیق کنم و همچنین در پروژه‌های اثرگذاری
               که به بخش عمومی خدمت می‌کرد، مشارکت داشته باشم.
             </p>
           </div>
@@ -77,7 +77,7 @@ const Data: DataType[] = [
         title: "Arushop",
         description: "Django and Next.js Full Stack Developer",
         data: (
-          <div className="bg-gray-100 p-8 rounded-lg shadow-md">
+          <div  >
             <p className="text-lg text-gray-800 leading-relaxed">
               At Arushop, an e-commerce startup, I had the opportunity to work
               as a Full Stack Developer, specializing in Django and Next.js.
@@ -104,7 +104,7 @@ const Data: DataType[] = [
         title: "آروشاپ",
         description: "توسعه‌دهندهٔ Full Stack با Django و Next.js",
         data: (
-          <div className="bg-gray-100 p-8 rounded-lg shadow-md">
+          <div  >
             <p className="text-lg text-gray-800 leading-relaxed">
               در آروشاپ، یک شروع‌کنندهٔ تجارت الکترونیک، من امکان کار به عنوان
               یک توسعه‌دهندهٔ Full Stack با تخصص در Django و Next.js را داشتم.
@@ -112,7 +112,7 @@ const Data: DataType[] = [
             <p className="mt-4 text-gray-700">
               نقش من شامل طراحی و توسعه برنامه‌های وب قابل مقیاس بود، از طراحی
               رابط‌های کاربری تعاملی با استفاده از Next.js تا پیاده‌سازی
-              عملکردهای پشتیبانی با استفاده از Django. با همکاری نزدیک با
+              عملکردهای بک‌اند با استفاده از Django. با همکاری نزدیک با
               تیم‌های محصول و طراحی، به توسعه یک پلتفرم تجارت الکترونیک پویا و
               کاربرپسند که به نیازهای خریداران آنلاین مدرن پاسخ می‌دهد، کمک
               کردم.
@@ -144,7 +144,7 @@ const Data: DataType[] = [
         title: "Thritatech",
         description: "Backend Python Developer with Django",
         data: (
-          <div className="bg-gray-100 p-8 rounded-lg shadow-md">
+          <div  >
             <p className="text-lg text-gray-800 leading-relaxed">
               I had the privilege of working as a Backend Python Developer at
               Thritatech, where I specialized in building scalable web
@@ -169,16 +169,16 @@ const Data: DataType[] = [
       {
         lang: languages.fa.short,
         title: "ثریتاتک",
-        description: "توسعه‌دهندهٔ پشتیبانی Python با Django",
+        description: "توسعه‌دهندهٔ بک‌اند Python با Django",
         data: (
-          <div className="bg-gray-100 p-8 rounded-lg shadow-md">
+          <div  >
             <p className="text-lg text-gray-800 leading-relaxed">
-              من افتخار کار به عنوان یک توسعه‌دهندهٔ پشتیبانی Python در ثریتاتک
+              من افتخار کار به عنوان یک توسعه‌دهندهٔ بک‌اند Python در ثریتاتک
               را داشتم، جایی که در زمینه ساخت برنامه‌های وب قابل مقیاس با
               استفاده از Django تخصص داشتم.
             </p>
             <p className="mt-4 text-gray-700">
-              در ثریتاتک، با یک تیم استعدادمند همکاری کردم تا سیستم‌های پشتیبانی
+              در ثریتاتک، با یک تیم استعدادمند همکاری کردم تا سیستم‌های بک‌اند
               قوی را توسعه دهم، از ویژگی‌های قدرتمند Django برای ارائه
               راه‌حل‌های با عملکرد بالا استفاده کردم. از طراحی و پیاده‌سازی
               APIهای RESTful تا بهینه‌سازی پرس‌وجوهای پایگاه‌داده، نقش اساسی در
@@ -186,7 +186,7 @@ const Data: DataType[] = [
             </p>
             <p className="mt-4 text-gray-700">
               تجربه‌ام در ثریتاتک بسیار مفید بود و به من امکان داد تا تخصص خود
-              را در توسعه پشتیبانی عمیق‌تر کنم و به موفقیت پروژه‌های نوآورانه که
+              را در توسعه بک‌اند عمیق‌تر کنم و به موفقیت پروژه‌های نوآورانه که
               مرزهای فناوری را گسترش می‌دادند، کمک کنم.
             </p>
           </div>

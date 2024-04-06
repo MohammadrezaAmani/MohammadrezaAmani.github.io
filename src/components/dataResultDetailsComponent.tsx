@@ -7,6 +7,7 @@ import { BaseUri } from "../configs/site";
 
 export function DataDetails({ theme, lang, slug, data }: dataType) {
   let lang_data = data.langs.find((item) => item.lang === lang);
+  console.log(lang_data, lang, data.langs);
   if (!lang_data) {
     lang_data = data.langs[0];
   }
@@ -29,9 +30,15 @@ export function DataDetails({ theme, lang, slug, data }: dataType) {
           <Typography variant="body1" className="mb-4">
             {lang_data.description}
           </Typography>
-          <div className="data-content">{lang_data.data}</div>
+          <div className="data-content bg-gray-100 p-8 rounded-lg shadow-md my-3">
+            {lang_data.data}
+          </div>
         </CardContent>
-        <Grid container spacing={2} className="p-4">
+        <Grid
+          container
+          spacing={2}
+          className="p-4"
+        >
           {data.tags.map((tag, index) => (
             <Grid item key={index}>
               <Typography

@@ -13,21 +13,18 @@ import { VscGithubAlt } from "react-icons/vsc";
 const Data = {
   image: "https://avatars.githubusercontent.com/u/64687226?v=4",
   en: {
-    title: "About Us",
+    title: "Mohammadreza Amani",
     content: (
       <p>
-        <b> Mohammadreza Amani </b>
-        <br />
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nunc nec
-        dui fermentum tincidunt. Ut ultricies, mi sit amet luctus tincidunt,
-        nunc libero fringilla eros, vel tincidunt erat sapien vel eros.
-        Suspendisse potenti. Nullam sit amet libero nec nunc aliquam venenatis.
-        Sed auctor, mi nec tincidunt sollicitudin, orci mi tincidunt mi, vel
-        tincidunt odio purus eu purus. Sed nec nunc nec nunc fermentum
-        tincidunt. Nullam sit amet libero nec nunc aliquam venenatis. Sed
-        auctor, mi nec tincidunt sollicitudin, orci mi tincidunt mi, vel
-        tincidunt odio purus eu purus. Sed nec nunc nec nunc fermentum
-        tincidunt.
+        Experienced Software Engineer with a passion for innovation and
+        problem-solving. Dedicated to crafting high-quality software solutions
+        that exceed expectations. Proficient in a wide range of technologies
+        including React, Node.js, TypeScript, and GraphQL, with a strong
+        foundation in DevOps practices such as Docker, Kubernetes, CI/CD, and
+        serverless architecture. Skilled in Agile methodologies with a focus on
+        TDD and DDD principles. Committed to continuous learning and staying
+        updated with the latest industry trends. Excited to collaborate on
+        challenging projects and contribute to the success of dynamic teams.,
       </p>
     ),
     imageText: "Image Text",
@@ -83,15 +80,16 @@ const Data = {
     },
   },
   fa: {
-    title: "درباره ما",
+    title: "محمدرضا امانی",
     content: (
       <p>
-        <b> محمدرضا امانی </b>
-        <br />
-        لورم ایپسوم (Lorem Ipsum)، متنی آزمایشی و بی‌معنی است که صنعت چاپ از آن
-        برای طراحی گرافیکی و طراحی متن استفاده می‌کند. طراح گرافیک باید نوع و
-        اندازه متن را مشخص کند و این متن باید نشان دهنده تمامی خصوصیات فونت،
-        اندازه، رنگ و فضا باشد.
+        مهندس نرم‌افزار با تجربه، با علاقه‌ی فراوان به نوآوری و حل مسائل. متعهد
+        به ایجاد راه‌حل‌های نرم‌افزاری با کیفیت بالا که انتظارات را برآورده
+        می‌کنند. ماهر در زمینه‌ی تکنولوژی‌های گوناگون از جمله ری‌اکت، نود.جی‌اس،
+        تایپ‌اسکریپت و جی‌کیوال، با پایه‌ی استوار در روش‌های DevOps مانند داکر،
+        کوبرنیتیز، CI/CD و معماری سرورلس. مسلط به روش‌های چابک با تمرکز بر اصول
+        TDD و DDD. متعهد به یادگیری مداوم و دنبال کردن آخرین روندهای صنعت. مشتاق
+        به همکاری در پروژه‌های چالش‌برانگیز و سهیم شدن در موفقیت تیم‌های پویا.
       </p>
     ),
     imageText: "متن تصویر",
@@ -140,12 +138,6 @@ const Data = {
           icon: PiLinkedinLogoThin,
           url: "https://www.linkedin.com/in/mohammadreza-amani",
         },
-        // {
-        //   title: "توییتر",
-        //   content: "https://twitter.com/moreamani",
-        //   icon: RiTwitterXLine,
-        //   url: "https://twitter.com/moreamani",
-        // },
         {
           title: "گیت‌هاب",
           content: "@MohammadrezaAmani",

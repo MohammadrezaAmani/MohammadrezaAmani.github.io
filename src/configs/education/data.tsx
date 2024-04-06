@@ -1,4 +1,4 @@
-import { Data as DataType} from "../types";
+import { Data as DataType } from "../types";
 import { langs as languages } from "../langs";
 const Data: DataType[] = [
   {
@@ -10,7 +10,7 @@ const Data: DataType[] = [
         title: "Amirkabir University of Technolgy",
         description: "Bachelor's degree in Computer Science.",
         data: (
-          <div className="bg-gray-100 p-8 rounded-lg shadow-md">
+          <div>
             <p className="text-lg text-gray-800 leading-relaxed">
               In 2020, the doors of opportunity swung wide open as I stepped
               into the hallowed halls of{" "}
@@ -59,7 +59,7 @@ const Data: DataType[] = [
         title: "دانشگاه صنعتی امیرکبیر (پلی‌تکنیک تهران)",
         description: "دوره کارشناسی در رشته علوم کامپیوتر.",
         data: (
-          <div className="bg-gray-100 p-8 rounded-lg shadow-md">
+          <div>
             <p className="text-lg text-gray-800 leading-relaxed">
               در سال ۲۰۲۰، درب فرصت‌ها به‌گشاد و من وارد اتاق‌های مقدس دانشگاه
               صنعتی امیرکبیر شدم. کمتر کسی می‌دانست که این لحظه حیاتی، چگونه سنگ
@@ -113,7 +113,7 @@ const Data: DataType[] = [
         description:
           "High school experience in Talented Students Organization.",
         data: (
-          <div className="bg-gray-100 p-8 rounded-lg shadow-md">
+          <div>
             <p className="text-lg text-gray-800 leading-relaxed">
               In 2014, my journey through the realm of academic excellence began
               as I joined the prestigious{" "}
@@ -158,7 +158,7 @@ const Data: DataType[] = [
         title: "سازمان استعدادهای درخشان",
         description: "تجربه دبیرستانی در سازمان استعدادهای درخشان.",
         data: (
-          <div className="bg-gray-100 p-8 rounded-lg shadow-md">
+          <div>
             <p className="text-lg text-gray-800 leading-relaxed">
               در سال ۱۳۹۲، سفر من در زمینهٔ تلاش برای عالی‌ترین مرحله تحصیلی من
               با پیوستن به{" "}
