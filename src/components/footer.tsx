@@ -1,18 +1,20 @@
-import React from "react";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import { langs, siteConfig } from "../configs/site";
+import { siteConfig } from "../configs/site";
 import { commonArgs } from "../configs/types";
 
 function Footer({ theme, lang, slug }: commonArgs) {
+  let findLang = siteConfig.langs.find((item) => item.lang === lang);
+  if (!findLang) {
+    findLang = siteConfig.langs[0];
+  }
   return (
     <div className="w-full">
       <footer className={`text-center p-4 ${theme.white} ${theme.secondary}`}>
         <p className="text-sm">
-          {siteConfig[lang as keyof typeof langs].author} ©{" "}
-          {new Date().getFullYear()}
+          {findLang.author} © {new Date().getFullYear()}
         </p>
         <p className="text-sm">
-          {siteConfig[lang as keyof typeof langs].author} is open-source on{" "}
+          {findLang.author} is open-source on{" "}
           <a
             href={siteConfig.github}
             target="_blank"

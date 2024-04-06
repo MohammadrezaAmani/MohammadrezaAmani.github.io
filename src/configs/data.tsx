@@ -1,140 +1,107 @@
+import {
+  PiTelegramLogoThin,
+  PiInstagramLogoThin,
+  PiLinkedinLogoThin,
+} from "react-icons/pi";
+import { langs as languages } from "./langs";
+
 export const profile = {
-  phote: "https://avatars.githubusercontent.com/u/47231161?v=4",
+  image: "https://avatars.githubusercontent.com/u/47231161?v=4",
   email: "more.amani@yahoo.com",
   phone: "123-456-7890",
-  en: {
-    title: "Software Engineer",
-    name: "Mohammadreza Amani",
-    about:
-      "I'm Mohammadreza Amani a passionate software engineer who loves to build new things.",
-    location: "Los Angeles, CA",
-  },
-  fa: {
-    title: "مهندس نرم افزار",
-    name: "محمدرضا امانی",
-    about: "من محمدرضا امانی هستم یک مهندس نرم افزار عاشق ساختن چیزهای جدید.",
-    location: "لس آنجلس، کالیفرنیا",
-  },
-  socials: {
-    linkedin: "https://www.linkedin.com/in/mohammadreza-amani",
-    github: "https://github.com/MohammadrezaAmani",
-    instagram: "https://www.instagram.com/more.amani",
-    telegram: "https://t.me/Mohammadreza_amani",
-  },
+  langs: [
+    {
+      lang: languages.en.short,
+      title: "Software Engineer",
+      name: "Mohammadreza Amani",
+      about:
+        "Experienced Software Engineer with a passion for innovation and problem-solving. Dedicated to crafting high-quality software solutions that exceed expectations. Proficient in a wide range of technologies including React, Node.js, TypeScript, and GraphQL, with a strong foundation in DevOps practices such as Docker, Kubernetes, CI/CD, and serverless architecture. Skilled in Agile methodologies with a focus on TDD and DDD principles. Committed to continuous learning and staying updated with the latest industry trends. Excited to collaborate on challenging projects and contribute to the success of dynamic teams.",
+      location: "Tehran, IR",
+      favorites: [
+        "React",
+        "Node.js",
+        "TypeScript",
+        "GraphQL",
+        "Docker",
+        "Kubernetes",
+        "AWS",
+        "GCP",
+        "CI/CD",
+        "TDD",
+        "DDD",
+        "Microservices",
+        "Serverless",
+        "Agile",
+        "Scrum",
+        "Kanban",
+        "Jira",
+        "Confluence",
+        "Git",
+        "GitHub",
+        "GitLab",
+        "Bitbucket",
+        "VS Code",
+        "WebStorm",
+        "Postman",
+        "Insomnia",
+      ],
+    },
+    {
+      lang: languages.fa.short,
+      title: "مهندس نرم افزار",
+      name: "محمدرضا امانی",
+      about:
+        "مهندس نرم‌افزار با تجربه، با علاقه‌ی فراوان به نوآوری و حل مسائل. متعهد به ایجاد راه‌حل‌های نرم‌افزاری با کیفیت بالا که انتظارات را برآورده می‌کنند. ماهر در زمینه‌ی تکنولوژی‌های گوناگون از جمله ری‌اکت، نود.جی‌اس، تایپ‌اسکریپت و جی‌کیوال، با پایه‌ی استوار در روش‌های DevOps مانند داکر، کوبرنیتیز، CI/CD و معماری سرورلس. مسلط به روش‌های چابک با تمرکز بر اصول TDD و DDD. متعهد به یادگیری مداوم و دنبال کردن آخرین روندهای صنعت. مشتاق به همکاری در پروژه‌های چالش‌برانگیز و سهیم شدن در موفقیت تیم‌های پویا.",
+      location: "تهران، ایران",
+      favorites: [
+        "ری‌اکت",
+        "نود.جی‌اس",
+        "تایپ‌اسکریپت",
+        "جی‌کیو‌ال",
+        "داکر",
+        "کوبرنیتیز",
+        "او‌او‌اس",
+        "جی‌سی‌پی",
+        "سی‌آی/سی‌دی",
+        "تی‌دی‌دی",
+        "معماری میکروسرویس",
+        "سرورلس",
+        "چابک",
+        "اسکرام",
+        "کانبان",
+        "جیرا",
+        "کانفلوئنس",
+        "گیت",
+        "گیت‌هاب",
+        "گیت‌لب",
+        "بیت‌باکت",
+        "وی‌اس‌کد",
+        "وب‌استورم",
+        "پستمن",
+        "اینسومنیا",
+      ],
+    },
+  ],
+  socials: [
+    {
+      name: "linkedin",
+      url: "https://www.linkedin.com/in/mohammadreza-amani",
+      icon: PiLinkedinLogoThin,
+    },
+    {
+      name: "github",
+      url: "https://github.com/MohammadrezaAmani",
+      icon: PiTelegramLogoThin,
+    },
+    {
+      name: "instagram",
+      url: "https://www.instagram.com/more.amani",
+      icon: PiInstagramLogoThin,
+    },
+    {
+      name: "telegram",
+      url: "https://t.me/Mohammadreza_amani",
+      icon: PiTelegramLogoThin,
+    },
+  ],
 };
-
-export const education = [
-  {
-    id: 1,
-    en: {
-      name: "University of California, Los Angeles",
-      degree: "Bachelor of Science in Computer Science",
-      year: "2016 - 2020",
-      location: "Los Angeles, CA",
-      logo: "ucla",
-      desctiption: "description for this ",
-    },
-    fa: {
-      name: "University of California, Los Angeles",
-      degree: "Bachelor of Science in Computer Science",
-      year: "2016 - 2020",
-      location: "Los Angeles, CA",
-      logo: "ucla",
-      desctiption: "description for this ",
-    },
-  },
-];
-
-// experience
-export const experience = [
-  {
-    id: 1,
-    title: "Software Engineer",
-    company: "Google",
-    start: "2020",
-    end: "2023",
-    location: "Mountain View, CA",
-    logo: "google",
-  },
-];
-
-export const projects = [
-  {
-    slug: "project-1",
-    url: "https://github.com/MohammadrezaAmani/INUI",
-    en: {
-      enable: true,
-      title: "Project 1",
-      description: "Description 1",
-      details: "Details 1",
-    },
-    fa: {
-      enable: true,
-      title: "پروژه ی نخست",
-      description: "توضیحات نخست",
-      details: "<h1> توضیحات کافی و جامع برای پروژه ی 1 </h1>",
-    },
-    year: "2020",
-    logo: "project1",
-    technilogies: ["python", "django", "fastapi", "redis", "celery"],
-  },
-];
-
-export const projects_type = typeof projects;
-
-export const skills = [
-  {
-    id: 1,
-    name: "JavaScript",
-    logo: "javascript",
-  },
-  {
-    id: 2,
-    name: "React",
-    logo: "react",
-  },
-  {
-    id: 3,
-    name: "Node.js",
-    logo: "nodejs",
-  },
-  {
-    id: 4,
-    name: "Python",
-    logo: "python",
-  },
-  {
-    id: 5,
-    name: "Java",
-    logo: "java",
-  },
-  {
-    id: 6,
-    name: "C++",
-    logo: "cpp",
-  },
-];
-
-export const contact = {
-  email: "psomdcsdc",
-  phone: "123-456-7890",
-  address: "Los Angeles, CA",
-};
-
-export const favorite = [
-  {
-    id: 1,
-    name: "JavaScript",
-    logo: "javascript",
-  },
-  {
-    id: 2,
-    name: "React",
-    logo: "react",
-  },
-  {
-    id: 3,
-    name: "Node.js",
-    logo: "nodejs",
-  },
-];

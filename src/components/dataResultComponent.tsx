@@ -1,26 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { Grid, CircularProgress } from "@mui/material";
 
-import { langs } from "../configs/site";
 import { SearchBar } from "../components/search-bar";
-import { result_Type, Data as DataType } from "../configs/types";
+import { resultType, Data as DataType } from "../configs/types";
 import { DataItem } from "./dataItem";
 
 const shownItemsPerPage = 12;
 
 const filterData = (data: DataType[], searchText: string, lang: string) =>
-  data.filter(
-    (item) =>
-      item[lang as keyof typeof langs].title
-        .toLowerCase()
-        .includes(searchText.toLowerCase()) ||
-      item[lang as keyof typeof langs].description
-        .toLowerCase()
-        .includes(searchText.toLowerCase()) ||
+  data.filter((item) => {
+    let lang_data = item.langs.find((item) => item.lang === lang);
+    if (!lang_data) {
+      lang_data = item.langs[0];
+    }
+    return (
+      lang_data.title.toLowerCase().includes(searchText.toLowerCase()) ||
+      lang_data.description.toLowerCase().includes(searchText.toLowerCase()) ||
       item.tags.join(" ").toLowerCase().includes(searchText.toLowerCase())
-  );
+    );
+  });
 
-export const Data: React.FC<result_Type> = ({ lang, data, slug, theme }) => {
+export const Data: React.FC<resultType> = ({ lang, data, slug, theme }) => {
   const [pageData, setPageData] = useState<DataType[]>([]);
   const [pageNumber, setPageNumber] = useState(1);
   const [loading, setLoading] = useState(true);

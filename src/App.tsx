@@ -2,11 +2,10 @@ import React, { Suspense } from "react";
 import { useState, useEffect, startTransition, useMemo } from "react";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import { Theme } from "./components/theme";
-import { langs } from "./configs/site";
+import { langs } from "./configs/langs";
 import Header from "./components/header";
 import Footer from "./components/footer";
 import { routes } from "./configs/routes";
-
 import { Layout } from "./app/layout";
 
 const Home = React.lazy(() => import("./app/page"));
@@ -47,29 +46,33 @@ const CoursesDetails = React.lazy(
 );
 
 export function App() {
-  const [lang, setLang] = useState("en");
+  const [lang, setLang] = useState(langs.en.short);
   const [theme, setTheme] = useState(Theme.light);
   useEffect(() => {
-    // initializeLanguage();
+    initializeLanguage();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
-    initializeTheme();
-  }, []);
+  // useEffect(() => {
+  //   initializeTheme();
+  // }, []);
 
-  // const initializeLanguage = () => {
-  //   const newLang = localStorage.getItem("lang") || langs.en.short;
-  //   updateLanguage(newLang);
-  // };
+  const initializeLanguage = () => {
+    const newLang = localStorage.getItem("lang") || "";
+    if (Object.keys(langs).includes(newLang)) {
+      updateLanguage(newLang);
+    }
+  };
 
   const updateLanguage = (newLang: string) => {
+    if (!Object.keys(langs).includes(newLang)) {
+      newLang =  Object.keys(langs)[0];
+    }
     startTransition(() => {
       document.documentElement.dir = langs[newLang as keyof typeof langs].dir;
       document.documentElement.lang =
         langs[newLang as keyof typeof langs].short;
       setLang(newLang);
-      // updateFontFamily(newLang);
       localStorage.setItem("lang", newLang);
     });
   };
@@ -80,24 +83,30 @@ export function App() {
   //     lang === "fa" ? "Vazir, sans-serif" : "Roboto, sans-serif";
   // };
 
-  const initializeTheme = () => {
-    try {
-      const storedTheme = JSON.parse(
-        localStorage.getItem("theme") || JSON.stringify(Theme.light)
-      );
-      const newTheme =
-        typeof storedTheme === typeof Theme.dark ? storedTheme : Theme.dark;
-      setTheme(newTheme);
-      localStorage.setItem("theme", JSON.stringify(newTheme));
-    } catch {
-      setTheme(Theme.dark);
-      localStorage.setItem("theme", JSON.stringify(Theme.dark));
-    }
-  };
+  // const initializeTheme = () => {
+  //   try {
+  //     const storedTheme = JSON.parse(
+  //       localStorage.getItem("theme") || JSON.stringify(Theme.light)
+  //     );
+  //     const newTheme =
+  //       typeof storedTheme === typeof Theme.dark ? storedTheme : Theme.dark;
+  //     setTheme(newTheme);
+  //     localStorage.setItem("theme", JSON.stringify(newTheme));
+  //   } catch {
+  //     setTheme(Theme.dark);
+  //     localStorage.setItem("theme", JSON.stringify(Theme.dark));
+  //   }
+  // };
 
   const memoizedHeader = useMemo(() => {
     const toggleLang = () => {
-      const newLang = lang === langs.en.short ? langs.fa.short : langs.en.short;
+      const arraylangs = Object.keys(langs);
+      const newLang =
+        langs[
+          arraylangs[
+            (arraylangs.indexOf(lang) + 1) % arraylangs.length
+          ] as keyof typeof langs
+        ].short;
       updateLanguage(newLang);
     };
     const toggleTheme = () => {
@@ -115,7 +124,6 @@ export function App() {
       />
     );
   }, [lang, theme]);
-  // Memoize the Footer component
   const memoizedFooter = useMemo(
     () => <Footer lang={lang} theme={theme} slug="/" />,
     [lang, theme]

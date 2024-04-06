@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Skeleton } from "@mui/material";
 import { profile } from "../configs/data";
 import { commonArgs } from "../configs/types";
-import { langs } from "../configs/site";
 
 function Image({
   imageLoaded,
@@ -31,7 +30,10 @@ function Image({
 
 function Hero({ theme, lang, slug }: commonArgs) {
   const [imageLoaded, setImageLoaded] = useState<boolean>(true);
-
+  let keylang = profile.langs.find((item) => item.lang === lang);
+  if (!keylang) {
+    keylang = profile.langs[0];
+  }
   const handleImageError = () => {
     setImageLoaded(false);
   };
@@ -52,11 +54,9 @@ function Hero({ theme, lang, slug }: commonArgs) {
           />
           <div className="flex flex-col sm:w-1/2 sm:ml-4">
             <h1 className={`text-4xl font-bold mt-6 sm:mt-0`}>
-              {profile[lang as keyof typeof langs].name}
+              {keylang.name}
             </h1>
-            <p className={`text-lg mt-4`}>
-              {profile[lang as keyof typeof langs].about}
-            </p>
+            <p className={`text-lg mt-4`}>{keylang.about}</p>
           </div>
         </div>
       </div>

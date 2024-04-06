@@ -1,287 +1,341 @@
+import { langs as languages } from "./langs";
+
 export const routes = {
   home: {
     path: "/",
-    en: {
+    langs: [{
+      lang: languages.en.short,
       title: "Home",
       description: "Mohammadreza Amani's personal website",
     },
-    fa: {
+    {
+      lang: languages.fa.short,
       title: "صفحه‌ی اصلی",
       description: "وبسایت شخصی محمدرضا امانی",
-    },
+    }],
   },
   experience: {
     path: "/experience",
-    en: {
+    langs: [{
+      lang: languages.en.short,
       title: "Experience",
       description: "Mohammadreza Amani's work experience",
     },
-    fa: {
+    {
+      lang: languages.fa.short,
       title: "تجارب کاری",
       description: "تجارب کاری محمدرضا امانی",
-    },
+    }],
   },
   education: {
     path: "/education",
-    en: {
+    langs: [{
+      lang: languages.en.short,
       title: "Education",
       description: "Mohammadreza Amani's education",
     },
-    fa: {
+    {
+      lang: languages.fa.short,
       title: "تحصیلات",
       description: "تحصیلات محمدرضا امانی",
-    },
+    }],
   },
   resume: {
     path: "/resume",
-    en: {
+    langs: [{
+      lang: languages.en.short,
       title: "Resume",
       description: "Mohammadreza Amani's resume",
     },
-    fa: {
+    {
+      lang: languages.fa.short,
       title: "رزومه",
       description: "رزومه محمدرضا امانی",
-    },
+    }],
   },
   project: {
     path: "/project",
-    en: {
+    langs: [{
+      lang: languages.en.short,
       title: "Portfolio",
       description: "Mohammadreza Amani's projects",
     },
-    fa: {
+    {
+      lang: languages.fa.short,
       title: "پورتوفیلو",
       description: "پروژه‌های محمدرضا امانی",
-    },
+    }],
   },
   blog: {
     path: "/blog",
-    en: {
+    langs: [{
+      lang: languages.en.short,
       title: "Blog",
       description: "Mohammadreza Amani's blog",
     },
-    fa: {
+    {
+      lang: languages.fa.short,
       title: "بلاگ",
       description: "بلاگ محمدرضا امانی",
-    },
+    }],
   },
   notFound: {
-    en: {
+    langs: [{
+      lang: languages.en.short,
       title: "Not Found",
       description: "Page not found",
     },
-    fa: {
+    {
+      lang: languages.fa.short,
       title: "پیدا نشد",
       description: "صفحه پیدا نشد",
-    },
+    }],
   },
   about: {
     path: "/about",
-    en: {
+    langs: [{
+      lang: languages.en.short,
       title: "About",
       description: "About Mohammadreza Amani",
     },
-    fa: {
+    {
+      lang: languages.fa.short,
       title: "درباره",
       description: "درباره محمدرضا امانی",
-    },
+    }],
   },
   contact: {
     path: "/contact",
-    en: {
+    langs: [{
+      lang: languages.en.short,
       title: "Contact",
       description: "Contact Mohammadreza Amani",
     },
-    fa: {
+    {
+      lang: languages.fa.short,
       title: "تماس",
       description: "تماس با محمدرضا امانی",
-    },
+    }],
   },
   faq: {
     path: "/faq",
-    en: {
+    langs: [{
+      lang: languages.en.short,
       title: "FAQ",
       description: "Frequently Asked Questions",
     },
-    fa: {
+    {
+      lang: languages.fa.short,
       title: "سوالات متداول",
       description: "سوالات متداول",
-    },
+    }],
   },
   faqDetails: {
     path: "/faq/:faqid",
-    en: {
+    langs: [{
+      lang: languages.en.short,
       title: "FAQ Details",
       description: "Frequently Asked Questions",
     },
-    fa: {
+    {
+      lang: languages.fa.short,
       title: "جزئیات سوالات متداول",
       description: "جزئیات سوالات متداول",
-    },
+    }],
   },
   projectDetails: {
     path: "/project/:projectid",
-    en: {
+    langs: [{
+      lang: languages.en.short,
       title: "Project Details",
       description: "Project Details",
     },
-    fa: {
+    {
+      lang: languages.fa.short,
       title: "جزئیات پروژه",
       description: "جزئیات پروژه",
-    },
+    }],
   },
   blogDetails: {
     path: "/blog/:blogid",
-    en: {
+    langs: [{
+      lang: languages.en.short,
       title: "Blog Details",
       description: "Blog Details",
     },
-    fa: {
+    {
+      lang: languages.fa.short,
       title: "جزئیات بلاگ",
       description: "جزئیات بلاگ",
-    },
+    }],
   },
   educationDetails: {
     path: "/education/:educationid",
-    en: {
+    langs: [{
+      lang: languages.en.short,
       title: "Education",
       description: "Mohammadreza Amani's education",
     },
-    fa: {
+    {
+      lang: languages.fa.short,
       title: "تحصیلات",
       description: "تحصیلات محمدرضا امانی",
-    },
+    }],
   },
   search: {
     path: "/search",
-    en: {
+    langs: [{
+      lang: languages.en.short,
       title: "Search",
       description: "Search",
     },
-    fa: {
+    {
+      lang: languages.fa.short,
       title: "جستجو",
       description: "جستجو",
-    },
+    }],
   },
   experienceDetails: {
     path: "/experience/:experienceid",
-    en: {
+    langs: [{
+      lang: languages.en.short,
       title: "Experience Details",
       description: "Experience Details",
     },
-    fa: {
+    {
+      lang: languages.fa.short,
       title: "جزئیات تجربه",
       description: "جزئیات تجربه",
-    },
+    }],
   },
   searchDetails: {
     path: "/search/:searchid",
-    en: {
+    langs: [{
+      lang: languages.en.short,
       title: "Search Details",
       description: "Search Details",
     },
-    fa: {
+    {
+      lang: languages.fa.short,
       title: "جزئیات جستجو",
       description: "جزئیات جستجو",
-    },
+    }],
   },
   category: {
     path: "/category",
-    en: {
+    langs: [{
+      lang: languages.en.short,
       title: "Category",
       description: "Category",
     },
-    fa: {
+    {
+      lang: languages.fa.short,
       title: "دسته‌بندی",
       description: "دسته‌بندی",
-    },
+    }],
   },
   categoryDetails: {
     path: "/category/:categoryid",
-    en: {
+    langs: [{
+      lang: languages.en.short,
       title: "Category Details",
       description: "Category Details",
     },
-    fa: {
+    {
+      lang: languages.fa.short,
       title: "جزئیات دسته‌بندی",
       description: "جزئیات دسته‌بندی",
-    },
+    }],
   },
   tag: {
     path: "/tag",
-    en: {
+    langs: [{
+      lang: languages.en.short,
       title: "Tag",
       description: "Tag",
     },
-    fa: {
+    {
+      lang: languages.fa.short,
       title: "برچسب",
       description: "برچسب",
-    },
+    }],
   },
   tagDetails: {
     path: "/tag/:tagid",
-    en: {
+    langs: [{
+      lang: languages.en.short,
       title: "Tag Details",
       description: "Tag Details",
     },
-    fa: {
+    {
+      lang: languages.fa.short,
       title: "جزئیات برچسب",
       description: "جزئیات برچسب",
-    },
+    }],
   },
   courses: {
     path: "/courses",
-    en: {
+    langs: [{
+      lang: languages.en.short,
       title: "Courses",
       description: "Courses",
     },
-    fa: {
+    {
+      lang: languages.fa.short,
       title: "دوره‌ها",
       description: "دوره‌ها",
-    },
+    }],
   },
   coursesDetails: {
     path: "/courses/:courseid",
-    en: {
+    langs: [{
+      lang: languages.en.short,
       title: "Courses Details",
       description: "Courses Details",
     },
-    fa: {
+    {
+      lang: languages.fa.short,
       title: "جزئیات دوره",
       description: "جزئیات دوره",
-    },
+    }],
   },
   publications: {
     path: "/publications",
-    en: {
+    langs: [{
+      lang: languages.en.short,
       title: "Publications",
       description: "Publications",
     },
-    fa: {
+    {
+      lang: languages.fa.short,
       title: "منابع",
       description: "منابع",
-    },
+    }],
   },
   publicationDetails: {
     path: "/publications/:publicationid",
-    en: {
+    langs: [{
+      lang: languages.en.short,
       title: "Publication Details",
       description: "Publication Details",
     },
-    fa: {
+    {
+      lang: languages.fa.short,
       title: "جزئیات منبع",
       description: "جزئیات منبع",
-    },
+    }],
   },
   github_api: {
     path: "/github_api",
-    en: {
+    langs: [{
+      lang: languages.en.short,
       title: "Github API",
       description: "Github API",
     },
-    fa: {
+    {
+      lang: languages.fa.short,
       title: "API گیت‌هاب",
       description: "API گیت‌هاب",
-    },
+    }],
   },
 };

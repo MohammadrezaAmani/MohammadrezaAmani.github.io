@@ -1,7 +1,7 @@
 import React from "react";
 import { commonArgs } from "../../configs/types";
 import data, { contact_type } from "../../configs/about/data";
-import { langs } from "../../configs/site";
+import { langs } from "../../configs/langs";
 
 interface ContactWayProps {
   way: contact_type;
