@@ -6,8 +6,6 @@ import { CiLocationOn } from "react-icons/ci";
 import Skeleton from "@mui/material/Skeleton";
 import Wave from "react-wavify";
 import { Divider, Tooltip } from "@mui/material";
-import { PiLinkedinLogoThin } from "react-icons/pi";
-import { VscGithubAlt } from "react-icons/vsc";
 import { IoMdContact } from "react-icons/io";
 import { FaUniversity } from "react-icons/fa";
 import { FaPhoenixFramework } from "react-icons/fa6";
@@ -19,9 +17,42 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "../components/carousel";
+
+import blogData from "../configs/blog/data";
+import projectData from "../configs/projects/data";
+import { Typography } from "@mui/material";
+import { dataType } from "../configs/types";
+import { routes } from "../configs/routes";
+import { BaseUri } from "../configs/site";
+import { langs } from "../configs/langs";
+
+export const DataItem: React.FC<dataType> = ({ data, lang, slug, theme }) => {
+  let keylang = data.langs.find((item) => item.lang === lang);
+  if (!keylang) {
+    keylang = data.langs[0];
+  }
+  return (
+    <div id={`data-item-${data.slug}`} className="p-6">
+      <a href={BaseUri + slug + "/" + data.slug} className="block w-full">
+        {data.image !== "" && (
+          <div className="h-36 sm:h-48 w-full">
+            <img
+              src={data.image}
+              alt={keylang.title}
+              className="rounded-lg object-cover w-full h-full"
+            />
+          </div>
+        )}
+        <div className="flex justify-between mt-4">
+          <Typography variant="h6" color={"white"}>
+            {keylang.title}
+          </Typography>
+        </div>
+      </a>
+    </div>
+  );
+};
 
 const boxStyle =
   "rounded-lg sm:shadow-xl shadow-lg bg-gradient-to-tl from-white to-gray-100 transform hover:-translate-y-0.5 transition duration-400 ease-in-out md:hover:shadow-2xl hover:shadow-xl";
@@ -156,43 +187,109 @@ export default function Blog({ theme, lang, slug }: commonArgs) {
           marginRight: { xs: "20px", md: "300px" },
         }}
       />
-      {/* <div className="flex flex-col w-full h-96 bg-fuchsia-600 shadow-md items-center">
-        <Carousel className="w-full max-w-xs flex justify-center">
-          <CarouselContent>
-            {Array.from({ length: 5 }).map((_, index) => (
-              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                <div className="p-1">
-                  <Card>
-                    <CardContent className="flex items-center justify-center p-6 h-80 w-full">
-                      <span className="text-3xl font-semibold w-80">
-                        {index + 1}
-                      </span>
-                    </CardContent>
-                  </Card>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
-      </div> */}
       <div>
         <Wave
           fill="#f79902"
           className="mt-12 border-gray-400"
-          paused={false}
+          // paused={false}
           style={{ display: "flex" }}
           options={{
-            height: 10,
-            amplitude: 40,
+            height: 70,
+            amplitude: 20,
+            speed: 0.1,
+            points: 3,
+          }}
+        ></Wave>
+        {blogData.length >= 0 && (
+          <div className="flex flex-col w-full bg-orange-500 shadow-md items-center h-auto p-3">
+            <p className="text-xl text-white -mt-6">Latest Blogs</p>
+            <Carousel
+              className="w-full max-w-max flex justify-center mt-5  p-5 rounded-lg shadow-inner"
+              opts={{
+                direction:
+                  langs[lang as keyof typeof langs].dir === "rtl"
+                    ? "rtl"
+                    : "ltr",
+              }}
+            >
+              <CarouselContent>
+                {blogData
+                  .slice(0, blogData.length >= 7 ? 7 : blogData.length)
+                  .map((key, index) => (
+                    <CarouselItem
+                      key={index}
+                      className="md:basis-1/2 lg:basis-1/4"
+                    >
+                      <div className="p-0">
+                        <Card>
+                          <CardContent className="flex items-center justify-center p-6 h-80 w-full">
+                            <DataItem
+                              data={key}
+                              lang={lang}
+                              slug={routes.blog.path}
+                              theme={theme}
+                            />
+                          </CardContent>
+                        </Card>
+                      </div>
+                    </CarouselItem>
+                  ))}
+              </CarouselContent>
+            </Carousel>
+          </div>
+        )}
+      </div>
+      <div>
+        <Wave
+          fill="#f79902"
+          className="mt-12 border-gray-400"
+          // paused={false}
+          style={{ display: "flex" }}
+          options={{
+            height: 70,
+            amplitude: 20,
             speed: 0.15,
             points: 3,
           }}
-        >
-          <h1 className="text-center text-4xl text-white">Hello</h1>
-        </Wave>
+        ></Wave>
+        {projectData.length >= 0 && (
+          <div className="flex flex-col w-full bg-orange-500 shadow-md items-center h-auto p-3">
+            <p className="text-xl text-white -mt-6">Latest Projects</p>
+            <Carousel
+              className="w-full max-w-max flex justify-center mt-5  p-5 rounded-lg shadow-inner"
+              opts={{
+                direction:
+                  langs[lang as keyof typeof langs].dir === "rtl"
+                    ? "rtl"
+                    : "ltr",
+              }}
+            >
+              <CarouselContent>
+                {projectData
+                  .slice(0, projectData.length >= 7 ? 7 : projectData.length)
+                  .map((key, index) => (
+                    <CarouselItem
+                      key={index}
+                      className="md:basis-1/2 lg:basis-1/4"
+                    >
+                      <div className="p-0">
+                        <Card>
+                          <CardContent className="flex items-center justify-center p-6 h-80 w-full">
+                            <DataItem
+                              data={key}
+                              lang={lang}
+                              slug={routes.blog.path}
+                              theme={theme}
+                            />
+                          </CardContent>
+                        </Card>
+                      </div>
+                    </CarouselItem>
+                  ))}
+              </CarouselContent>
+            </Carousel>
+          </div>
+        )}
       </div>
     </div>
   );
