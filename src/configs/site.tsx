@@ -1,14 +1,12 @@
-import {
-  Home as HomeIcon,
-  Work as WorkIcon,
-  School as SchoolIcon,
-  Description as DescriptionIcon,
-  Apps as AppsIcon,
-} from "@mui/icons-material";
-import { DiWebplatform } from "react-icons/di";
 import { routes } from "./routes";
-import { SiAboutdotme } from "react-icons/si";
 import { langs } from "./langs";
+import { TbBrandGoogleHome } from "react-icons/tb";
+import { CgWorkAlt } from "react-icons/cg";
+import { LiaUniversitySolid } from "react-icons/lia";
+import { SiReaddotcv } from "react-icons/si";
+import { FaMedapps } from "react-icons/fa6";
+import { LiaReadme } from "react-icons/lia";
+import { FaFireAlt } from "react-icons/fa";
 
 // BaseUri is the base path of the website, use "#" for hash router in GH pages
 export const BaseUri = "#";
@@ -50,37 +48,37 @@ export function getMenuItems(lang: string) {
     {
       text: findTitle("home"),
       slug: BaseUri + routes.home.path,
-      icon: <HomeIcon className={iconTextColor} />,
+      icon: TbBrandGoogleHome,
     },
     {
       text: findTitle("experience"),
       slug: BaseUri + routes.experience.path,
-      icon: <WorkIcon className={iconTextColor} />,
+      icon: CgWorkAlt,
     },
     {
       text: findTitle("education"),
       slug: BaseUri + routes.education.path,
-      icon: <SchoolIcon className={iconTextColor} />,
+      icon: LiaUniversitySolid,
     },
     {
       text: findTitle("resume"),
       slug: BaseUri + routes.resume.path,
-      icon: <DescriptionIcon className={iconTextColor} />,
+      icon: SiReaddotcv,
     },
     {
       text: findTitle("project"),
       slug: BaseUri + routes.project.path,
-      icon: <AppsIcon className={iconTextColor} />,
+      icon: FaMedapps,
     },
     {
       text: findTitle("blog"),
       slug: BaseUri + routes.blog.path,
-      icon: <DiWebplatform className={iconTextColor} />,
+      icon: LiaReadme,
     },
     {
       text: findTitle("about"),
       slug: BaseUri + routes.about.path,
-      icon: <SiAboutdotme className={iconTextColor} />,
+      icon: FaFireAlt,
     },
   ];
 }

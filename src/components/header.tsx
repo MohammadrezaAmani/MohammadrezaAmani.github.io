@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  AppBar,
-  Toolbar,
-  IconButton,
-  Drawer,
-  List,
-  Tooltip,
-} from "@mui/material";
+import { AppBar, Toolbar, IconButton, Drawer, Tooltip } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import TranslateIcon from "@mui/icons-material/Translate";
 import { CiLight, CiDark } from "react-icons/ci";
@@ -107,7 +100,7 @@ const Header = ({ lang, toggleLang, theme, toggleTheme }: headerArgs) => {
             onClose={toggleDrawer(false)}
             className="drawer-menu"
           >
-            <div className="flex-auto justify-between">
+            <div className="flex flex-col justify-between h-full">
               <div>
                 <div className="bg-white max-w-52">
                   <img
@@ -117,22 +110,21 @@ const Header = ({ lang, toggleLang, theme, toggleTheme }: headerArgs) => {
                   />
                 </div>
                 <div className="p-4 pt-10">
-                  <List>
+                  <div className="">
                     {getMenuItems(lang).map((item, index) => (
-                      <li key={index}>
-                        <a
-                          href={item.slug}
-                          className="flex flex-row font-vazir"
-                        >
-                          <p className="text-slate-600">{item.text}</p>
-                        </a>
-                      </li>
+                      <a
+                        href={item.slug}
+                        className="flex flex-row font-vazir py-2 px-1 space-x-2 rtl:space-x-reverse"
+                      >
+                        <item.icon className="w-5 h-5 text-xs text-slate-600" />
+                        <p className="text-slate-600">{item.text} </p>
+                      </a>
                     ))}
-                  </List>
+                  </div>
                 </div>
               </div>
-              <div className="flex flex-col px-8">
-                <div className="flex flex-row justify-between mb-4">
+              <div className="flex flex-col px-6 my-5">
+                <div className="flex flex-row justify-between mb-4 text-slate-600">
                   <TranslateIcon onClick={toggleLang} />
                   {theme === Theme.light ? (
                     <CiLight
