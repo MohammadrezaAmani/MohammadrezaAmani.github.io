@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import { commonArgs } from "../configs/types";
-import { TbHeartCode } from "react-icons/tb";
-import { MdOutlineAlternateEmail } from "react-icons/md";
-import { CiLocationOn } from "react-icons/ci";
 import Skeleton from "@mui/material/Skeleton";
 import Wave from "react-wavify";
 
@@ -28,11 +25,13 @@ import { routes } from "../configs/routes";
 import { BaseUri } from "../configs/site";
 import { langs } from "../configs/langs";
 
+import { homePage } from "../configs/site";
 export const DataItem: React.FC<dataType> = ({ data, lang, slug, theme }) => {
   let keylang = data.langs.find((item) => item.lang === lang);
   if (!keylang) {
     keylang = data.langs[0];
   }
+
   return (
     <div id={`data-item-${data.slug}`} className="p-6">
       <a href={BaseUri + slug + "/" + data.slug} className="block w-full">
@@ -58,7 +57,10 @@ const boxStyle =
 
 export default function Blog({ theme, lang, slug }: commonArgs) {
   const [imageLoaded, setImageLoaded] = useState(false);
-
+  let textlang = homePage.find((item) => item.lang === lang);
+  if (!textlang) {
+    textlang = homePage[0];
+  }
   return (
     <div className="flex flex-col justify-between">
       <div className="flex flex-wrap slider-wrapper justify-center sm:mt-32 w-full gap-4">
@@ -87,40 +89,23 @@ export default function Blog({ theme, lang, slug }: commonArgs) {
         </div>
         <div className="grid grid-cols-12 w-10/12 sm:w-auto gap-4">
           <div className={`col-span-full  p-6 ${boxStyle}`}>
-            <div className="user-info-header flex items-start flex-col">
-              <h2 className="text-4xl">
-                Hi, I’m <span className="text-red-600">Mohammadreza</span>
-              </h2>
-              <p className="text-slate-600">Web designer and developer</p>
+            <div className="user-info-header flex items-start   flex-col">
+              {textlang.title}
+              {textlang.subtitle}
             </div>
             <div className="flex flex-col mt-12">
-              <a
-                href="https://github.com/MohammadrezaAmani"
-                target="_blank"
-                className="info flex items-center"
-                rel="noreferrer"
-              >
-                <TbHeartCode className="h-6 w-6 m-2" />
-                <span>Web designer & developer</span>
-              </a>
-              <a
-                href="mailto:more.amani@yahoo.com"
-                target="_blank"
-                className="info flex items-center"
-                rel="noreferrer"
-              >
-                <MdOutlineAlternateEmail className="h-6 w-6 m-2" />
-                <span>more.amani@yahoo.com</span>
-              </a>
-              <a
-                href="https://www.google.com/maps/d/viewer?mid=132fq12ig_YfdeN0cxzAkc6Ik4lo&hl=en&ll=35.71061825680851%2C51.4071210981902&z=17"
-                target="_blank"
-                className="info flex items-center"
-                rel="noreferrer"
-              >
-                <CiLocationOn className="h-6 w-6 m-2" />
-                <span>Tehran, Iran</span>
-              </a>
+              {textlang.skills.map((item, index) => (
+                <a
+                  href={item.url}
+                  target="_blank"
+                  className="info flex items-center"
+                  rel="noreferrer"
+                  key={index}
+                >
+                  <item.icon className="h-6 w-6 m-2" />
+                  <span>{item.title}</span>
+                </a>
+              ))}
             </div>
           </div>
 
@@ -132,13 +117,13 @@ export default function Blog({ theme, lang, slug }: commonArgs) {
                 href="#contacts"
                 className={`mr-5 p-4 text-md rounded-md shadow-md hover:shadow-xl`}
               >
-                <span>DOWNLOAD CV</span>
+                <span>{textlang.cvButton}</span>
               </a>
               <a
                 href="/#/about"
                 className={`p-4 rounded-md shadow-md hover:shadow-xl`}
               >
-                <span>CONTACT ME</span>
+                <span>{textlang.contactButton}</span>
               </a>
             </div>
           </div>
