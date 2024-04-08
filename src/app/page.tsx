@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { commonArgs } from "../configs/types";
 import Skeleton from "@mui/material/Skeleton";
-import Wave from "react-wavify";
 
 import { Divider, Tooltip } from "@mui/material";
 import { IoMdContact } from "react-icons/io";
@@ -9,21 +8,8 @@ import { FaUniversity } from "react-icons/fa";
 import { FaPhoenixFramework } from "react-icons/fa6";
 import { SiReaddotcv } from "react-icons/si";
 import { PiCodesandboxLogoThin } from "react-icons/pi";
-
-import { Card, CardContent } from "../components/card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "../components/carousel";
-
-import blogData from "../configs/blog/data";
-import projectData from "../configs/projects/data";
-
 import { dataType } from "../configs/types";
-import { routes } from "../configs/routes";
 import { BaseUri } from "../configs/site";
-import { langs } from "../configs/langs";
 
 import { homePage } from "../configs/site";
 export const DataItem: React.FC<dataType> = ({ data, lang, slug, theme }) => {
@@ -171,7 +157,7 @@ export default function Blog({ theme, lang, slug }: commonArgs) {
           marginRight: { xs: "20px", md: "300px" },
         }}
       />
-      <div>
+      {/* <div>
         <Wave
           fill="#f79902"
           className="mt-12 border-gray-400"
@@ -274,7 +260,7 @@ export default function Blog({ theme, lang, slug }: commonArgs) {
             </Carousel>
           </div>
         )}
-      </div>
+      </div> */}
     </div>
   );
 }

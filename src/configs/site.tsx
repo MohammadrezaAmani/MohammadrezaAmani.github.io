@@ -1,6 +1,6 @@
 import { routes } from "./routes";
 import { langs } from "./langs";
-import { TbBrandGoogleHome, TbHeartCode } from "react-icons/tb";
+import { TbHeartCode } from "react-icons/tb";
 import { CgWorkAlt } from "react-icons/cg";
 import { LiaUniversitySolid } from "react-icons/lia";
 import { SiReaddotcv } from "react-icons/si";
@@ -47,11 +47,6 @@ export function getMenuItems(lang: string) {
   };
   return [
     {
-      text: findTitle("home"),
-      slug: BaseUri + routes.home.path,
-      icon: TbBrandGoogleHome,
-    },
-    {
       text: findTitle("experience"),
       slug: BaseUri + routes.experience.path,
       icon: CgWorkAlt,
@@ -94,7 +89,9 @@ export const homePage = [
         Hi, I’m <span className="text-red-600">Mohammadreza</span>
       </h2>
     ),
-    subtitle: <p className="text-slate-600">Sofware Engineer and FullStack Developer</p>,
+    subtitle: (
+      <p className="text-slate-600">Sofware Engineer and FullStack Developer</p>
+    ),
     skills: [
       {
         title: "Web designer & developer",
@@ -110,7 +107,7 @@ export const homePage = [
         title: "more.amani@yahoo.com",
         icon: MdOutlineAlternateEmail,
         url: "mailto:more.amani@yahoo.com",
-      }
+      },
     ],
     cvButton: "DOWNLOAD CV",
     contactButton: "CONTACT ME",
@@ -119,7 +116,7 @@ export const homePage = [
     lang: langs.fa.short,
     title: (
       <h2 className="text-4xl">
-       <span className="text-red-600">محمدرضا</span> هستم.
+        <span className="text-red-600">محمدرضا</span> هستم.
       </h2>
     ),
     subtitle: <p className="text-slate-600">برنامه‌نویس و مهندس کامپیوتر</p>,
@@ -138,7 +135,7 @@ export const homePage = [
         title: "more.amani@yahoo.com",
         icon: MdOutlineAlternateEmail,
         url: "mailto:more.amani@yahoo.com",
-      }
+      },
     ],
     cvButton: "دانلود رزومه",
     contactButton: "تماس با من",
