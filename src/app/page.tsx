@@ -45,9 +45,7 @@ export const DataItem: React.FC<dataType> = ({ data, lang, slug, theme }) => {
           </div>
         )}
         <div className="flex justify-between mt-4">
-          <Typography variant="h6" color={"white"}>
-            {keylang.title}
-          </Typography>
+          <p className="text-white text-lg">{keylang.title}</p>
         </div>
       </a>
     </div>
