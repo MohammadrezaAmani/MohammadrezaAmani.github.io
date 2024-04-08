@@ -1,7 +1,6 @@
-import { Typography, Grid } from "@mui/material";
-import { dataType } from "../configs/types";
 import { routes } from "../configs/routes";
 import { BaseUri } from "../configs/site";
+import { dataType } from "../configs/types";
 
 export const DataItem: React.FC<dataType> = ({ data, lang, slug, theme }) => {
   let keylang = data.langs.find((item) => item.lang === lang);
@@ -21,25 +20,16 @@ export const DataItem: React.FC<dataType> = ({ data, lang, slug, theme }) => {
           </div>
         )}
         <div className="flex justify-between mt-4">
-          <Typography variant="h6">{keylang.title}</Typography>
-          <Typography variant="caption">{data.updated_at}</Typography>
+          <h6 className="text-xl font-bold">{keylang.title}</h6>
+          <p className="text-xs">{data.updated_at}</p>
         </div>
-        <Typography variant="body1" className="mt-2">
-          {keylang.description}
-        </Typography>
+        <p className="mt-2">{keylang.description}</p>
       </a>
       <div className="mt-2 flex flex-row flex-wrap space-x-1 w-full">
         {data.tags.map((tag, index) => (
-          <Grid item key={index}>
-            <Typography
-              variant="caption"
-              className="bg-gray-400 p-1 rounded-md flex-wrap"
-            >
-              <a href={BaseUri + routes.category.path + "/" + tag}>
-                {"#" + tag}
-              </a>
-            </Typography>
-          </Grid>
+          <span key={index} className="bg-gray-200 p-1 rounded-md flex-wrap">
+            <a href={BaseUri + routes.category.path + "/" + tag}>{"#" + tag}</a>
+          </span>
         ))}
       </div>
     </div>

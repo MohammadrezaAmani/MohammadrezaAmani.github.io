@@ -2,7 +2,6 @@ import React from "react";
 import { commonArgs } from "../../configs/types";
 import data, { contact_type } from "../../configs/about/data";
 import { langs } from "../../configs/langs";
-import { Typography, Grid, Container } from "@mui/material";
 
 interface ContactWayProps {
   way: contact_type;
@@ -11,7 +10,7 @@ interface ContactWayProps {
 const ContactWay: React.FC<ContactWayProps> = ({ way }) => (
   <a
     href={way.url}
-    className="contact-way flex bg-gray-100 rounded-lg shadow-md hover:shadow-xl flex-nowrap sm:w-40 sm:h-20 flex-col p-3 transition duration-300 ease-in-out transform hover:-translate-y-1"
+    className="contact-way flex bg-gray-400 rounded-lg shadow-md hover:shadow-xl flex-wrap sm:w-50 sm:h-20 px-4 py-3 transition duration-300 ease-in-out transform hover:-translate-y-1 flex-row sm:flex-col sm:px-4 rtl:space-x-reverse space-x-1"
     target="_blank"
     rel="noreferrer"
   >
@@ -25,47 +24,30 @@ const About: React.FC<commonArgs> = ({ lang }) => {
   const { title, content, contact_ways } = data[keylang];
 
   return (
-    <Container maxWidth="lg" className="py-10">
-      <Grid container spacing={4}>
-        <Grid item xs={12} sm={6} className="about-image">
+    <div className="flex container mx-auto py-10 px-4 md:px-0 justify-between">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="about-image">
           <img
             src={data.image}
             alt={title}
             className="w-full rounded-lg shadow-md"
           />
-        </Grid>
-        <Grid item xs={12} sm={6} className="about-content">
-          <Typography variant="h2" className="font-semibold mb-4">
-            {title}
-          </Typography>
-          <Typography
-            variant="body1"
-            className="text-gray-700 prose mb-6"
-            sx={{
-              marginTop: "1rem",
-            }}
-          >
-            {content}
-          </Typography>
-          <Grid
-            container
-            spacing={3}
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              marginTop: "1rem",
-            }}
-          >
+        </div>
+        <div className="about-content flex  justify-between flex-col">
+          <div>
+            <p className="font-semibold mb-4 text-xl">{title}</p>
+            <p className="text-gray-700 prose mb-6 mt-1">{content}</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {contact_ways.ways.map((way, index) => (
-              <Grid item xs={12} sm={4} key={index}>
+              <div key={index} className="sm:px-2">
                 <ContactWay way={way} />
-              </Grid>
+              </div>
             ))}
-          </Grid>
-        </Grid>
-      </Grid>
-    </Container>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
