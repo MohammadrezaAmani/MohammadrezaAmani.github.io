@@ -4,8 +4,8 @@ import * as React from "react";
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from "embla-carousel-react";
-import { SlArrowLeftCircle } from "react-icons/sl";
-import { BsArrowRightCircle } from "react-icons/bs";
+import { BsArrowLeftCircle } from "react-icons/bs";
+import { SlArrowRightCircle } from "react-icons/sl";
 import { cn } from "./utils";
 import { Button } from "./button";
 
@@ -87,10 +87,10 @@ const Carousel = React.forwardRef<
 
     const handleKeyDown = React.useCallback(
       (event: React.KeyboardEvent<HTMLDivElement>) => {
-        if (event.key === "SlArrowLeftCircle") {
+        if (event.key === "ArrowLeft") {
           event.preventDefault();
           scrollPrev();
-        } else if (event.key === "BsArrowRightCircle") {
+        } else if (event.key === "ArrowRight") {
           event.preventDefault();
           scrollNext();
         }
@@ -206,17 +206,17 @@ const CarouselPrevious = React.forwardRef<
       variant={variant}
       size={size}
       className={cn(
-        "absolute  h-8 w-8 rounded-full",
+        "absolute h-8 w-8 rounded-full",
         orientation === "horizontal"
           ? "-left-12 top-1/2 -translate-y-1/2"
-          : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
+          : "-start-12 top-1/2 -translate-y-1/2",
         className
       )}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
       {...props}
     >
-      <SlArrowLeftCircle className="h-4 w-4" />
+      <BsArrowLeftCircle className="h-4 w-4" />
       <span className="sr-only">Previous slide</span>
     </Button>
   );
@@ -238,14 +238,14 @@ const CarouselNext = React.forwardRef<
         "absolute h-8 w-8 rounded-full",
         orientation === "horizontal"
           ? "-right-12 top-1/2 -translate-y-1/2"
-          : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
+          : "-end-12 top-1/2 -translate-y-1/2",
         className
       )}
       disabled={!canScrollNext}
       onClick={scrollNext}
       {...props}
     >
-      <BsArrowRightCircle className="h-4 w-4" />
+      <SlArrowRightCircle className="h-4 w-4" />
       <span className="sr-only">Next slide</span>
     </Button>
   );
