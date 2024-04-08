@@ -66,7 +66,7 @@ export function App() {
 
   const updateLanguage = (newLang: string) => {
     if (!Object.keys(langs).includes(newLang)) {
-      newLang =  Object.keys(langs)[0];
+      newLang = Object.keys(langs)[0];
     }
     startTransition(() => {
       document.documentElement.dir = langs[newLang as keyof typeof langs].dir;
