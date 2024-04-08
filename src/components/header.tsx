@@ -5,9 +5,6 @@ import {
   IconButton,
   Drawer,
   List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
   Tooltip,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -22,7 +19,19 @@ import { profile } from "../configs/data";
 
 const Header = ({ lang, toggleLang, theme, toggleTheme }: headerArgs) => {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
+  const [showShadow, setShowShadow] = React.useState(false);
 
+  const handleScroll = () => {
+    const scrollTop = window.scrollY || document.body.scrollTop;
+    setShowShadow(scrollTop > 0);
+  };
+
+  React.useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   const toggleDrawer =
     (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
       if (
@@ -37,49 +46,43 @@ const Header = ({ lang, toggleLang, theme, toggleTheme }: headerArgs) => {
 
   const iconTextColor = "text-slate-600";
 
-  const MenuItem = ({ item, index }: { item: any; index: number }) => (
-    <ListItem button key={index}>
-      <a href={item.slug} className="text-xs flex flex-row font-vazir">
-        <ListItemIcon>{item.icon}</ListItemIcon>
-        <ListItemText
-          className="text-xs"
-          primary={item.text}
-          sx={{
-            fontSize: "0.75rem",
-          }}
-        />
-      </a>
-    </ListItem>
-  );
-
   return (
     <AppBar
-      className={`header-default black-logo-version shadow-lg`}
       position="sticky"
-      style={{ backgroundColor: theme.background }}
+      style={{
+        backgroundColor: theme.background,
+        opacity: 0.9,
+        boxShadow: showShadow ? "0 0 10px 0 rgba(0,0,0,0.2)" : "none",
+      }}
     >
       <Toolbar className="flex justify-between items-center sm:mx-20">
         <Logo lang="lang" theme={theme} slug={"/"} />
         <div className="flex items-center">
           <nav className="mainmenu-nav navbar-example2 hidden sm:block">
-            <ul className="primary-menu flex flex-col space-y-2 sm:flex-row sm:space-x-2 sm:space-y-0">
+            <ul className="primary-menu flex flex-col space-y-2 sm:flex-row sm:space-y-0">
               {getMenuItems(lang).map((item, index) => (
-                <li className="nav-item" key={index}>
+                <li
+                  className="nav-item hover:bg-slate-100 px-3 py-2 rounded-md"
+                  key={index}
+                >
                   <a href={item.slug}>
-                    <Tooltip title={item.text}>
-                      <IconButton color="inherit">{item.icon}</IconButton>
-                    </Tooltip>
+                    <li key={index}>
+                      <a href={item.slug} className="flex flex-row font-vazir">
+                        <p className="text-slate-600">{item.text}</p>
+                      </a>
+                    </li>
                   </a>
                 </li>
               ))}
-              <li className="nav-item" key="change language">
+              <li
+                className="nav-item py-2 px-2 hover:bg-gray-100 rounded-full"
+                key="change language"
+              >
                 <Tooltip
                   title={langs[lang as keyof typeof langs].full}
                   onClick={toggleLang}
                 >
-                  <IconButton color="inherit">
-                    <TranslateIcon className={iconTextColor} />
-                  </IconButton>
+                  <TranslateIcon className={iconTextColor} />
                 </Tooltip>
               </li>
             </ul>
@@ -116,7 +119,14 @@ const Header = ({ lang, toggleLang, theme, toggleTheme }: headerArgs) => {
                 <div className="p-4 pt-10">
                   <List>
                     {getMenuItems(lang).map((item, index) => (
-                      <MenuItem key={index} item={item} index={index} />
+                      <li key={index}>
+                        <a
+                          href={item.slug}
+                          className="flex flex-row font-vazir"
+                        >
+                          <p className="text-slate-600">{item.text}</p>
+                        </a>
+                      </li>
                     ))}
                   </List>
                 </div>
@@ -140,7 +150,7 @@ const Header = ({ lang, toggleLang, theme, toggleTheme }: headerArgs) => {
                       key={index}
                       className="text-xl text-slate-600"
                     >
-                      {<item.icon className="h-6 w-6"/>}
+                      {<item.icon className="h-6 w-6" />}
                     </a>
                   ))}
                 </div>
