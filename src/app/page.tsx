@@ -5,6 +5,7 @@ import { MdOutlineAlternateEmail } from "react-icons/md";
 import { CiLocationOn } from "react-icons/ci";
 import Skeleton from "@mui/material/Skeleton";
 import Wave from "react-wavify";
+
 import { Divider, Tooltip } from "@mui/material";
 import { IoMdContact } from "react-icons/io";
 import { FaUniversity } from "react-icons/fa";
@@ -21,7 +22,7 @@ import {
 
 import blogData from "../configs/blog/data";
 import projectData from "../configs/projects/data";
-import { Typography } from "@mui/material";
+
 import { dataType } from "../configs/types";
 import { routes } from "../configs/routes";
 import { BaseUri } from "../configs/site";
