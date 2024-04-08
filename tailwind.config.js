@@ -14,6 +14,20 @@ module.exports = {
         sacramento: ['"Sacramento"', "cursive"],
         vazir: ["'Vazir'", "serif"],
       },
+      colors: {
+        orange: {
+          50: "#fff8f0",
+          100: "#ffebd9",
+          200: "#ffcfb3",
+          300: "#ffad7f",
+          400: "#ff7a3f",
+          500: "#f79902",
+          600: "#e64d00",
+          700: "#b83d00",
+          800: "#953200",
+          900: "#783000",
+        },
+      }
     },
   },
   plugins: [],
