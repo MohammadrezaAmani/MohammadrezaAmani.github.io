@@ -2,11 +2,12 @@ import {
   PiTelegramLogoThin,
   PiInstagramLogoThin,
   PiLinkedinLogoThin,
+  PiGithubLogoThin,
 } from "react-icons/pi";
 import { langs as languages } from "./langs";
 
 export const profile = {
-  image: "https://avatars.githubusercontent.com/u/47231161?v=4",
+  image: "https://avatars.githubusercontent.com/u/64687226?v=4",
   email: "more.amani@yahoo.com",
   phone: "123-456-7890",
   langs: [
@@ -87,21 +88,25 @@ export const profile = {
       name: "linkedin",
       url: "https://www.linkedin.com/in/mohammadreza-amani",
       icon: PiLinkedinLogoThin,
+      value: "mohammadreza-amani",
     },
     {
       name: "github",
       url: "https://github.com/MohammadrezaAmani",
-      icon: PiTelegramLogoThin,
+      icon: PiGithubLogoThin,
+      value: "MohammadrezaAmani",
     },
     {
       name: "instagram",
       url: "https://www.instagram.com/more.amani",
       icon: PiInstagramLogoThin,
+      value: "more.amani",
     },
     {
       name: "telegram",
       url: "https://t.me/Mohammadreza_amani",
       icon: PiTelegramLogoThin,
+      value: "Mohammadreza_amani",
     },
   ],
 };

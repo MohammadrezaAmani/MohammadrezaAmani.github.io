@@ -283,13 +283,7 @@ export function App() {
       path: routes.resume.path,
       element: (
         <Suspense fallback={null}>
-          <Layout
-            memoizedHeader={memoizedHeader}
-            memoizedFooter={memoizedFooter}
-            children={
-              <Resume lang={lang} theme={theme} slug={routes.resume.path} />
-            }
-          />
+          <Resume lang={lang} theme={theme} slug={routes.resume.path} />
         </Suspense>
       ),
     },

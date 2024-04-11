@@ -64,9 +64,9 @@ export type profileType = {
     name: string;
     url: string;
     icon: IconType;
+    value: string;
   }[];
-}
-
+};
 
 export type resumeType = {
   personal: profileType;
@@ -75,4 +75,11 @@ export type resumeType = {
   projects: Data;
   courses: Data;
   publications: Data;
+};
+
+export type resumeCommonType = {
+  resume?: resumeType;
+  lang?: string;
+  theme?: ThemeType;
+  slug?: string;
 };

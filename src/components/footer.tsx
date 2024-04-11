@@ -1,13 +1,12 @@
-import { PiCodesandboxLogoThin, PiLinkedinLogoThin } from "react-icons/pi";
+import { PiLinkedinLogoThin } from "react-icons/pi";
 import { VscGithubAlt } from "react-icons/vsc";
 import { IoMdContact } from "react-icons/io";
-import { FaUniversity } from "react-icons/fa";
 import { FaPhoenixFramework } from "react-icons/fa6";
 import { SiReaddotcv } from "react-icons/si";
 import { siteConfig } from "../configs/site";
 import { commonArgs } from "../configs/types";
 import Wave from "react-wavify";
-// import { Tooltip } from "@mui/material";
+import { PiTelegramLogoLight } from "react-icons/pi";
 
 function Footer({ theme, lang, slug }: commonArgs) {
   let findLang = siteConfig.langs.find((item) => item.lang === lang);
@@ -15,7 +14,7 @@ function Footer({ theme, lang, slug }: commonArgs) {
     findLang = siteConfig.langs[0];
   }
   const buttonSize =
-    "h-10 sm:h-12 w-10 sm:w-12 m-2 bg-blue-700 rounded-full p-2 ";
+    "h-10 sm:h-12 w-10 sm:w-12 m-2 bg-blue-700 rounded-full p-2.5";
   return (
     <div className="w-full">
       <Wave
@@ -26,7 +25,7 @@ function Footer({ theme, lang, slug }: commonArgs) {
         options={{
           height: 70,
           amplitude: 20,
-          speed: 0.13,
+          speed: 0.17,
           points: 3,
         }}
       ></Wave>{" "}
@@ -37,17 +36,17 @@ function Footer({ theme, lang, slug }: commonArgs) {
           // paused={false}
           style={{ display: "flex" }}
           options={{
-            height: 10,
+            height: 8,
             amplitude: 20,
-            speed: 0.1,
-            points: 3,
+            speed: 0.14,
+            points: 4,
           }}
         ></Wave>
-        <div className="flex justify-center px-1">
+        <div className="flex justify-center px-1 pb-5">
           <PiLinkedinLogoThin className={` bg-blue-700 ${buttonSize}`} />
           <VscGithubAlt className={` bg-gray-700 ${buttonSize}`} />
           <IoMdContact className={` bg-green-700 ${buttonSize}`} />
-          <FaUniversity className={` bg-yellow-700 ${buttonSize}`} />
+          <PiTelegramLogoLight className={` bg-fuchsia-700 ${buttonSize}`} />
           <FaPhoenixFramework className={` bg-red-700 ${buttonSize}`} />
           <SiReaddotcv className={` bg-purple-700 ${buttonSize}`} />
           {/* <div className="flex justify-center mt-12">

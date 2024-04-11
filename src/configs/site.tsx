@@ -119,7 +119,7 @@ export const homePage = [
         <span className="text-red-600">محمدرضا</span> هستم.
       </h2>
     ),
-    subtitle: <p className="text-slate-600">برنامه‌نویس و مهندس کامپیوتر</p>,
+    subtitle: <p className="text-slate-600">یک برنامه‌نویس ساده!</p>,
     skills: [
       {
         title: "برنامه نویس و توسعه دهنده‌ وب",
