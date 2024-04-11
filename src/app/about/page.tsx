@@ -2,6 +2,8 @@ import React from "react";
 import { commonArgs } from "../../configs/types";
 import data, { contact_type } from "../../configs/about/data";
 import { langs } from "../../configs/langs";
+import { useLang } from "../../hooks/langHook";
+import { useTheme } from "../../hooks/themeHook";
 
 interface ContactWayProps {
   way: contact_type;
@@ -19,7 +21,8 @@ const ContactWay: React.FC<ContactWayProps> = ({ way }) => (
   </a>
 );
 
-const About: React.FC<commonArgs> = ({ lang }) => {
+const About: React.FC<commonArgs> = () => {
+  const { lang } = useLang();
   const keylang = lang as keyof typeof langs;
   const { title, content, contact_ways } = data[keylang];
 

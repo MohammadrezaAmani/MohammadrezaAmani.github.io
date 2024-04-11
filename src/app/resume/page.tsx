@@ -1,20 +1,21 @@
 import React, { useState, useEffect, useRef } from "react";
 import ResumeTemplate from "./resume";
-import { resumeInputArgs } from "../../configs/types";
+import { commonArgs } from "../../configs/types";
 import { IoPrintOutline } from "react-icons/io5";
 import { RiSettingsLine } from "react-icons/ri";
 import { BsTranslate } from "react-icons/bs";
 import { IoIosArrowRoundBack } from "react-icons/io";
-import { langs } from "../../configs/langs";
-import { Theme } from "../../components/theme";
 import { CiDark, CiLight } from "react-icons/ci";
 import { resumeLangs } from "../../configs/resume/data";
+import { useLang } from "../../hooks/langHook";
+import { useTheme } from "../../hooks/themeHook";
 
-function Resume(props: resumeInputArgs) {
+function Resume(props: commonArgs) {
   const [showMenu, setShowMenu] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
-
-  let resumeLang = resumeLangs.find((item) => item.lang === props.lang);
+  const { lang, toggleLang } = useLang();
+  const { theme, toggleTheme } = useTheme();
+  let resumeLang = resumeLangs.find((item) => item.lang === lang);
   if (!resumeLang) {
     resumeLang = resumeLangs[0];
   }
@@ -44,28 +45,12 @@ function Resume(props: resumeInputArgs) {
   const handelBack = () => {
     window.history.back();
   };
-  const handleChangeLanguage = () => {
-    const arraylangs = Object.keys(langs);
-    const newLang =
-      langs[
-        arraylangs[
-          (arraylangs.indexOf(props.lang) + 1) % arraylangs.length
-        ] as keyof typeof langs
-      ].short;
-    props.updateLanguage(newLang);
-  };
-  const handleChangeTheme = () => {
-    const newTheme = props.theme === Theme.dark ? "light" : "dark";
-    props.updateTheme(newTheme);
-  };
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
 
-  const resume = (
-    <ResumeTemplate lang={props.lang} theme={props.theme} slug={props.slug} resumeLang={resumeLang}/>
-  );
+  const resume = <ResumeTemplate slug={props.slug} resumeLang={resumeLang} />;
 
   return (
     <div className="bg-gray-100 font-sans p-8 relative">
@@ -91,7 +76,7 @@ function Resume(props: resumeInputArgs) {
               </button>
               <button
                 className="w-full py-2 flex flex-row space-x-2 rtl:space-x-reverse"
-                onClick={handleChangeLanguage}
+                onClick={toggleLang}
               >
                 {" "}
                 <BsTranslate className="w-6 h- 6" /> {resumeLang.lang}
@@ -105,10 +90,10 @@ function Resume(props: resumeInputArgs) {
               </button>
               <button
                 className="w-full py-2 flex flex-row space-x-2 rtl:space-x-reverse"
-                onClick={handleChangeTheme}
+                onClick={toggleTheme}
               >
                 {" "}
-                {props.theme === Theme.light ? (
+                {theme === "light" ? (
                   <CiLight className="w-6 h-6 text-yellow-400" />
                 ) : (
                   <CiDark className="w-6 h-6" />

@@ -4,6 +4,8 @@ import { Grid, CircularProgress } from "@mui/material";
 import { SearchBar } from "../components/search-bar";
 import { resultType, Data as DataType } from "../configs/types";
 import { DataItem } from "./dataItem";
+import { useLang } from "../hooks/langHook";
+import { useTheme } from "../hooks/themeHook"; // Import useTheme hook
 
 const shownItemsPerPage = 12;
 
@@ -20,11 +22,13 @@ const filterData = (data: DataType[], searchText: string, lang: string) =>
     );
   });
 
-export const Data: React.FC<resultType> = ({ lang, data, slug, theme }) => {
+export const Data: React.FC<resultType> = (props) => {
+  const { lang } = useLang();
+  const { theme } = useTheme(); // Access the theme state
   const [pageData, setPageData] = useState<DataType[]>([]);
   const [pageNumber, setPageNumber] = useState(1);
   const [loading, setLoading] = useState(true);
-
+  const data = props.data;
   useEffect(() => {
     setPageData(data.slice(0, pageNumber * shownItemsPerPage));
     setLoading(false);
@@ -60,9 +64,14 @@ export const Data: React.FC<resultType> = ({ lang, data, slug, theme }) => {
     };
   }, []);
 
+  // Define classes based on theme
+  const searchBarClass = theme === "light" ? "bg-white" : "bg-gray-800";
+
   return (
     <div className="m-8">
-      <div className="flex flex-row">
+      <div className={`flex flex-row ${searchBarClass}`}>
+        {" "}
+        {/* Apply conditional class */}
         <SearchBar handleSearch={handleSearch} />
       </div>
       <Grid container spacing={4} justifyContent="center mt-4">
@@ -76,7 +85,7 @@ export const Data: React.FC<resultType> = ({ lang, data, slug, theme }) => {
             key={index}
             className="grid-flow-dense"
           >
-            <DataItem data={item} lang={lang} slug={slug} theme={theme} />
+            <DataItem data={item} slug={props.slug} />
           </Grid>
         ))}
       </Grid>

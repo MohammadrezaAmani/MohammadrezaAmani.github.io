@@ -5,7 +5,7 @@ import { DataDetails } from "../../../components/dataResultDetailsComponent";
 import NotFound from "../../../components/404";
 import BlogData from "../../../configs/blog/data";
 
-export default function BlogDetails({ theme, lang, slug }: commonArgs) {
+export default function BlogDetails(props: commonArgs) {
   const { blogid } = useParams();
 
   const data = BlogData.find((item) => item.slug === blogid);
@@ -14,5 +14,5 @@ export default function BlogDetails({ theme, lang, slug }: commonArgs) {
     return <NotFound />;
   }
 
-  return <DataDetails lang={lang} theme={theme} slug={slug} data={data} />;
+  return <DataDetails slug={props.slug} data={data} />;
 }

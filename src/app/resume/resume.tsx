@@ -1,16 +1,13 @@
-import { ThemeType } from "../../configs/types";
 import Data, { resumeLangs } from "../../configs/resume/data";
-import { langs } from "../../configs/langs";
+import { useLang } from "../../hooks/langHook";
+
 function ResumeTemplate(props: {
-  lang: keyof typeof langs;
-  theme: ThemeType;
   slug: string;
   resumeLang: (typeof resumeLangs)[0];
 }) {
-  const indexing = Data.personal.langs.findIndex(
-    (item) => item.lang === props.lang
-  );
-  const lang = Data.personal.langs[indexing];
+  const { lang } = useLang();
+  const indexing = Data.personal.langs.findIndex((item) => item.lang === lang);
+  const dataLang = Data.personal.langs[indexing];
 
   return (
     <div className="flex flex-row space-x-4 rtl:space-x-reverse p-7">
@@ -24,12 +21,12 @@ function ResumeTemplate(props: {
           <h2 className="text-xl text-white mb-2">
             {props.resumeLang.aboutme}
           </h2>
-          <p className="flex flex-nowrap text-gray-300">{lang.about}</p>
+          <p className="flex flex-nowrap text-gray-300">{dataLang.about}</p>
         </div>
         <div className="mt-4">
           <h2 className="text-xl mb-2 text-white">{props.resumeLang.skill}</h2>
           <ul className="list-disc list-inside text-gray-300">
-            {lang.favorites.map((item, index) => (
+            {dataLang.favorites.map((item, index) => (
               <li key={index}>{item}</li>
             ))}
           </ul>
@@ -37,7 +34,7 @@ function ResumeTemplate(props: {
       </div>
       <div className="mx-4 w-3/5">
         <div className="mt-10">
-          <h2 className="text-3xl font-semibold mb-5">{lang.name}</h2>
+          <h2 className="text-3xl font-semibold mb-5">{dataLang.name}</h2>
           <div className="grid grid-cols-2 gap-x-5">
             {Data.personal.socials.map((item, index) => (
               <a

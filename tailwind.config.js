@@ -1,6 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  important: "#root",
+  darkMode: "selector",
   theme: {
     fontFamily: {
       sans: ["'Vazir'", "serif"],
@@ -27,8 +29,13 @@ module.exports = {
           800: "#953200",
           900: "#783000",
         },
-      }
+        onNeutralBg: "var(--onNeutralBg)",
+        neutralBg: "var(--neutralBg)",
+        onPrimaryBg: "var(--onPrimaryBg)",
+        primaryBg: "var(--primaryBg)",
+        primary: "var(--primary)",
+      },
     },
   },
-  plugins: [],
+  plugins: [require("@headlessui/tailwindcss")],
 };

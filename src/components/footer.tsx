@@ -7,8 +7,10 @@ import { siteConfig } from "../configs/site";
 import { commonArgs } from "../configs/types";
 import Wave from "react-wavify";
 import { PiTelegramLogoLight } from "react-icons/pi";
+import { useLang } from "../hooks/langHook";
+function Footer(props: commonArgs) {
+  const { lang } = useLang();
 
-function Footer({ theme, lang, slug }: commonArgs) {
   let findLang = siteConfig.langs.find((item) => item.lang === lang);
   if (!findLang) {
     findLang = siteConfig.langs[0];
@@ -29,7 +31,7 @@ function Footer({ theme, lang, slug }: commonArgs) {
           points: 3,
         }}
       ></Wave>{" "}
-      <footer className={`text-center ${theme.white} ${theme.secondary}`}>
+      <footer className={`text-center bg-white dark:bg-slate-900`}>
         <Wave
           fill="rgb(17 24 39)"
           className="-mt-12 border-gray-400"

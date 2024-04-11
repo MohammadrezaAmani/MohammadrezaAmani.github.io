@@ -3,15 +3,15 @@ import { useParams } from "react-router-dom";
 import { commonArgs } from "../../../configs/types";
 import EducationData from "../../../configs/education/data";
 import { DataDetails } from "../../../components/dataResultDetailsComponent";
-import NotFound  from "../../../components/404";
+import NotFound from "../../../components/404";
 
-export default function EducationDetails({ theme, lang, slug }: commonArgs) {
+export default function EducationDetails(props: commonArgs) {
   const { educationid } = useParams();
   const data = EducationData.find((item) => item.slug === educationid);
 
   if (!data) {
-    return<NotFound />
+    return <NotFound />;
   }
 
-  return <DataDetails lang={lang} theme={theme} slug={slug} data={data} />;
+  return <DataDetails slug={props.slug} data={data} />;
 }
