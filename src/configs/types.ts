@@ -1,18 +1,27 @@
 import { IconType } from "react-icons";
 
 import { Theme } from "../components/theme";
+import { langs } from "./langs";
 
 export type ThemeType = typeof Theme.dark;
 
 export type headerArgs = {
-  lang: string;
+  lang: keyof typeof langs;
   toggleLang: () => void;
   theme: ThemeType;
   toggleTheme: () => void;
 };
 
+export type resumeInputArgs = {
+  lang: keyof typeof langs;
+  updateLanguage: (newLang: string) => void;
+  theme: ThemeType;
+  updateTheme: (newTheme: string) => void;
+  slug: string;
+};
+
 export type commonArgs = {
-  lang: string;
+  lang: keyof typeof langs;
   theme: ThemeType;
   slug: string;
 };
@@ -53,7 +62,7 @@ export type profileType = {
   email: string;
   phone: string;
   langs: {
-    lang: string;
+    lang: keyof typeof langs;
     title: string;
     name: string;
     about: string;
@@ -78,8 +87,8 @@ export type resumeType = {
 };
 
 export type resumeCommonType = {
-  resume?: resumeType;
-  lang?: string;
-  theme?: ThemeType;
-  slug?: string;
+  resume: resumeType;
+  lang: keyof typeof langs;
+  theme: ThemeType;
+  slug: string;
 };

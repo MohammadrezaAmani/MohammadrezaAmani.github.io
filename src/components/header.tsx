@@ -49,7 +49,7 @@ const Header = ({ lang, toggleLang, theme, toggleTheme }: headerArgs) => {
       }}
     >
       <Toolbar className="flex justify-between items-center sm:mx-20">
-        <Logo lang="lang" theme={theme} slug={"/"} />
+        <Logo lang={lang} theme={theme} slug={"/"} />
         <div className="flex items-center">
           <nav className="mainmenu-nav navbar-example2 hidden sm:block">
             <ul className="primary-menu flex flex-col space-y-2 sm:flex-row sm:space-y-0">

@@ -46,13 +46,13 @@ const CoursesDetails = React.lazy(
 );
 
 export function App() {
-  const [lang, setLang] = useState(langs.en.short);
-  const [theme, setTheme] = useState(Theme.light);
+  const [lang, setLang] = useState(langs.en.short as keyof typeof langs);
+  const [theme, setTheme] = useState("light");
   useEffect(() => {
     initializeLanguage();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+  const [currentTheme, setCurrentTheme] = useState(Theme.light);
   // useEffect(() => {
   //   initializeTheme();
   // }, []);
@@ -72,8 +72,18 @@ export function App() {
       document.documentElement.dir = langs[newLang as keyof typeof langs].dir;
       document.documentElement.lang =
         langs[newLang as keyof typeof langs].short;
-      setLang(newLang);
+      setLang(newLang as keyof typeof langs);
       localStorage.setItem("lang", newLang);
+    });
+  };
+  const updateTheme = (newTheme: string) => {
+    if (!Object.keys(Theme).includes(newTheme)) {
+      newTheme = Object.keys(Theme)[0];
+    }
+    startTransition(() => {
+      setTheme(newTheme);
+      setCurrentTheme(newTheme === "dark" ? Theme.dark : Theme.light);
+      localStorage.setItem("theme", newTheme);
     });
   };
   // Memoize the Header component
@@ -110,7 +120,7 @@ export function App() {
       updateLanguage(newLang);
     };
     const toggleTheme = () => {
-      const newTheme = theme === Theme.dark ? Theme.light : Theme.dark;
+      const newTheme = theme === "dark" ? "light" : "dark";
       setTheme(newTheme);
       localStorage.setItem("theme", JSON.stringify(newTheme));
     };
@@ -119,14 +129,14 @@ export function App() {
       <Header
         lang={lang}
         toggleLang={toggleLang}
-        theme={theme}
+        theme={currentTheme}
         toggleTheme={toggleTheme}
       />
     );
-  }, [lang, theme]);
+  }, [currentTheme, lang, theme]);
   const memoizedFooter = useMemo(
-    () => <Footer lang={lang} theme={theme} slug="/" />,
-    [lang, theme]
+    () => <Footer lang={lang} theme={currentTheme} slug="/" />,
+    [currentTheme, lang]
   );
   const router = createHashRouter([
     {
@@ -137,7 +147,7 @@ export function App() {
             memoizedHeader={memoizedHeader}
             memoizedFooter={memoizedFooter}
             children={
-              <Home lang={lang} theme={theme} slug={routes.home.path} />
+              <Home lang={lang} theme={currentTheme} slug={routes.home.path} />
             }
           />
         </Suspense>
@@ -151,7 +161,7 @@ export function App() {
             memoizedHeader={memoizedHeader}
             memoizedFooter={memoizedFooter}
             children={
-              <Blog lang={lang} theme={theme} slug={routes.blog.path} />
+              <Blog lang={lang} theme={currentTheme} slug={routes.blog.path} />
             }
           />
         </Suspense>
@@ -167,7 +177,7 @@ export function App() {
             children={
               <BlogDetails
                 lang={lang}
-                theme={theme}
+                theme={currentTheme}
                 slug={routes.blogDetails.path}
               />
             }
@@ -183,7 +193,11 @@ export function App() {
             memoizedHeader={memoizedHeader}
             memoizedFooter={memoizedFooter}
             children={
-              <Project lang={lang} theme={theme} slug={routes.project.path} />
+              <Project
+                lang={lang}
+                theme={currentTheme}
+                slug={routes.project.path}
+              />
             }
           />
         </Suspense>
@@ -199,7 +213,7 @@ export function App() {
             children={
               <ProjectDetails
                 lang={lang}
-                theme={theme}
+                theme={currentTheme}
                 slug={routes.projectDetails.path}
               />
             }
@@ -217,7 +231,7 @@ export function App() {
             children={
               <Experience
                 lang={lang}
-                theme={theme}
+                theme={currentTheme}
                 slug={routes.experience.path}
               />
             }
@@ -235,7 +249,7 @@ export function App() {
             children={
               <ExperienceDetails
                 lang={lang}
-                theme={theme}
+                theme={currentTheme}
                 slug={routes.experienceDetails.path}
               />
             }
@@ -253,7 +267,7 @@ export function App() {
             children={
               <Education
                 lang={lang}
-                theme={theme}
+                theme={currentTheme}
                 slug={routes.education.path}
               />
             }
@@ -271,7 +285,7 @@ export function App() {
             children={
               <EducationDetails
                 lang={lang}
-                theme={theme}
+                theme={currentTheme}
                 slug={routes.education.path}
               />
             }
@@ -283,7 +297,13 @@ export function App() {
       path: routes.resume.path,
       element: (
         <Suspense fallback={null}>
-          <Resume lang={lang} theme={theme} slug={routes.resume.path} />
+          <Resume
+            lang={lang}
+            updateLanguage={updateLanguage}
+            theme={currentTheme}
+            updateTheme={updateTheme}
+            slug={routes.resume.path}
+          />
         </Suspense>
       ),
     },
@@ -295,7 +315,11 @@ export function App() {
             memoizedHeader={memoizedHeader}
             memoizedFooter={memoizedFooter}
             children={
-              <Search lang={lang} theme={theme} slug={routes.search.path} />
+              <Search
+                lang={lang}
+                theme={currentTheme}
+                slug={routes.search.path}
+              />
             }
           />
         </Suspense>
@@ -311,7 +335,7 @@ export function App() {
             children={
               <SearchDetails
                 lang={lang}
-                theme={theme}
+                theme={currentTheme}
                 slug={routes.searchDetails.path}
               />
             }
@@ -327,7 +351,11 @@ export function App() {
             memoizedHeader={memoizedHeader}
             memoizedFooter={memoizedFooter}
             children={
-              <Category lang={lang} theme={theme} slug={routes.category.path} />
+              <Category
+                lang={lang}
+                theme={currentTheme}
+                slug={routes.category.path}
+              />
             }
           />
         </Suspense>
@@ -343,7 +371,7 @@ export function App() {
             children={
               <CategoryDetails
                 lang={lang}
-                theme={theme}
+                theme={currentTheme}
                 slug={routes.categoryDetails.path}
               />
             }
@@ -358,7 +386,9 @@ export function App() {
           <Layout
             memoizedHeader={memoizedHeader}
             memoizedFooter={memoizedFooter}
-            children={<Tag lang={lang} theme={theme} slug={routes.tag.path} />}
+            children={
+              <Tag lang={lang} theme={currentTheme} slug={routes.tag.path} />
+            }
           />
         </Suspense>
       ),
@@ -373,7 +403,7 @@ export function App() {
             children={
               <TagDetails
                 lang={lang}
-                theme={theme}
+                theme={currentTheme}
                 slug={routes.tagDetails.path}
               />
             }
@@ -389,7 +419,11 @@ export function App() {
             memoizedHeader={memoizedHeader}
             memoizedFooter={memoizedFooter}
             children={
-              <About lang={lang} theme={theme} slug={routes.about.path} />
+              <About
+                lang={lang}
+                theme={currentTheme}
+                slug={routes.about.path}
+              />
             }
           />
         </Suspense>
@@ -403,7 +437,11 @@ export function App() {
             memoizedHeader={memoizedHeader}
             memoizedFooter={memoizedFooter}
             children={
-              <Contact lang={lang} theme={theme} slug={routes.contact.path} />
+              <Contact
+                lang={lang}
+                theme={currentTheme}
+                slug={routes.contact.path}
+              />
             }
           />
         </Suspense>
@@ -416,7 +454,9 @@ export function App() {
           <Layout
             memoizedHeader={memoizedHeader}
             memoizedFooter={memoizedFooter}
-            children={<FAQ lang={lang} theme={theme} slug={routes.faq.path} />}
+            children={
+              <FAQ lang={lang} theme={currentTheme} slug={routes.faq.path} />
+            }
           />
         </Suspense>
       ),
@@ -429,7 +469,11 @@ export function App() {
             memoizedHeader={memoizedHeader}
             memoizedFooter={memoizedFooter}
             children={
-              <FAQ lang={lang} theme={theme} slug={routes.faqDetails.path} />
+              <FAQ
+                lang={lang}
+                theme={currentTheme}
+                slug={routes.faqDetails.path}
+              />
             }
           />
         </Suspense>
@@ -443,7 +487,11 @@ export function App() {
             memoizedHeader={memoizedHeader}
             memoizedFooter={memoizedFooter}
             children={
-              <Courses lang={lang} theme={theme} slug={routes.courses.path} />
+              <Courses
+                lang={lang}
+                theme={currentTheme}
+                slug={routes.courses.path}
+              />
             }
           />
         </Suspense>
@@ -459,7 +507,7 @@ export function App() {
             children={
               <CoursesDetails
                 lang={lang}
-                theme={theme}
+                theme={currentTheme}
                 slug={routes.coursesDetails.path}
               />
             }
@@ -477,7 +525,7 @@ export function App() {
             children={
               <Publications
                 lang={lang}
-                theme={theme}
+                theme={currentTheme}
                 slug={routes.publications.path}
               />
             }
@@ -495,7 +543,7 @@ export function App() {
             children={
               <PublicationDetails
                 lang={lang}
-                theme={theme}
+                theme={currentTheme}
                 slug={routes.publicationDetails.path}
               />
             }
@@ -513,7 +561,7 @@ export function App() {
             children={
               <GithubAPI
                 lang={lang}
-                theme={theme}
+                theme={currentTheme}
                 slug={routes.github_api.path}
               />
             }
