@@ -18,7 +18,7 @@ function ResumeTemplate(props: {
         <img
           src={Data.personal.image}
           alt="John Doe"
-          className="w-64 h-auto rounded-lg"
+          className="w-[19rem] h-auto rounded-lg"
         />
         <div className="mt-4">
           <h2 className="text-xl text-white mb-2">
@@ -28,7 +28,7 @@ function ResumeTemplate(props: {
         </div>
         <div className="mt-4">
           <h2 className="text-xl mb-2 text-white">{props.resumeLang.skill}</h2>
-          <ul className="list-disc list-inside grid grid-rows-2 text-gray-300">
+          <ul className="list-disc list-inside text-gray-300">
             {lang.favorites.map((item, index) => (
               <li key={index}>{item}</li>
             ))}
@@ -65,7 +65,9 @@ function ResumeTemplate(props: {
                   {item.created_at} - {item.updated_at}
                 </span>
               </div>
-              <p>{item.langs[indexing].description}</p>
+              <p className="text-sm font-light text-slate-700">
+                {item.langs[indexing].description}
+              </p>
             </div>
           ))}
         </div>
@@ -83,7 +85,9 @@ function ResumeTemplate(props: {
                   {item.created_at} - {item.updated_at}
                 </span>
               </div>
-              <p>{item.langs[indexing].description}</p>
+              <p className="text-sm font-light text-slate-700">
+                {item.langs[indexing].description}
+              </p>
             </div>
           ))}
         </div>
@@ -101,7 +105,9 @@ function ResumeTemplate(props: {
                   {item.created_at} - {item.updated_at}
                 </span> */}
               </div>
-              <p>{item.langs[indexing].description}</p>
+              <p className="text-sm font-light text-slate-700">
+                {item.langs[indexing].description}
+              </p>
             </div>
           ))}
         </div>
