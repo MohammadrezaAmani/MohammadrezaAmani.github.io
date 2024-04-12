@@ -77,34 +77,35 @@ const Header = () => {
                       </a>
                     </li>
                   ))}
+
+                  <div className="flex items-center space-x-4">
+                    <PiTranslate
+                      onClick={toggleLang}
+                      className={`w-5 h-5 cursor-pointer ${iconTextColor} text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-300"`}
+                    />
+                    {theme === "light" ? (
+                      <CiLight
+                        className="w-6 h-6 cursor-pointer text-yellow-400"
+                        onClick={toggleTheme}
+                      />
+                    ) : (
+                      <CiDark
+                        className="w-6 h-6 cursor-pointer text-white"
+                        onClick={toggleTheme}
+                      />
+                    )}
+                    {profile.socials.map((item, index) => (
+                      <a
+                        href={item.url}
+                        key={index}
+                        className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-300"
+                      >
+                        {<item.icon className="h-6 w-6" />}
+                      </a>
+                    ))}
+                  </div>
                 </ul>
               </nav>
-              <div className="flex items-center space-x-4">
-                <PiTranslate
-                  onClick={toggleLang}
-                  className={`w-5 h-5 cursor-pointer ${iconTextColor} text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-300"`}
-                />
-                {theme === "light" ? (
-                  <CiLight
-                    className="w-6 h-6 cursor-pointer text-yellow-400"
-                    onClick={toggleTheme}
-                  />
-                ) : (
-                  <CiDark
-                    className="w-6 h-6 cursor-pointer text-white"
-                    onClick={toggleTheme}
-                  />
-                )}
-                {profile.socials.map((item, index) => (
-                  <a
-                    href={item.url}
-                    key={index}
-                    className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-300"
-                  >
-                    {<item.icon className="h-6 w-6" />}
-                  </a>
-                ))}
-              </div>
             </div>
             <div className="md:hidden flex items-center">
               <button

@@ -44,7 +44,7 @@ function Footer(props: commonArgs) {
             points: 4,
           }}
         ></Wave>
-        <div className="flex justify-center px-1 pb-5">
+        <div className="flex justify-center px-1 pb-5 bg-gray-900">
           <PiLinkedinLogoThin className={` bg-blue-700 ${buttonSize}`} />
           <VscGithubAlt className={` bg-gray-700 ${buttonSize}`} />
           <IoMdContact className={` bg-green-700 ${buttonSize}`} />

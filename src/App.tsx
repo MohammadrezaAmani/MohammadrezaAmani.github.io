@@ -47,7 +47,7 @@ const CoursesDetails = React.lazy(
 
 export function App() {
   const { lang, setLang } = useLang();
-  const { theme } = useTheme();
+  const { theme, setTheme } = useTheme();
   useEffect(() => {
     const updateLanguage = (newLang: string) => {
       if (!Object.keys(langs).includes(newLang)) {
@@ -69,6 +69,22 @@ export function App() {
     };
     initializeLanguage();
   }, [setLang]);
+
+  useEffect(() => {
+    const updateTheme = (newTheme: string) => {
+      startTransition(() => {
+        setTheme(newTheme);
+        localStorage.setItem("theme", newTheme);
+      });
+    };
+    const initializeTheme = () => {
+      const newTheme = localStorage.getItem("theme") || "";
+      if (newTheme) {
+        updateTheme(newTheme);
+      }
+    };
+    initializeTheme();
+  }, [setTheme]);
 
   const memoizedHeader = useMemo(() => {
     return <Header />;

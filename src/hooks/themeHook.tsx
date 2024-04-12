@@ -24,9 +24,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     document.documentElement.classList.toggle("dark");
     // update the localStorage
     localStorage.setItem("theme", theme === "light" ? "dark" : "light");
-    // update background color
     if (theme === "light") {
-      document.documentElement.style.backgroundColor = "#1a202c";
+      document.documentElement.style.backgroundColor = "rgb(17 24 39)";
     } else {
       document.documentElement.style.backgroundColor = "#fff";
     }

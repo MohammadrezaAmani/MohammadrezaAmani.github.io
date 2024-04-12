@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Grid, CircularProgress } from "@mui/material";
 
 import { SearchBar } from "../components/search-bar";
 import { resultType, Data as DataType } from "../configs/types";
 import { DataItem } from "./dataItem";
 import { useLang } from "../hooks/langHook";
-import { useTheme } from "../hooks/themeHook"; // Import useTheme hook
 
 const shownItemsPerPage = 12;
 
@@ -24,14 +22,13 @@ const filterData = (data: DataType[], searchText: string, lang: string) =>
 
 export const Data: React.FC<resultType> = (props) => {
   const { lang } = useLang();
-  const { theme } = useTheme(); // Access the theme state
   const [pageData, setPageData] = useState<DataType[]>([]);
   const [pageNumber, setPageNumber] = useState(1);
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   const data = props.data;
   useEffect(() => {
     setPageData(data.slice(0, pageNumber * shownItemsPerPage));
-    setLoading(false);
+    // setLoading(false);
   }, [data, pageNumber]);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -65,35 +62,16 @@ export const Data: React.FC<resultType> = (props) => {
   }, []);
 
   // Define classes based on theme
-  const searchBarClass = theme === "light" ? "bg-white" : "bg-gray-800";
-
   return (
-    <div className="m-8">
-      <div className={`flex flex-row ${searchBarClass}`}>
-        {" "}
-        {/* Apply conditional class */}
+    <div className="mt-20 m-8">
+      <div className={`flex flex-row `}>
         <SearchBar handleSearch={handleSearch} />
       </div>
-      <Grid container spacing={4} justifyContent="center mt-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
         {pageData.map((item, index) => (
-          <Grid
-            item
-            xs={12}
-            sm={6}
-            md={4}
-            lg={3}
-            key={index}
-            className="grid-flow-dense"
-          >
-            <DataItem data={item} slug={props.slug} />
-          </Grid>
+          <DataItem key={index} data={item} slug={props.slug} />
         ))}
-      </Grid>
-      {loading && (
-        <div className="flex justify-center mt-4">
-          <CircularProgress />
-        </div>
-      )}
+      </div>
       <div id="observer"></div>
     </div>
   );

@@ -44,7 +44,7 @@ export const DataItem: React.FC<dataType> = ({ data, slug }) => {
         {data.tags.map((tag, index) => (
           <span
             key={index}
-            className={`p-1 rounded-md ${bgColorClass} ${textColorClass}`}
+            className={`p-1 rounded-md dark:bg-gray-700 bg-gray-200 rtl:space-x-reverse space-x-2 text-sm font-thin`}
           >
             <a href={BaseUri + routes.category.path + "/" + tag}>{"#" + tag}</a>
           </span>

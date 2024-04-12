@@ -19,8 +19,8 @@ export default function Blog({ slug }: commonArgs) {
 
   return (
     <div className="relative dark:text-white">
-      <div className="flex flex-col justify-between dark:bg-gray-900">
-        <div className="flex flex-wrap justify-center sm:mt-32 w-full gap-4">
+      <div className="flex flex-col justify-between">
+        <div className="flex flex-wrap justify-center sm:mt-10 w-full gap-4">
           <div
             className={`flex p-4 sm:p-8 w-10/12 sm:w-auto h-auto justify-center mt-12 sm:mt-0 ${boxStyle}`}
           >

@@ -11,7 +11,7 @@ export function Layout({
     <div className="flex flex-col justify-between h-screen space-y-2">
       <div className="flex flex-col w-full">
         {memoizedHeader}
-        {children}
+        <div className="flex flex-col mt-20 items-center">{children}</div>
         {memoizedFooter}
       </div>
     </div>

@@ -52,7 +52,7 @@ export function DataDetails({ slug, data }: dataType) {
           <img src={data.image} alt="data" className="w-full mb-4 rounded-lg" />
           <p className={`mb-4 ${textColorClass}`}>{lang_data.description}</p>
           <div
-            className={`bg-gray-100 p-8 rounded-lg shadow-md my-3 ${textColorClass}`}
+            className={`bg-gray-100 dark:bg-gray-400 p-4 sm:p-6 rounded-lg shadow-md my-3 ${textColorClass}`}
           >
             {lang_data.data}
           </div>
