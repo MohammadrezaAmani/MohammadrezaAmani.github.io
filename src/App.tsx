@@ -7,7 +7,6 @@ import Footer from "./components/footer";
 import { routes } from "./configs/routes";
 import { Layout } from "./app/layout";
 import { useLang } from "./hooks/langHook";
-import { useTheme } from "./hooks/themeHook";
 const Home = React.lazy(() => import("./app/page"));
 const Blog = React.lazy(() => import("./app/blog/page"));
 const BlogDetails = React.lazy(() => import("./app/blog/[blogid]/page"));
@@ -47,7 +46,6 @@ const CoursesDetails = React.lazy(
 
 export function App() {
   const { lang, setLang } = useLang();
-  const { theme, setTheme } = useTheme();
   useEffect(() => {
     const updateLanguage = (newLang: string) => {
       if (!Object.keys(langs).includes(newLang)) {
@@ -70,29 +68,13 @@ export function App() {
     initializeLanguage();
   }, [setLang]);
 
-  useEffect(() => {
-    const updateTheme = (newTheme: string) => {
-      startTransition(() => {
-        setTheme(newTheme);
-        localStorage.setItem("theme", newTheme);
-      });
-    };
-    const initializeTheme = () => {
-      const newTheme = localStorage.getItem("theme") || "";
-      if (newTheme) {
-        updateTheme(newTheme);
-      }
-    };
-    initializeTheme();
-  }, [setTheme]);
-
   const memoizedHeader = useMemo(() => {
     return <Header />;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [lang, theme]);
+  }, [lang]);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const memoizedFooter = useMemo(() => <Footer slug="/" />, [theme, lang]);
+  const memoizedFooter = useMemo(() => <Footer slug="/" />, [lang]);
   const router = createHashRouter([
     {
       path: routes.home.path,

@@ -24,7 +24,7 @@ export function DataDetails({ slug, data }: dataType) {
   const iconColorClass = theme === "light" ? "text-gray-600" : "text-gray-400";
 
   return (
-    <div className="mx-4">
+    <div className="mx-4 p-4">
       <div
         className={`max-w-3xl mx-auto mt-8 ${containerClass} shadow-md rounded-lg overflow-hidden`}
       >
@@ -49,10 +49,10 @@ export function DataDetails({ slug, data }: dataType) {
               </a>
             </div>
           </div>
-          <img src={data.image} alt="data" className="w-full mb-4 rounded-lg" />
+          <img src={data.image} alt="data" className="w-full mb-4 rounded-lg h-auto" />
           <p className={`mb-4 ${textColorClass}`}>{lang_data.description}</p>
           <div
-            className={`bg-gray-100 dark:bg-gray-400 p-4 sm:p-6 rounded-lg shadow-md my-3 ${textColorClass}`}
+            className={`bg-gray-100 dark:bg-gray-400 rounded-lg shadow-md my-3 p-4 w-full ${textColorClass}`}
           >
             {lang_data.data}
           </div>

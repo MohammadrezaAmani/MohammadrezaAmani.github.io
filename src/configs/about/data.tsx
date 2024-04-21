@@ -1,4 +1,8 @@
-// If you want to change the codes in an advanced way, please refer directly to the file address.
+/*
+
+  * The data in this section will be displayed in the about section.
+
+*/
 
 import { IconType } from "react-icons";
 import { MdOutlineAlternateEmail } from "react-icons/md";
@@ -16,15 +20,13 @@ const Data = {
     title: "Mohammadreza Amani",
     content: (
       <p>
-        Experienced Software Engineer with a passion for innovation and
-        problem-solving. Dedicated to crafting high-quality software solutions
-        that exceed expectations. Proficient in a wide range of technologies
-        including React, Node.js, TypeScript, and GraphQL, with a strong
-        foundation in DevOps practices such as Docker, Kubernetes, CI/CD, and
-        serverless architecture. Skilled in Agile methodologies with a focus on
-        TDD and DDD principles. Committed to continuous learning and staying
-        updated with the latest industry trends. Excited to collaborate on
-        challenging projects and contribute to the success of dynamic teams.,
+        "As a software engineering specialist, my main focus is on developing
+        and improving technologies and solutions related to software
+        engineering, particularly in backend and server areas. Being active in
+        this field, my interest lies in enhancing skills, expanding programming
+        languages, and enhancing existing components infinitely. My primary goal
+        in these efforts is to provide innovative and practical solutions to
+        improve performance and solve problems in software systems.",
       </p>
     ),
     imageText: "Image Text",
